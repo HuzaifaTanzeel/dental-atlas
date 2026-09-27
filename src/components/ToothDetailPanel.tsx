@@ -1,10 +1,13 @@
-import { X } from "lucide-react"
+import { useEffect, useRef } from "react"
+import { ArrowUpRight, ChevronRight, Focus, X } from "lucide-react"
 import { getFdiTooth, type FdiTooth } from "@/data/fdi-teeth"
+import { SCAN_NOTE, toothSummary } from "@/data/tooth-notes"
+import { TOOTH_LAYERS } from "@/studio-state"
 
 function quadrantLabel(tooth: FdiTooth): string {
   const arch = tooth.arch === "upper" ? "Upper" : "Lower"
   const side = tooth.side === "left" ? "left" : "right"
-  return `${arch} ${side} · Q${tooth.quadrant}`
+  return `${arch} ${side}`
 }
 
 function typeLabel(tooth: FdiTooth): string {
@@ -13,37 +16,61 @@ function typeLabel(tooth: FdiTooth): string {
 
 type ToothDetailPanelProps = {
   fdi: number
+  isolated: boolean
   onClose: () => void
+  onToggleIsolate: () => void
 }
 
-export function ToothDetailPanel({ fdi, onClose }: ToothDetailPanelProps) {
+export function ToothDetailPanel({ fdi, isolated, onClose, onToggleIsolate }: ToothDetailPanelProps) {
   const tooth = getFdiTooth(fdi)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const accent = TOOTH_LAYERS.find((layer) => layer.id === tooth.type)?.color ?? "#5d7c9a"
+
+  useEffect(() => {
+    titleRef.current?.focus()
+  }, [fdi])
 
   return (
-    <aside
-      aria-label={`Selected tooth, FDI ${tooth.fdi}`}
-      className="pointer-events-auto absolute z-30 overflow-y-auto rounded-lg border border-border bg-background px-4 py-4 text-[#1c1f24] inset-x-3 bottom-[calc(4.25rem+env(safe-area-inset-bottom))] max-h-[48dvh] max-md:landscape:inset-x-auto max-md:landscape:top-16 max-md:landscape:right-4 max-md:landscape:bottom-auto max-md:landscape:w-72 max-md:landscape:max-h-[calc(100dvh-8rem)] md:inset-x-auto md:top-28 md:right-7 md:bottom-auto md:w-[18.75rem] md:max-h-[calc(100dvh-10rem)]"
-    >
-      <button
-        type="button"
-        className="absolute top-2 right-2 grid size-11 place-items-center rounded-md text-[#1c1f24]/70 hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-        onClick={onClose}
-        aria-label="Clear selection"
-      >
-        <X className="size-4" aria-hidden="true" />
+    <aside className="detail-sheet glass" aria-label={`Selected tooth, FDI ${tooth.fdi}`}>
+      <button type="button" className="sheet-close" onClick={onClose} aria-label="Clear selection">
+        <X size={16} aria-hidden="true" />
       </button>
-      <p className="pr-10 text-[11px] font-medium tracking-[0.16em] text-[#1c1f24]/70">FDI {tooth.fdi}</p>
-      <h2 className="mt-1 pr-10 text-xl leading-tight font-medium tracking-tight">{tooth.name}</h2>
-      <dl className="mt-4 grid grid-cols-2 gap-3 border-t border-border pt-4">
-        <div>
-          <dt className="text-[11px] tracking-wide text-[#1c1f24]/70">Quadrant</dt>
-          <dd className="mt-1 text-sm">{quadrantLabel(tooth)}</dd>
+      <div className="detail-header">
+        <div className="detail-accent" style={{ background: accent }} />
+        <div className="eyebrow">FDI {tooth.fdi}</div>
+        <h2 ref={titleRef} tabIndex={-1} className="structure-title">
+          {tooth.name}
+        </h2>
+      </div>
+      <div className="detail-scroll" key={tooth.fdi}>
+        <p className="structure-description">{toothSummary(tooth)}</p>
+        <p className="context-note">{SCAN_NOTE}</p>
+        <div className="structure-meta">
+          <span>
+            Quadrant
+            <strong>
+              {quadrantLabel(tooth)} · Q{tooth.quadrant}
+            </strong>
+          </span>
+          <span>
+            Type
+            <strong>{typeLabel(tooth)}</strong>
+          </span>
         </div>
-        <div>
-          <dt className="text-[11px] tracking-wide text-[#1c1f24]/70">Type</dt>
-          <dd className="mt-1 text-sm">{typeLabel(tooth)}</dd>
-        </div>
-      </dl>
+        <a className="source-link" href="https://crns-smartvision.github.io/teeth3ds/" target="_blank" rel="noreferrer">
+          View dataset source <ArrowUpRight size={14} aria-hidden="true" />
+        </a>
+      </div>
+      <div className="detail-actions">
+        <button type="button" className={`primary-action${isolated ? " active" : ""}`} onClick={onToggleIsolate}>
+          <Focus size={16} aria-hidden="true" />
+          {isolated ? "Show surrounding teeth" : "Isolate tooth"}
+          <ChevronRight size={16} aria-hidden="true" />
+        </button>
+        <button type="button" className="secondary-action" onClick={onClose}>
+          Clear selection
+        </button>
+      </div>
     </aside>
   )
 }

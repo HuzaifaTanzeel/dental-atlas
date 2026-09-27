@@ -1,24 +1,42 @@
-import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from "react"
-import { Canvas, useThree } from "@react-three/fiber"
+import { Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react"
+import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
-import { BackSide, Mesh, MeshStandardMaterial, PMREMGenerator } from "three"
+import {
+  ACESFilmicToneMapping,
+  BackSide,
+  DoubleSide,
+  MOUSE,
+  Mesh,
+  MeshStandardMaterial,
+  PMREMGenerator,
+  TOUCH,
+  Vector3,
+  type PerspectiveCamera,
+} from "three"
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js"
+import type { StudioState } from "@/studio-state"
 import { PatientModel } from "@/three/PatientModel"
+import { cameraFocusFilter, studioPose, type ModelPiece, type PieceFilter } from "@/three/model-space"
 import { PointerTap, tapThreshold } from "@/three/pointer-tap"
 
-const studioBackground = "#d7dbe0"
+const studioBackground = "#8a969f"
+const cameraFov = 34
 
 type DentalSceneProps = {
   patientKey: string
   modelUrl: string
+  studio: StudioState
+  selectedFdi: number | null
+  hoveredFdi: number | null
+  focusFdi?: number | null
+  focusSerial?: number
   onReady?: () => void
   onError?: (message: string) => void
-  hoveredFdi: number | null
-  selectedFdi: number | null
-  onHover: (fdi: number | null) => void
+  onHover: (fdi: number | null, point?: { x: number; y: number }) => void
   onLeave: (fdi: number) => void
   onSelect: (fdi: number) => void
   onClear: () => void
+  onPieces: (pieces: ModelPiece[]) => void
 }
 
 const webGLError = "This browser could not start the 3D viewer. Please try a browser with WebGL enabled."
@@ -82,7 +100,8 @@ function StudioEnvironment() {
     })
     const environment = pmrem.fromScene(room, 0.04)
     scene.environment = environment.texture
-    gl.toneMappingExposure = 1.05
+    gl.toneMapping = ACESFilmicToneMapping
+    gl.toneMappingExposure = 1.02
     room.dispose()
     pmrem.dispose()
     return () => {
@@ -94,6 +113,200 @@ function StudioEnvironment() {
   return null
 }
 
+type OrbitLike = {
+  target: Vector3
+  update: () => void
+  enableDamping: boolean
+  autoRotate: boolean
+  autoRotateSpeed: number
+  addEventListener: (type: string, listener: () => void) => void
+  removeEventListener: (type: string, listener: () => void) => void
+}
+
+function CameraDirector({
+  patientKey,
+  pieces,
+  filter,
+  view,
+  explode,
+  reset,
+  rotate,
+  focusSerial,
+}: {
+  patientKey: string
+  pieces: ModelPiece[]
+  filter: PieceFilter
+  view: StudioState["view"]
+  explode: number
+  reset: number
+  rotate: boolean
+  focusSerial: number
+}) {
+  const camera = useThree((state) => state.camera)
+  const controls = useThree((state) => state.controls) as OrbitLike | null
+  const size = useThree((state) => state.size)
+  const pose = useMemo(() => {
+    const next = studioPose(pieces, filter, view, explode, cameraFov)
+    if (!next || size.width >= 768) return next
+    const offset = next.position.clone().sub(next.target).multiplyScalar(1.34)
+    return { ...next, position: next.target.clone().add(offset) }
+  }, [explode, filter, pieces, size.width, view])
+  const intro = useRef(true)
+  const steer = useRef(false)
+  const dragging = useRef(false)
+  const settled = useRef(false)
+  const poseRef = useRef(pose)
+  const reduced = useRef(false)
+  const revision = `${patientKey}:${reset}`
+  const revisionRef = useRef(revision)
+  const focusSerialRef = useRef(focusSerial)
+
+  useEffect(() => {
+    reduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  }, [])
+
+  useEffect(() => {
+    if (!controls) return
+    const onStart = () => {
+      dragging.current = true
+      steer.current = true
+      settled.current = true
+    }
+    const onEnd = () => {
+      dragging.current = false
+    }
+    controls.addEventListener("start", onStart)
+    controls.addEventListener("end", onEnd)
+    return () => {
+      controls.removeEventListener("start", onStart)
+      controls.removeEventListener("end", onEnd)
+    }
+  }, [controls])
+
+  useFrame((_, dt) => {
+    if (focusSerialRef.current !== focusSerial) {
+      focusSerialRef.current = focusSerial
+      if (!intro.current) {
+        steer.current = false
+        settled.current = false
+        dragging.current = false
+      }
+    }
+    if (revisionRef.current !== revision) {
+      revisionRef.current = revision
+      intro.current = true
+      steer.current = false
+      dragging.current = false
+      settled.current = false
+    }
+    if (poseRef.current !== pose) {
+      const previous = poseRef.current
+      const hadPose = previous !== null
+      poseRef.current = pose
+      const reframed =
+        !previous ||
+        !pose ||
+        previous.position.distanceTo(pose.position) > 0.5 ||
+        previous.target.distanceTo(pose.target) > 0.5
+      if (hadPose && reframed && !intro.current && !dragging.current) {
+        steer.current = false
+        settled.current = false
+      }
+    }
+
+    if (!(camera instanceof Object) || !("isPerspectiveCamera" in camera)) return
+    const viewCamera = camera as PerspectiveCamera
+    frameOffset(viewCamera, size.width, size.height)
+    if (!pose || !controls) return
+
+    if (intro.current) {
+      intro.current = false
+      const direction = pose.position.clone().sub(pose.target).normalize()
+      viewCamera.position.copy(pose.position)
+      if (!reduced.current) viewCamera.position.addScaledVector(direction, 62)
+      controls.target.copy(pose.target)
+      controls.update()
+      steer.current = false
+      settled.current = reduced.current
+      if (reduced.current) viewCamera.position.copy(pose.position)
+      return
+    }
+
+    controls.autoRotate = Boolean(rotate && settled.current && !steer.current && !filter.isolate && explode < 0.4)
+    controls.autoRotateSpeed = 0.7
+
+    if (steer.current || settled.current || !pose) {
+      controls.enableDamping = true
+      return
+    }
+
+    controls.enableDamping = false
+    const blend = reduced.current ? 1 : 1 - Math.exp(-4.8 * dt)
+    viewCamera.position.lerp(pose.position, blend)
+    controls.target.lerp(pose.target, blend)
+    controls.update()
+    if (reduced.current || viewCamera.position.distanceTo(pose.position) < 0.45) {
+      viewCamera.position.copy(pose.position)
+      controls.target.copy(pose.target)
+      controls.update()
+      settled.current = true
+      controls.enableDamping = true
+    }
+  })
+
+  return null
+}
+
+function frameOffset(camera: PerspectiveCamera, width: number, height: number) {
+  if (width < 768) {
+    camera.clearViewOffset()
+    return
+  }
+
+  const fullWidth = Math.round(width * 1.2)
+  const offsetX = Math.round(width * 0.04)
+  const fullHeight = Math.round(height * 1.16)
+  const offsetY = Math.round(height * 0.1)
+  camera.setViewOffset(fullWidth, fullHeight, offsetX, offsetY, width, height)
+}
+
+function StudioPlatform({
+  pieces,
+  filter,
+  view,
+  explode,
+}: {
+  pieces: ModelPiece[]
+  filter: PieceFilter
+  view: StudioState["view"]
+  explode: number
+}) {
+  const pose = useMemo(() => {
+    if (filter.isolate || explode > 0.52) return null
+    return studioPose(pieces, filter, view, 0, cameraFov)
+  }, [explode, filter, pieces, view])
+
+  if (!pose) return null
+
+  const { stageCenter, stageRadius, stageAbove } = pose
+  return (
+    <group position={[stageCenter.x, stageCenter.y, stageCenter.z]} rotation={stageAbove ? [Math.PI, 0, 0] : [0, 0, 0]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.2, 0]}>
+        <circleGeometry args={[stageRadius * 1.08, 80]} />
+        <meshStandardMaterial color="#6d7b86" roughness={1} />
+      </mesh>
+      <mesh position={[0, 0.12, 0]}>
+        <cylinderGeometry args={[stageRadius * 0.78, stageRadius * 0.82, 0.55, 80]} />
+        <meshStandardMaterial color="#74828c" metalness={0.08} roughness={0.72} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.4, 0]}>
+        <ringGeometry args={[stageRadius * 0.74, stageRadius * 0.755, 96]} />
+        <meshBasicMaterial color="#e7eef2" transparent opacity={0.55} side={DoubleSide} />
+      </mesh>
+    </group>
+  )
+}
+
 function SelectionGestures({
   tapRef,
   armed,
@@ -101,7 +314,7 @@ function SelectionGestures({
 }: {
   tapRef: { current: PointerTap }
   armed: { current: boolean }
-  onHover: (fdi: number | null) => void
+  onHover: (fdi: number | null, point?: { x: number; y: number }) => void
 }) {
   const gl = useThree((state) => state.gl)
   const onHoverRef = useRef(onHover)
@@ -156,7 +369,7 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
     const canvas = gl.domElement
     canvas.setAttribute(
       "aria-label",
-      "Dental scan. Drag to orbit, pinch or scroll to zoom. Click or tap a tooth to read its FDI number.",
+      "Dental scan. Drag to orbit, pinch or scroll to zoom. Click or tap a tooth to inspect it.",
     )
     const onLost = (event: Event) => {
       event.preventDefault()
@@ -172,31 +385,59 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
 export function DentalScene({
   patientKey,
   modelUrl,
+  studio,
+  selectedFdi,
+  hoveredFdi,
+  focusFdi = null,
+  focusSerial = 0,
   onReady = () => {},
   onError = () => {},
-  hoveredFdi,
-  selectedFdi,
   onHover,
   onLeave,
   onSelect,
   onClear,
+  onPieces,
 }: DentalSceneProps) {
   const dpr = useMaxDpr()
   const tap = useRef(new PointerTap())
   const armed = useRef(false)
+  const [pieces, setPieces] = useState<ModelPiece[]>([])
+  const [framedPatient, setFramedPatient] = useState(patientKey)
+  if (framedPatient !== patientKey) {
+    setFramedPatient(patientKey)
+    setPieces([])
+  }
+  const filter = useMemo<PieceFilter>(
+    () => ({
+      arches: studio.arches,
+      layers: studio.layers,
+      gingiva: studio.gingiva,
+      isolate: studio.isolate,
+      selectedFdi,
+    }),
+    [selectedFdi, studio.arches, studio.gingiva, studio.isolate, studio.layers],
+  )
+  const cameraFilter = useMemo(
+    () => cameraFocusFilter(filter, focusFdi, pieces),
+    [filter, focusFdi, pieces],
+  )
+
+  const handlePieces = (next: ModelPiece[]) => {
+    setPieces(next)
+    onPieces(next)
+  }
+
+  const spread = studio.explode >= 0.8
 
   return (
-    <div className="h-full w-full">
+    <div className="scene">
       <SceneErrorBoundary onError={onError}>
         <Canvas
-          className="h-full w-full cursor-grab touch-none"
           dpr={dpr}
-          camera={{ fov: 40, position: [0, 0, 200] }}
+          camera={{ fov: cameraFov, near: 0.5, far: 4000, position: [70, 30, 150] }}
           gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
           fallback={null}
           onPointerMissed={() => {
-            // Missed clicks are empty space only. Gingiva is a mesh, so it is handled on the model.
-            // https://r3f.docs.pmnd.rs/api/canvas
             if (armed.current) onClear()
           }}
         >
@@ -204,26 +445,59 @@ export function DentalScene({
           <StudioEnvironment />
           <CanvasLabel onContextLost={() => onError(contextLostError)} />
           <SelectionGestures tapRef={tap} armed={armed} onHover={onHover} />
-          <hemisphereLight args={["#fff6f0", "#cbb8b0", 0.25]} />
-          <directionalLight position={[-2.2, 4.5, 2.6]} intensity={2.15} color="#fff4ea" />
-          <directionalLight position={[2.6, 1.4, -2.4]} intensity={0.32} color="#dce6f2" />
-          <OrbitControls makeDefault enableDamping dampingFactor={0.08} />
-          <SceneErrorBoundary onError={onError}>
-            <Suspense fallback={null}>
-              <PatientModel
-                key={patientKey}
-                modelUrl={modelUrl}
-                onReady={onReady}
-                hoveredFdi={hoveredFdi}
-                selectedFdi={selectedFdi}
-                armed={armed}
-                onHover={onHover}
-                onLeave={onLeave}
-                onSelect={onSelect}
-                onClear={onClear}
-              />
-            </Suspense>
-          </SceneErrorBoundary>
+          <hemisphereLight args={["#f4efe8", "#6d7c8a", 0.55]} />
+          <directionalLight position={[-2.4, 5.2, 3.4]} intensity={2.05} color="#fff6ee" />
+          <directionalLight position={[3.2, 1.8, -2.6]} intensity={0.62} color="#d5e2f2" />
+          <StudioPlatform pieces={pieces} filter={filter} view={studio.view} explode={studio.explode} />
+          <OrbitControls
+            makeDefault
+            enableDamping
+            dampingFactor={0.085}
+            minDistance={6}
+            maxDistance={2400}
+            enableRotate={!spread}
+            autoRotate={false}
+            mouseButtons={{
+              LEFT: spread ? MOUSE.PAN : MOUSE.ROTATE,
+              MIDDLE: MOUSE.DOLLY,
+              RIGHT: MOUSE.PAN,
+            }}
+            touches={{
+              ONE: spread ? TOUCH.PAN : TOUCH.ROTATE,
+              TWO: TOUCH.DOLLY_PAN,
+            }}
+          />
+          <CameraDirector
+            patientKey={patientKey}
+            pieces={pieces}
+            filter={cameraFilter}
+            view={studio.view}
+            explode={studio.explode}
+            reset={studio.reset}
+            rotate={studio.rotate}
+            focusSerial={focusSerial}
+          />
+          <group rotation={[-Math.PI / 2, 0, 0]}>
+            <SceneErrorBoundary onError={onError}>
+              <Suspense fallback={null}>
+                <PatientModel
+                  key={patientKey}
+                  modelUrl={modelUrl}
+                  filter={filter}
+                  explode={studio.explode}
+                  onReady={onReady}
+                  onPieces={handlePieces}
+                  hoveredFdi={hoveredFdi}
+                  selectedFdi={selectedFdi}
+                  armed={armed}
+                  onHover={onHover}
+                  onLeave={onLeave}
+                  onSelect={onSelect}
+                  onClear={onClear}
+                />
+              </Suspense>
+            </SceneErrorBoundary>
+          </group>
         </Canvas>
       </SceneErrorBoundary>
     </div>
