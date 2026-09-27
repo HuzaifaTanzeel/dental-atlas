@@ -1,0 +1,74 @@
+[
+  {
+    "id": "patient-01",
+    "sourceId": "O9U99070",
+    "label": "Patient 1 — several missing teeth",
+    "file": "patient-01.glb"
+  },
+  {
+    "id": "patient-02",
+    "sourceId": "N53MDM0A",
+    "label": "Patient 2 — second and third molars absent",
+    "file": "patient-02.glb"
+  },
+  {
+    "id": "patient-03",
+    "sourceId": "7IGA0W6E",
+    "label": "Patient 3 — upper left canine absent",
+    "file": "patient-03.glb"
+  },
+  {
+    "id": "patient-04",
+    "sourceId": "7IKF2TIW",
+    "label": "Patient 4 — both upper canines absent",
+    "file": "patient-04.glb"
+  },
+  {
+    "id": "patient-05",
+    "sourceId": "8JYS0DD1",
+    "label": "Patient 5 — several second molars absent",
+    "file": "patient-05.glb"
+  },
+  {
+    "id": "patient-06",
+    "sourceId": "NQ2A571C",
+    "label": "Patient 6 — upper second molars absent",
+    "file": "patient-06.glb"
+  },
+  {
+    "id": "patient-07",
+    "sourceId": "MGYSCSI9",
+    "label": "Patient 7 — lower right molars absent",
+    "file": "patient-07.glb"
+  },
+  {
+    "id": "patient-08",
+    "sourceId": "8MTEIYKY",
+    "label": "Patient 8 — lower left second molar absent",
+    "file": "patient-08.glb"
+  },
+  {
+    "id": "patient-09",
+    "sourceId": "09BMUY86",
+    "label": "Patient 9 — third molars absent",
+    "file": "patient-09.glb"
+  },
+  {
+    "id": "patient-10",
+    "sourceId": "6XSU5W4B",
+    "label": "Patient 10 — third molars absent",
+    "file": "patient-10.glb"
+  },
+  {
+    "id": "patient-11",
+    "sourceId": "MAIPESOV",
+    "label": "Patient 11 — third molars absent",
+    "file": "patient-11.glb"
+  },
+  {
+    "id": "patient-12",
+    "sourceId": "MXWIBTGF",
+    "label": "Patient 12 — lower right third molar present",
+    "file": "patient-12.glb"
+  }
+]

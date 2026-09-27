@@ -25,6 +25,11 @@ lerna-debug.log*
 # Licensed source archives (Teeth3DS). Never commit.
 raw-data/
 
+# Local converter environment
+.venv/
+__pycache__/
+*.pyc
+
 # OS files
 .DS_Store
 Thumbs.db
