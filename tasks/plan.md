@@ -27,8 +27,8 @@ Click or tap a named tooth mesh in the loaded lower arch and show its FDI number
 - [x] Task 4: ADR-002 for the picking approach
 
 ### Checkpoint: Verify, review, ship
-- [ ] Tests, typecheck, lint, and build pass
-- [ ] Every visible lower tooth selects with the right FDI info on mouse and touch
+- [x] Tests, typecheck, lint, and build pass
+- [x] Every visible lower tooth selects with the right FDI info on mouse and touch
 - [ ] Self-review, `--no-ff` merge to `main`, tag `v0.1-phase3`
 
 ## Risks and Mitigations

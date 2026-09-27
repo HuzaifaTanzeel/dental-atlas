@@ -32,8 +32,8 @@
 - [x] Touch does not leave a hover tint
 
 **Verification:**
-- [ ] Build succeeds: `npm run build`
-- [ ] Manual check: click, hover, drag, and miss in the viewer
+- [x] Build succeeds: `npm run build`
+- [x] Manual check: click, hover, drag, and miss in the viewer
 
 **Dependencies:** Task 1
 
@@ -55,8 +55,8 @@
 - [x] Footer hint mentions selecting a tooth
 
 **Verification:**
-- [ ] Manual check at desktop and 390px widths
-- [ ] Keyboard: Escape clears; close control is focusable
+- [x] Manual check at desktop and 390px widths
+- [x] Keyboard: Escape clears; close control is focusable
 
 **Dependencies:** Task 2
 
@@ -84,7 +84,7 @@
 **Estimated scope:** Small
 
 ## Checkpoint: After Tasks 1–4
-- [ ] `npm test`, `npm run check`, `npm run lint`, and `npm run build` pass
-- [ ] Every visible lower tooth on patient-01 selects with the correct FDI info on mouse and touch
-- [ ] Hover and selected states differ; deselect works; console stays clean
+- [x] `npm test`, `npm run check`, `npm run lint`, and `npm run build` pass
+- [x] Every visible lower tooth on patient-01 selects with the correct FDI info on mouse and touch
+- [x] Hover and selected states differ; deselect works; console stays clean
 - [ ] Code review, merge to `main` with `--no-ff`, tag `v0.1-phase3`, no push

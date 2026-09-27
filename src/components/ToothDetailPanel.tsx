@@ -22,7 +22,7 @@ export function ToothDetailPanel({ fdi, onClose }: ToothDetailPanelProps) {
   return (
     <aside
       aria-label={`Selected tooth, FDI ${tooth.fdi}`}
-      className="pointer-events-auto absolute z-30 overflow-y-auto rounded-lg border border-border bg-background px-4 py-4 text-[#1c1f24] inset-x-3 bottom-[calc(4.25rem+env(safe-area-inset-bottom))] max-h-[48dvh] max-md:landscape:inset-x-auto max-md:landscape:top-16 max-md:landscape:right-4 max-md:landscape:bottom-16 max-md:landscape:w-72 max-md:landscape:max-h-[calc(100dvh-8rem)] md:inset-x-auto md:top-28 md:right-7 md:bottom-auto md:w-[18.75rem] md:max-h-[calc(100dvh-10rem)]"
+      className="pointer-events-auto absolute z-30 overflow-y-auto rounded-lg border border-border bg-background px-4 py-4 text-[#1c1f24] inset-x-3 bottom-[calc(4.25rem+env(safe-area-inset-bottom))] max-h-[48dvh] max-md:landscape:inset-x-auto max-md:landscape:top-16 max-md:landscape:right-4 max-md:landscape:bottom-auto max-md:landscape:w-72 max-md:landscape:max-h-[calc(100dvh-8rem)] md:inset-x-auto md:top-28 md:right-7 md:bottom-auto md:w-[18.75rem] md:max-h-[calc(100dvh-10rem)]"
     >
       <button
         type="button"
