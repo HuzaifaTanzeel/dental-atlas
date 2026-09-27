@@ -22,6 +22,9 @@ lerna-debug.log*
 *.local
 .vite/
 
+# Licensed source archives (Teeth3DS). Never commit.
+raw-data/
+
 # OS files
 .DS_Store
 Thumbs.db
