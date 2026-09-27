@@ -15,16 +15,16 @@ Click or tap a named tooth mesh in the loaded lower arch and show its FDI number
 ## Task List
 
 ### Slice 1: FDI node names
-- [ ] Task 1: `parseFdiNodeName` and unit tests
+- [x] Task 1: `parseFdiNodeName` and unit tests
 
 ### Slice 2: Picking and highlight
-- [ ] Task 2: Tap gate, per-tooth materials, hover and select tints
+- [x] Task 2: Tap gate, per-tooth materials, hover and select tints
 
 ### Slice 3: Detail panel
-- [ ] Task 3: Shell state, Escape, responsive panel, footer hint
+- [x] Task 3: Shell state, Escape, responsive panel, footer hint
 
 ### Slice 4: Decision record
-- [ ] Task 4: ADR-002 for the picking approach
+- [x] Task 4: ADR-002 for the picking approach
 
 ### Checkpoint: Verify, review, ship
 - [ ] Tests, typecheck, lint, and build pass

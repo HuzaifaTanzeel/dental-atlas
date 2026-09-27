@@ -5,13 +5,13 @@
 **Description:** Map a glTF node name to an FDI number, or null when the node is gingiva or not a tooth.
 
 **Acceptance criteria:**
-- [ ] `FDI-36` returns `36`
-- [ ] `Gingiva-lower`, `Gingiva-upper`, and unknown names return `null`
-- [ ] `getFdiTooth` is not called for a null parse
+- [x] `FDI-36` returns `36`
+- [x] `Gingiva-lower`, `Gingiva-upper`, and unknown names return `null`
+- [x] `getFdiTooth` is not called for a null parse
 
 **Verification:**
-- [ ] Tests pass: `npm test`
-- [ ] Type check passes: `npm run check`
+- [x] Tests pass: `npm test`
+- [x] Type check passes: `npm run check`
 
 **Dependencies:** None
 
@@ -26,10 +26,10 @@
 **Description:** Raycast the loaded tooth meshes, ignore orbit drags and pinches, and tint hover and selection differently.
 
 **Acceptance criteria:**
-- [ ] A short click or tap on `FDI-*` selects that number
-- [ ] A drag, a second pointer, gingiva, and empty space do not select
-- [ ] Hover and selected materials are different, and selected wins when both apply
-- [ ] Touch does not leave a hover tint
+- [x] A short click or tap on `FDI-*` selects that number
+- [x] A drag, a second pointer, gingiva, and empty space do not select
+- [x] Hover and selected materials are different, and selected wins when both apply
+- [x] Touch does not leave a hover tint
 
 **Verification:**
 - [ ] Build succeeds: `npm run build`
@@ -49,10 +49,10 @@
 **Description:** Show the selected tooth's FDI number, name, quadrant, and type, and clear it from empty space, gingiva, Escape, or the close control. The panel sits on the right on desktop and along the bottom on a phone.
 
 **Acceptance criteria:**
-- [ ] Panel copy matches `getFdiTooth`
-- [ ] Escape, close, gingiva, and empty space clear selection and highlight
-- [ ] Desktop, phone portrait, and phone landscape layouts do not cover the whole arch
-- [ ] Footer hint mentions selecting a tooth
+- [x] Panel copy matches `getFdiTooth`
+- [x] Escape, close, gingiva, and empty space clear selection and highlight
+- [x] Desktop, phone portrait, and phone landscape layouts do not cover the whole arch
+- [x] Footer hint mentions selecting a tooth
 
 **Verification:**
 - [ ] Manual check at desktop and 390px widths
@@ -71,10 +71,10 @@
 **Description:** Write ADR-002 explaining R3F events and cloned materials instead of a GPU selection atlas.
 
 **Acceptance criteria:**
-- [ ] ADR matches the existing heading set in `docs/adr/0001-patient-glb-layout.md`
+- [x] ADR matches the existing heading set in `docs/adr/0001-patient-glb-layout.md`
 
 **Verification:**
-- [ ] File exists at `docs/adr/0002-tooth-picking.md`
+- [x] File exists at `docs/adr/0002-tooth-picking.md`
 
 **Dependencies:** Tasks 1–3
 
