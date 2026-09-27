@@ -42,7 +42,8 @@ class SceneErrorBoundary extends Component<BoundaryProps, BoundaryState> {
   }
 
   componentDidCatch(error: unknown) {
-    const message = error instanceof Error ? error.message : "The scan could not be loaded."
+    const raw = error instanceof Error ? error.message : "The scan could not be loaded."
+    const message = /webgl/i.test(raw) ? webGLError : raw
     this.props.onError(message)
   }
 
@@ -50,14 +51,6 @@ class SceneErrorBoundary extends Component<BoundaryProps, BoundaryState> {
     if (this.state.failed) return null
     return this.props.children
   }
-}
-
-function WebGLMissing({ onError }: { onError: (message: string) => void }) {
-  useEffect(() => {
-    onError(webGLError)
-  }, [onError])
-
-  return null
 }
 
 function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
@@ -87,26 +80,28 @@ export function DentalScene({ onReady = () => {}, onError = () => {} }: DentalSc
 
   return (
     <div className="h-full w-full">
-      <Canvas
-        className="h-full w-full"
-        dpr={dpr}
-        camera={{ fov: 40, position: [0, 0, 200] }}
-        gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
-        fallback={<WebGLMissing onError={onError} />}
-      >
-        {/* Untextured ivory scans disappear on a white clear color. */}
-        <color attach="background" args={["#d5d8dc"]} />
-        <CanvasLabel onContextLost={() => onError(contextLostError)} />
-        <hemisphereLight args={["#ffffff", "#b7bcc2", 0.7]} />
-        <directionalLight position={[-2, 4, 3]} intensity={1.8} color="#fffaf4" />
-        <directionalLight position={[2, 1.5, -3]} intensity={0.9} color="#e7eef8" />
-        <OrbitControls makeDefault enableDamping dampingFactor={0.08} />
-        <SceneErrorBoundary onError={onError}>
-          <Suspense fallback={null}>
-            <PatientModel onReady={onReady} />
-          </Suspense>
-        </SceneErrorBoundary>
-      </Canvas>
+      <SceneErrorBoundary onError={onError}>
+        <Canvas
+          className="h-full w-full"
+          dpr={dpr}
+          camera={{ fov: 40, position: [0, 0, 200] }}
+          gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
+          fallback={null}
+        >
+          {/* Untextured ivory scans disappear on a white clear color. */}
+          <color attach="background" args={["#d5d8dc"]} />
+          <CanvasLabel onContextLost={() => onError(contextLostError)} />
+          <hemisphereLight args={["#ffffff", "#b7bcc2", 0.7]} />
+          <directionalLight position={[-2, 4, 3]} intensity={1.8} color="#fffaf4" />
+          <directionalLight position={[2, 1.5, -3]} intensity={0.9} color="#e7eef8" />
+          <OrbitControls makeDefault enableDamping dampingFactor={0.08} />
+          <SceneErrorBoundary onError={onError}>
+            <Suspense fallback={null}>
+              <PatientModel onReady={onReady} />
+            </Suspense>
+          </SceneErrorBoundary>
+        </Canvas>
+      </SceneErrorBoundary>
     </div>
   )
 }
