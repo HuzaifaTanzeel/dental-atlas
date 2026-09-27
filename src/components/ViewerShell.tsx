@@ -9,13 +9,16 @@ if (!patient) {
   throw new Error("Patient manifest is empty")
 }
 
+const [patientTitle, patientDetail] = patient.label.split(" — ")
+const studioBackground = "#d7dbe0"
+
 function LoadingOverlay({ progress }: { progress: number }) {
   return (
-    <div role="status" className="absolute inset-0 z-10 grid place-items-center">
-      <div className="flex items-center gap-3 rounded-lg bg-background/95 px-4 py-3 text-sm text-foreground">
+    <div role="status" className="absolute inset-0 z-10 grid place-items-center bg-[#d7dbe0]/75">
+      <p className="flex items-center gap-2 text-sm text-[#1c1f24]">
         <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-        <span>Loading scan {Math.round(progress)}%</span>
-      </div>
+        Preparing the scan {Math.round(progress)}%
+      </p>
     </div>
   )
 }
@@ -59,7 +62,7 @@ export function ViewerShell() {
   }
 
   return (
-    <main className="relative h-dvh overflow-hidden bg-[#d5d8dc] text-foreground">
+    <main className="relative h-dvh overflow-hidden text-[#1c1f24]" style={{ background: studioBackground }}>
       {error ? (
         <ErrorPanel message={error} onReload={reload} />
       ) : (
@@ -68,33 +71,34 @@ export function ViewerShell() {
         </div>
       )}
       {!error && !ready ? <LoadingOverlay progress={progress} /> : null}
-      <header className="pointer-events-none absolute top-4 left-4 z-20 max-w-md">
-        <p className="text-xs font-medium tracking-wide text-foreground/70">Open Dental Atlas</p>
-        <h1 className="text-lg font-medium">{patient.label}</h1>
+      <header className="pointer-events-none absolute top-5 left-5 z-20 max-w-sm sm:top-7 sm:left-7">
+        <p className="text-[11px] font-medium tracking-[0.16em] text-[#1c1f24]/55">OPEN DENTAL ATLAS</p>
+        <h1 className="mt-1 text-[1.65rem] leading-none font-medium tracking-tight">{patientTitle}</h1>
+        <p className="mt-2 text-sm text-[#1c1f24]/65">
+          Lower arch{patientDetail ? ` · ${patientDetail}` : ""}
+        </p>
       </header>
-      <footer className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1 px-4 pb-4 text-xs">
-        <p className="pointer-events-auto max-w-xl">
-          Scan from{" "}
+      <footer className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 px-5 pb-5 text-xs text-[#1c1f24]/60 sm:px-7 sm:pb-6">
+        <p>Drag to orbit · Scroll or pinch to zoom</p>
+        <p className="pointer-events-auto max-w-[14rem] text-right">
           <a
-            className="underline underline-offset-2"
+            className="underline decoration-[#1c1f24]/30 underline-offset-2 hover:decoration-[#1c1f24]"
             href="https://crns-smartvision.github.io/teeth3ds/"
             target="_blank"
             rel="noreferrer"
           >
             Teeth3DS+
-          </a>{" "}
-          (Ben-Hamadou et al.).{" "}
+          </a>
+          {" · "}
           <a
-            className="underline underline-offset-2"
+            className="underline decoration-[#1c1f24]/30 underline-offset-2 hover:decoration-[#1c1f24]"
             href="https://github.com/abenhamadou/3DTeethSeg22_challenge"
             target="_blank"
             rel="noreferrer"
           >
-            3DTeethSeg challenge
+            3DTeethSeg
           </a>
-          .
         </p>
-        <p className="text-foreground/80">Drag to orbit · Scroll or pinch to zoom</p>
       </footer>
     </main>
   )

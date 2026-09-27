@@ -1,7 +1,11 @@
 import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from "react"
 import { Canvas, useThree } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
+import { BackSide, Mesh, MeshStandardMaterial, PMREMGenerator } from "three"
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js"
 import { PatientModel } from "@/three/PatientModel"
+
+const studioBackground = "#d7dbe0"
 
 type DentalSceneProps = {
   onReady?: () => void
@@ -53,6 +57,34 @@ class SceneErrorBoundary extends Component<BoundaryProps, BoundaryState> {
   }
 }
 
+function StudioEnvironment() {
+  const gl = useThree((state) => state.gl)
+  const scene = useThree((state) => state.scene)
+
+  useEffect(() => {
+    const pmrem = new PMREMGenerator(gl)
+    const room = new RoomEnvironment()
+    room.traverse((object) => {
+      if (!(object instanceof Mesh)) return
+      const material = object.material
+      if (material instanceof MeshStandardMaterial && material.side === BackSide) {
+        material.color.set("#e6d7ce")
+      }
+    })
+    const environment = pmrem.fromScene(room, 0.04)
+    scene.environment = environment.texture
+    gl.toneMappingExposure = 1.05
+    room.dispose()
+    pmrem.dispose()
+    return () => {
+      environment.dispose()
+      if (scene.environment === environment.texture) scene.environment = null
+    }
+  }, [gl, scene])
+
+  return null
+}
+
 function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
   const gl = useThree((state) => state.gl)
   const onContextLostRef = useRef(onContextLost)
@@ -88,12 +120,12 @@ export function DentalScene({ onReady = () => {}, onError = () => {} }: DentalSc
           gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
           fallback={null}
         >
-          {/* Untextured ivory scans disappear on a white clear color. */}
-          <color attach="background" args={["#d5d8dc"]} />
+          <color attach="background" args={[studioBackground]} />
+          <StudioEnvironment />
           <CanvasLabel onContextLost={() => onError(contextLostError)} />
-          <hemisphereLight args={["#ffffff", "#b7bcc2", 0.7]} />
-          <directionalLight position={[-2, 4, 3]} intensity={1.8} color="#fffaf4" />
-          <directionalLight position={[2, 1.5, -3]} intensity={0.9} color="#e7eef8" />
+          <hemisphereLight args={["#fff6f0", "#cbb8b0", 0.25]} />
+          <directionalLight position={[-2.2, 4.5, 2.6]} intensity={2.15} color="#fff4ea" />
+          <directionalLight position={[2.6, 1.4, -2.4]} intensity={0.32} color="#dce6f2" />
           <OrbitControls makeDefault enableDamping dampingFactor={0.08} />
           <SceneErrorBoundary onError={onError}>
             <Suspense fallback={null}>
