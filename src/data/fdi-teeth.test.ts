@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { fdiTeeth, getFdiTooth } from "./fdi-teeth"
+import { fdiTeeth, getFdiTooth, parseFdiNodeName } from "./fdi-teeth"
 
 describe("FDI lookup", () => {
   it("names 36 as the lower left first molar", () => {
@@ -25,5 +25,23 @@ describe("FDI lookup", () => {
 
   it("rejects a number that is not an FDI tooth", () => {
     expect(() => getFdiTooth(0)).toThrow(/Unknown FDI number/)
+  })
+})
+
+describe("FDI node names", () => {
+  it("reads the number from a tooth node", () => {
+    expect(parseFdiNodeName("FDI-36")).toBe(36)
+    expect(parseFdiNodeName("FDI-11")).toBe(11)
+  })
+
+  it("rejects gingiva and names that are not teeth", () => {
+    expect(parseFdiNodeName("Gingiva-lower")).toBeNull()
+    expect(parseFdiNodeName("Gingiva-upper")).toBeNull()
+    expect(parseFdiNodeName("FDI-0")).toBeNull()
+    expect(parseFdiNodeName("FDI-99")).toBeNull()
+    expect(parseFdiNodeName("FDI-36-extra")).toBeNull()
+    expect(parseFdiNodeName("fdi-36")).toBeNull()
+    expect(parseFdiNodeName("Upper")).toBeNull()
+    expect(parseFdiNodeName("")).toBeNull()
   })
 })
