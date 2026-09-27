@@ -1,9 +1,5 @@
-import { DentalScene } from "@/three/DentalScene"
+import { ViewerShell } from "@/components/ViewerShell"
 
 export function App() {
-  return (
-    <main className="h-dvh bg-[#d5d8dc]">
-      <DentalScene />
-    </main>
-  )
+  return <ViewerShell />
 }
