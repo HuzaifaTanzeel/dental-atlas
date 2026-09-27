@@ -12,7 +12,7 @@ Scans shown by this project come from **Teeth3DS+**, the dataset used for the MI
 
 **License:** [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) (Attribution, Non-Commercial, No-Derivatives).
 
-No patient scan files are in this repository yet. When they are added, every page that shows the data must keep this credit and link back to the official dataset and challenge. This project does not accept sponsorship, ads, or any commercial revenue tied to the dataset.
+`public/data/` contains a 12-patient subset converted to `.glb` for browser viewing. That conversion is a lossless technical repack: vertex positions are copied, with no smoothing, decimation, or mixing of one patient's anatomy with another's. Raw Teeth3DS+ archives are not in this repository. Every page that shows the scans must keep this credit and link back to the official dataset and challenge. This project does not accept sponsorship, ads, or any commercial revenue tied to the dataset.
 
 Any later format conversion for browser viewing must stay lossless and technical: no changes to vertex positions, no reshaping, and no combining one patient's anatomy with another's.
 
