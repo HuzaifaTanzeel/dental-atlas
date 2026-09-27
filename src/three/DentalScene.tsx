@@ -4,12 +4,19 @@ import { OrbitControls } from "@react-three/drei"
 import { BackSide, Mesh, MeshStandardMaterial, PMREMGenerator } from "three"
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js"
 import { PatientModel } from "@/three/PatientModel"
+import { PointerTap, tapThreshold } from "@/three/pointer-tap"
 
 const studioBackground = "#d7dbe0"
 
 type DentalSceneProps = {
   onReady?: () => void
   onError?: (message: string) => void
+  hoveredFdi: number | null
+  selectedFdi: number | null
+  onHover: (fdi: number | null) => void
+  onLeave: (fdi: number) => void
+  onSelect: (fdi: number) => void
+  onClear: () => void
 }
 
 const webGLError = "This browser could not start the 3D viewer. Please try a browser with WebGL enabled."
@@ -85,6 +92,56 @@ function StudioEnvironment() {
   return null
 }
 
+function SelectionGestures({
+  tapRef,
+  armed,
+  onHover,
+}: {
+  tapRef: { current: PointerTap }
+  armed: { current: boolean }
+  onHover: (fdi: number | null) => void
+}) {
+  const gl = useThree((state) => state.gl)
+  const onHoverRef = useRef(onHover)
+
+  useEffect(() => {
+    onHoverRef.current = onHover
+  }, [onHover])
+
+  useEffect(() => {
+    const canvas = gl.domElement
+    const tap = tapRef.current
+    const down = (event: PointerEvent) => {
+      armed.current = false
+      onHoverRef.current(null)
+      if (event.currentTarget instanceof HTMLElement) event.currentTarget.style.cursor = "grab"
+      tap.down(event.pointerId, event.clientX, event.clientY, tapThreshold(event.pointerType))
+    }
+    const move = (event: PointerEvent) => {
+      tap.move(event.pointerId, event.clientX, event.clientY)
+    }
+    const up = (event: PointerEvent) => {
+      armed.current = tap.up(event.pointerId, event.clientX, event.clientY)
+    }
+    const cancel = (event: PointerEvent) => {
+      armed.current = false
+      tap.cancel(event.pointerId)
+    }
+    canvas.addEventListener("pointerdown", down, true)
+    canvas.addEventListener("pointermove", move, true)
+    canvas.addEventListener("pointerup", up, true)
+    canvas.addEventListener("pointercancel", cancel, true)
+    return () => {
+      canvas.removeEventListener("pointerdown", down, true)
+      canvas.removeEventListener("pointermove", move, true)
+      canvas.removeEventListener("pointerup", up, true)
+      canvas.removeEventListener("pointercancel", cancel, true)
+    }
+  }, [armed, gl, tapRef])
+
+  return null
+}
+
 function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
   const gl = useThree((state) => state.gl)
   const onContextLostRef = useRef(onContextLost)
@@ -95,7 +152,10 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
 
   useEffect(() => {
     const canvas = gl.domElement
-    canvas.setAttribute("aria-label", "Dental scan. Drag to orbit, pinch or scroll to zoom.")
+    canvas.setAttribute(
+      "aria-label",
+      "Dental scan. Drag to orbit, pinch or scroll to zoom. Click or tap a tooth to read its FDI number.",
+    )
     const onLost = (event: Event) => {
       event.preventDefault()
       onContextLostRef.current()
@@ -107,29 +167,55 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
   return null
 }
 
-export function DentalScene({ onReady = () => {}, onError = () => {} }: DentalSceneProps) {
+export function DentalScene({
+  onReady = () => {},
+  onError = () => {},
+  hoveredFdi,
+  selectedFdi,
+  onHover,
+  onLeave,
+  onSelect,
+  onClear,
+}: DentalSceneProps) {
   const dpr = useMaxDpr()
+  const tap = useRef(new PointerTap())
+  const armed = useRef(false)
 
   return (
     <div className="h-full w-full">
       <SceneErrorBoundary onError={onError}>
         <Canvas
-          className="h-full w-full"
+          className="h-full w-full cursor-grab touch-none"
           dpr={dpr}
           camera={{ fov: 40, position: [0, 0, 200] }}
           gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
           fallback={null}
+          onPointerMissed={() => {
+            // Missed clicks are empty space only. Gingiva is a mesh, so it is handled on the model.
+            // https://r3f.docs.pmnd.rs/api/canvas
+            if (armed.current) onClear()
+          }}
         >
           <color attach="background" args={[studioBackground]} />
           <StudioEnvironment />
           <CanvasLabel onContextLost={() => onError(contextLostError)} />
+          <SelectionGestures tapRef={tap} armed={armed} onHover={onHover} />
           <hemisphereLight args={["#fff6f0", "#cbb8b0", 0.25]} />
           <directionalLight position={[-2.2, 4.5, 2.6]} intensity={2.15} color="#fff4ea" />
           <directionalLight position={[2.6, 1.4, -2.4]} intensity={0.32} color="#dce6f2" />
           <OrbitControls makeDefault enableDamping dampingFactor={0.08} />
           <SceneErrorBoundary onError={onError}>
             <Suspense fallback={null}>
-              <PatientModel onReady={onReady} />
+              <PatientModel
+                onReady={onReady}
+                hoveredFdi={hoveredFdi}
+                selectedFdi={selectedFdi}
+                armed={armed}
+                onHover={onHover}
+                onLeave={onLeave}
+                onSelect={onSelect}
+                onClear={onClear}
+              />
             </Suspense>
           </SceneErrorBoundary>
         </Canvas>

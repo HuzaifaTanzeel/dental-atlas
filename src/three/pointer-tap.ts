@@ -1,0 +1,43 @@
+type PointerStart = {
+  x: number
+  y: number
+  threshold: number
+}
+
+/**
+ * Separates a selection tap from an orbit drag or a pinch.
+ * A second pointer blocks the gesture. Movement past the threshold blocks it too.
+ */
+export class PointerTap {
+  private active = new Map<number, PointerStart>()
+  private blocked = false
+
+  down(id: number, x: number, y: number, threshold: number) {
+    if (this.active.size === 0) this.blocked = false
+    this.active.set(id, { x, y, threshold })
+    if (this.active.size > 1) this.blocked = true
+  }
+
+  move(id: number, x: number, y: number) {
+    const start = this.active.get(id)
+    if (!start) return
+    const distance = Math.hypot(x - start.x, y - start.y)
+    if (distance > start.threshold) this.blocked = true
+  }
+
+  up(id: number, x: number, y: number): boolean {
+    this.move(id, x, y)
+    const tap = this.active.has(id) && this.active.size === 1 && !this.blocked
+    this.active.delete(id)
+    return tap
+  }
+
+  cancel(id: number) {
+    this.active.delete(id)
+    this.blocked = true
+  }
+}
+
+export function tapThreshold(pointerType: string): number {
+  return pointerType === "touch" ? 12 : 5
+}

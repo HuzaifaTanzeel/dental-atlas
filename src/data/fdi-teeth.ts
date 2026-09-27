@@ -59,3 +59,12 @@ export function getFdiTooth(fdi: number): FdiTooth {
   }
   return tooth
 }
+
+const fdiNodeName = /^FDI-(\d+)$/
+
+export function parseFdiNodeName(name: string): number | null {
+  const match = fdiNodeName.exec(name)
+  if (!match) return null
+  const fdi = Number(match[1])
+  return fdiTeeth[fdi] ? fdi : null
+}
