@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { patients, parsePatients } from "./patients"
+import { getPatientById, patientModelUrl, patients, parsePatients } from "./patients"
 
 describe("patient manifest", () => {
   it("lists 12 patients with unique ids and glb files", () => {
@@ -24,5 +24,13 @@ describe("patient manifest", () => {
     expect(() => parsePatients([{ id: "patient-01", label: "Patient 1", file: "" }])).toThrow(
       /missing a \.glb file/,
     )
+  })
+
+  it("resolves patients by id and model url", () => {
+    const first = patients[0]
+    expect(first).toBeDefined()
+    expect(getPatientById(first!.id)).toBe(first)
+    expect(patientModelUrl(first!)).toBe(`/data/${first!.file}`)
+    expect(() => getPatientById("missing")).toThrow(/Unknown patient id/)
   })
 })
