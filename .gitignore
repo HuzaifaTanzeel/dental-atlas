@@ -25,6 +25,9 @@ lerna-debug.log*
 # Licensed source archives (Teeth3DS). Never commit.
 raw-data/
 
+# Local converter environment
+.venv/
+
 # OS files
 .DS_Store
 Thumbs.db
