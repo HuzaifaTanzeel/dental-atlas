@@ -27,6 +27,8 @@ raw-data/
 
 # Local converter environment
 .venv/
+__pycache__/
+*.pyc
 
 # OS files
 .DS_Store
