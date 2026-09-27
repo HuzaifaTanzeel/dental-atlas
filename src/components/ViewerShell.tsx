@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { useProgress } from "@react-three/drei"
 import { Loader2 } from "lucide-react"
 import { getFdiTooth } from "@/data/fdi-teeth"
-import { patients } from "@/data/patients"
+import { getPatientById, patientModelUrl, patients } from "@/data/patients"
+import { PatientSwitcher } from "@/components/PatientSwitcher"
 import { ToothDetailPanel } from "@/components/ToothDetailPanel"
 import { DentalScene } from "@/three/DentalScene"
 
-const patient = patients[0]
-if (!patient) {
+const defaultPatient = patients[0]
+if (!defaultPatient) {
   throw new Error("Patient manifest is empty")
 }
 
-const [patientTitle, patientDetail] = patient.label.split(" — ")
 const studioBackground = "#d7dbe0"
 
 function LoadingOverlay({ progress }: { progress: number }) {
@@ -45,12 +45,17 @@ function ErrorPanel({ message, onReload }: { message: string; onReload: () => vo
 
 export function ViewerShell() {
   const [session, setSession] = useState(0)
+  const [activePatientId, setActivePatientId] = useState(defaultPatient.id)
   const [ready, setReady] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hoveredFdi, setHoveredFdi] = useState<number | null>(null)
   const [selectedFdi, setSelectedFdi] = useState<number | null>(null)
   const [announcement, setAnnouncement] = useState("")
   const { progress } = useProgress()
+
+  const activePatient = useMemo(() => getPatientById(activePatientId), [activePatientId])
+  const modelUrl = useMemo(() => patientModelUrl(activePatient), [activePatient])
+  const [patientTitle, patientDetail] = activePatient.label.split(" — ")
 
   const handleReady = useCallback(() => {
     setReady(true)
@@ -79,6 +84,18 @@ export function ViewerShell() {
     setAnnouncement((current) => (current.startsWith("Selected") ? "Selection cleared" : current))
   }, [])
 
+  const switchPatient = useCallback(
+    (nextId: string) => {
+      if (nextId === activePatientId) return
+      setReady(false)
+      setHoveredFdi(null)
+      setSelectedFdi(null)
+      setAnnouncement("")
+      setActivePatientId(nextId)
+    },
+    [activePatientId],
+  )
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") clearSelection()
@@ -104,6 +121,8 @@ export function ViewerShell() {
         <div className="absolute inset-0">
           <DentalScene
             key={session}
+            patientKey={activePatientId}
+            modelUrl={modelUrl}
             onReady={handleReady}
             onError={handleError}
             hoveredFdi={hoveredFdi}
@@ -127,6 +146,9 @@ export function ViewerShell() {
           Lower arch{patientDetail ? ` · ${patientDetail}` : ""}
         </p>
       </header>
+      <div className="absolute top-5 right-5 z-20 sm:top-7 sm:right-7">
+        <PatientSwitcher value={activePatientId} onChange={switchPatient} />
+      </div>
       <footer className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 px-5 pb-5 text-xs text-[#1c1f24]/60 sm:px-7 sm:pb-6">
         <p>Drag to orbit · Click or tap a tooth</p>
         <p className="pointer-events-auto max-w-[14rem] text-right">

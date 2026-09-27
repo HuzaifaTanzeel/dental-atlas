@@ -2,16 +2,8 @@ import { useEffect, useLayoutEffect, useMemo, useRef } from "react"
 import { Bounds, useGLTF } from "@react-three/drei"
 import type { ThreeEvent } from "@react-three/fiber"
 import { parseFdiNodeName } from "@/data/fdi-teeth"
-import { patients } from "@/data/patients"
 import { Color, Mesh, MeshPhysicalMaterial, type BufferGeometry, type Object3D } from "three"
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js"
-
-const patient = patients[0]
-if (!patient) {
-  throw new Error("Patient manifest is empty")
-}
-
-const modelUrl = `/data/${patient.file}`
 
 const enamelColor = new Color("#f3e4cf")
 // Milder than a full teal replacement so the tooth still reads as enamel.
@@ -57,6 +49,17 @@ function applyMaterials(root: Object3D) {
   })
 }
 
+function disposeClone(root: Object3D) {
+  root.traverse((child) => {
+    if (!(child instanceof Mesh)) return
+    child.geometry.dispose()
+    const material = child.material
+    if (material instanceof MeshPhysicalMaterial && material !== gingivaMaterial && material !== toothMaterial) {
+      material.dispose()
+    }
+  })
+}
+
 function presentLowerJaw(root: Object3D) {
   root.getObjectByName("Upper")?.removeFromParent()
 }
@@ -90,6 +93,7 @@ function paintTooth(material: MeshPhysicalMaterial, mode: "rest" | "hover" | "se
 }
 
 type PatientModelProps = {
+  modelUrl: string
   onReady: () => void
   hoveredFdi: number | null
   selectedFdi: number | null
@@ -101,6 +105,7 @@ type PatientModelProps = {
 }
 
 export function PatientModel({
+  modelUrl,
   onReady,
   hoveredFdi,
   selectedFdi,
@@ -126,6 +131,8 @@ export function PatientModel({
   useEffect(() => {
     onReadyRef.current()
   }, [clone])
+
+  useEffect(() => () => disposeClone(clone), [clone])
 
   useLayoutEffect(() => {
     clone.traverse((child) => {
@@ -186,5 +193,3 @@ export function PatientModel({
     </Bounds>
   )
 }
-
-useGLTF.preload(modelUrl)

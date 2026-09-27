@@ -36,3 +36,15 @@ export function parsePatients(value: unknown): PatientRecord[] {
 }
 
 export const patients: PatientRecord[] = parsePatients(manifest)
+
+export function getPatientById(id: string): PatientRecord {
+  const patient = patients.find((entry) => entry.id === id)
+  if (!patient) {
+    throw new Error(`Unknown patient id: ${id}`)
+  }
+  return patient
+}
+
+export function patientModelUrl(patient: PatientRecord): string {
+  return `/data/${patient.file}`
+}

@@ -9,6 +9,8 @@ import { PointerTap, tapThreshold } from "@/three/pointer-tap"
 const studioBackground = "#d7dbe0"
 
 type DentalSceneProps = {
+  patientKey: string
+  modelUrl: string
   onReady?: () => void
   onError?: (message: string) => void
   hoveredFdi: number | null
@@ -168,6 +170,8 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
 }
 
 export function DentalScene({
+  patientKey,
+  modelUrl,
   onReady = () => {},
   onError = () => {},
   hoveredFdi,
@@ -207,6 +211,8 @@ export function DentalScene({
           <SceneErrorBoundary onError={onError}>
             <Suspense fallback={null}>
               <PatientModel
+                key={patientKey}
+                modelUrl={modelUrl}
                 onReady={onReady}
                 hoveredFdi={hoveredFdi}
                 selectedFdi={selectedFdi}
