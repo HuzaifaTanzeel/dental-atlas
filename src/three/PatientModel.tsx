@@ -8,9 +8,14 @@ import { archDisplay, pieceVisible, type ModelPiece, type PieceFilter } from "@/
 import { Color, MathUtils, Mesh, MeshPhysicalMaterial, Vector3, type BufferGeometry, type Object3D } from "three"
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js"
 
-const enamelColor = new Color("#f3e4cf")
 const selectedColor = new Color("#1ec8b8")
 const hoverEmissive = new Color("#5f8794")
+const typeColors = {
+  incisor: new Color("#c6a15a"),
+  canine: new Color("#d08a62"),
+  premolar: new Color("#6e9084"),
+  molar: new Color("#5d7c9a"),
+} as const
 
 const toothMaterial = new MeshPhysicalMaterial({
   color: "#f3e4cf",
@@ -117,6 +122,10 @@ function preparePatientModel(source: Object3D): { clone: Object3D; pieces: Model
     dir.normalize()
     const liftSign = arch === "upper" ? 1 : -1
 
+    if (!gingiva && mesh.material instanceof MeshPhysicalMaterial && kind !== "gingiva") {
+      mesh.material.color.copy(typeColors[kind])
+    }
+
     pieces.push({
       fdi,
       arch,
@@ -164,14 +173,14 @@ function fdiFromHit(object: Object3D): number | null {
   return null
 }
 
-function paintTooth(material: MeshPhysicalMaterial, mode: "rest" | "hover" | "selected") {
+function paintTooth(material: MeshPhysicalMaterial, mode: "rest" | "hover" | "selected", rest: Color) {
   if (mode === "selected") {
     material.color.copy(selectedColor)
     material.emissive.set("#0c7f8a")
     material.emissiveIntensity = 0.9
     return
   }
-  material.color.copy(enamelColor)
+  material.color.copy(rest)
   if (mode === "hover") {
     material.emissive.copy(hoverEmissive)
     material.emissiveIntensity = 0.55
@@ -265,7 +274,8 @@ export function PatientModel({
       if (!(material instanceof MeshPhysicalMaterial)) continue
       if (piece.fdi === null) continue
       const mode = piece.fdi === selectedFdi ? "selected" : piece.fdi === hoveredFdi ? "hover" : "rest"
-      paintTooth(material, mode)
+      const rest = piece.kind === "gingiva" ? material.color : typeColors[piece.kind]
+      paintTooth(material, mode, rest)
     }
   }, [hoveredFdi, prepared, selectedFdi])
 
