@@ -24,6 +24,7 @@ import {
   type Raycaster,
 } from "three"
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js"
+import { MeshBVH, acceleratedRaycast, disposeBoundsTree } from "three-mesh-bvh"
 
 const selectedColor = new Color("#1ec8b8")
 const hoverEmissive = new Color("#5f8794")
@@ -176,12 +177,23 @@ function preparePatientModel(source: Object3D): { clone: Object3D; pieces: Model
     })
   }
 
+  // BVH only on the display clone — never the cached GLTF scene.
+  attachDisplayBvh(clone)
   return { clone, pieces, animated }
+}
+
+/** Build MeshBVH on clone geometries only. Source GLTF meshes are not passed here. */
+function attachDisplayBvh(root: Object3D) {
+  root.traverse((child) => {
+    if (!(child instanceof Mesh)) return
+    child.geometry.boundsTree = new MeshBVH(child.geometry)
+  })
 }
 
 function disposeClone(root: Object3D) {
   root.traverse((child) => {
     if (!(child instanceof Mesh)) return
+    if (child.geometry.boundsTree) disposeBoundsTree.call(child.geometry)
     child.geometry.dispose()
     const material = child.material
     if (material instanceof MeshPhysicalMaterial && material !== gingivaMaterial && material !== toothMaterial) {
@@ -194,11 +206,11 @@ function ignoreRaycast() {}
 
 function timedRaycast(this: Mesh, raycaster: Raycaster, intersects: Intersection[]) {
   const started = performance.now()
-  Mesh.prototype.raycast.call(this, raycaster, intersects)
+  acceleratedRaycast.call(this, raycaster, intersects)
   noteRaycastMs(performance.now() - started)
 }
 
-const activeRaycast = isPerfEnabled() ? timedRaycast : Mesh.prototype.raycast
+const activeRaycast = isPerfEnabled() ? timedRaycast : acceleratedRaycast
 
 function fdiFromHit(object: Object3D): number | null {
   let current: Object3D | null = object

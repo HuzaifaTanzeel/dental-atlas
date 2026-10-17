@@ -76,3 +76,17 @@ Raycast averages come from synthetic `pointermove` events over the canvas; treat
 - Triangle counts are after display welding in prepare (clone), not a claim about on-disk vertex counts.
 - `drawCalls` is `renderer.info.render.calls` sampled after the model is ready.
 - Dev first-frame times include StrictMode’s extra prepare; do not compare raw `prepareMs` × `prepareCount` to preview without saying so.
+
+## Optimization log
+
+### a) `three-mesh-bvh` on the display clone (preview)
+
+BVH is built only on geometries belonging to the prepared **clone**. The cached GLTF scene is never mutated. `disposeBoundsTree` runs with clone dispose. Raycast uses `acceleratedRaycast`.
+
+| Metric | patient-02 before → after | patient-05 before → after |
+| --- | ---: | ---: |
+| raycastMoveAvgMs (n=12) | 20.6 → **0.47** | 15.3 → **0.14** |
+| prepareMs (now includes BVH build) | 1111 → 993 | 1739 → 1442 |
+| firstFrameMs | 1200 → 1059 | 1881 → 1559 |
+
+Hover raycast is no longer a top bottleneck in preview. Prepare remains dominant.
