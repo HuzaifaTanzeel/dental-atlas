@@ -118,3 +118,30 @@ After the active patient is ready, `prefetchNeighborPatients` preloads the next 
 | Cold: patient-05 from patient-12 (not a forward neighbor) | 72 | 8 | 507 | 1379 |
 
 Prefetch removes localhost fetch/parse from the switch critical path when the neighbor was warmed; prepare remains.
+
+### d) Cache-Control for `/data/*.glb` (preview / Vite server)
+
+Vite plugin sets `Cache-Control: public, max-age=31536000, immutable` for `/data/*.glb` on dev and preview. **GLB bytes are unchanged.**
+
+Verified on preview:
+
+```
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=31536000, immutable
+Content-Length: 7286804
+```
+
+Hosting note: mirror the same header (or fingerprinted URLs) on the static host CDN. Browser cache hits will not show up in `glbFetchMs` when the disk/HTTP layer is skipped.
+
+### e) EXT_meshopt_compression — skipped
+
+Baseline and post-fix runs: localhost **fetch + parse stay far below prepare**. No meshopt, no `verify-patients.py` change. Revisit only if a remote host makes download dominate.
+
+## Needs owner decision (lossy — not done)
+
+These would change geometry or precision and are out of scope until explicitly approved:
+
+- Triangle decimation / simplification of display meshes
+- Position quantization (incl. meshopt with quantization on)
+- Draco compression
+- Any rewrite of on-disk Teeth3DS+ derived GLBs that is not float32-identical after decode
