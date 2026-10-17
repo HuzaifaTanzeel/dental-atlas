@@ -25,6 +25,7 @@ import { ToothSearchPanel } from "@/components/ToothSearchPanel"
 import { DentalScene } from "@/three/DentalScene"
 import type { ModelPiece } from "@/three/model-space"
 import { pieceVisible } from "@/three/model-space"
+import { prefetchNeighborPatients } from "@/three/prefetch-patients"
 import {
   GINGIVA_LAYER,
   STUDIO_VIEWS,
@@ -168,6 +169,11 @@ export function ViewerShell() {
     if (!soleMiss) return
     setAnnouncement(missingToothMessage(soleMiss))
   }, [soleMiss])
+
+  useEffect(() => {
+    if (!ready) return
+    return prefetchNeighborPatients(activePatientId)
+  }, [activePatientId, ready])
 
   const clearSelection = useCallback(() => {
     setSelectedFdi(null)

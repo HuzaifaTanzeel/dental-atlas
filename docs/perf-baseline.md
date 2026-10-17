@@ -107,3 +107,14 @@ Hover raycast is no longer a top bottleneck in preview. Prepare remains dominant
 | dev firstFrameMs | 4591 → **995** | 7332 → **785** |
 
 † patient-05 preview firstFrame variance (fetch was colder this run); prepare still dropped sharply. Progressive path kept: first paint no longer waits on weld.
+
+### c) Idle prefetch next 1–2 patients
+
+After the active patient is ready, `prefetchNeighborPatients` preloads the next one or two manifest URLs via `useLoader.preload(PerfGltfLoader, url)` on `requestIdleCallback` (max 2).
+
+| Case | glbFetchMs | glbParseMs | prepareMs | firstFrameMs |
+| --- | ---: | ---: | ---: | ---: |
+| Warm: patient-02 after idle on patient-01 (prefetched) | **null (loader cache hit)** | **null** | 436 | 1064 |
+| Cold: patient-05 from patient-12 (not a forward neighbor) | 72 | 8 | 507 | 1379 |
+
+Prefetch removes localhost fetch/parse from the switch critical path when the neighbor was warmed; prepare remains.
