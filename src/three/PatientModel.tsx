@@ -1,11 +1,28 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react"
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useLoader } from "@react-three/fiber"
 import type { ThreeEvent } from "@react-three/fiber"
-import { useGLTF } from "@react-three/drei"
 import { getFdiTooth, parseFdiNodeName } from "@/data/fdi-teeth"
+import {
+  countTriangles,
+  isPerfEnabled,
+  noteRaycastMs,
+  recordPrepare,
+  recordTriangles,
+} from "@/perf"
 import type { ArchId } from "@/studio-state"
 import { archDisplay, pieceVisible, type ModelPiece, type PieceFilter } from "@/three/model-space"
-import { Color, MathUtils, Mesh, MeshPhysicalMaterial, Vector3, type BufferGeometry, type Object3D } from "three"
+import { PerfGltfLoader } from "@/three/perf-gltf-loader"
+import {
+  Color,
+  MathUtils,
+  Mesh,
+  MeshPhysicalMaterial,
+  Vector3,
+  type BufferGeometry,
+  type Intersection,
+  type Object3D,
+  type Raycaster,
+} from "three"
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js"
 
 const selectedColor = new Color("#1ec8b8")
@@ -73,6 +90,19 @@ function meshBounds(mesh: Mesh): { center: Vector3; half: [number, number, numbe
     center: bounds.getCenter(new Vector3()),
     half: [size.x / 2, size.y / 2, size.z / 2],
   }
+}
+
+function preparePatientModelTimed(source: Object3D): {
+  clone: Object3D
+  pieces: ModelPiece[]
+  animated: AnimatedPiece[]
+} {
+  if (!isPerfEnabled()) return preparePatientModel(source)
+  const started = performance.now()
+  const next = preparePatientModel(source)
+  recordPrepare(performance.now() - started)
+  recordTriangles(countTriangles(next.clone))
+  return next
 }
 
 function preparePatientModel(source: Object3D): { clone: Object3D; pieces: ModelPiece[]; animated: AnimatedPiece[] } {
@@ -162,6 +192,14 @@ function disposeClone(root: Object3D) {
 
 function ignoreRaycast() {}
 
+function timedRaycast(this: Mesh, raycaster: Raycaster, intersects: Intersection[]) {
+  const started = performance.now()
+  Mesh.prototype.raycast.call(this, raycaster, intersects)
+  noteRaycastMs(performance.now() - started)
+}
+
+const activeRaycast = isPerfEnabled() ? timedRaycast : Mesh.prototype.raycast
+
 function fdiFromHit(object: Object3D): number | null {
   let current: Object3D | null = object
   while (current) {
@@ -219,8 +257,8 @@ export function PatientModel({
   onSelect,
   onClear,
 }: PatientModelProps) {
-  const { scene } = useGLTF(modelUrl)
-  const prepared = useMemo(() => preparePatientModel(scene), [scene])
+  const { scene } = useLoader(PerfGltfLoader, modelUrl)
+  const prepared = useMemo(() => preparePatientModelTimed(scene), [scene])
   const onReadyRef = useRef(onReady)
   const onPiecesRef = useRef(onPieces)
   const amount = useRef(0)
@@ -312,11 +350,11 @@ export function PatientModel({
         } else {
           piece.mesh.visible = shown
         }
-        piece.mesh.raycast = piece.mesh.visible ? Mesh.prototype.raycast : ignoreRaycast
+        piece.mesh.raycast = piece.mesh.visible ? activeRaycast : ignoreRaycast
         continue
       }
       piece.mesh.visible = shown
-      piece.mesh.raycast = shown ? Mesh.prototype.raycast : ignoreRaycast
+      piece.mesh.raycast = shown ? activeRaycast : ignoreRaycast
     }
   })
 
