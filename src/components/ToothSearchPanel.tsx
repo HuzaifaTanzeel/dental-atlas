@@ -1,6 +1,17 @@
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { X } from "lucide-react"
 import type { FdiTooth } from "@/data/fdi-teeth"
 import { TOOTH_LAYERS } from "@/studio-state"
-import { X } from "lucide-react"
+import { StudioButton } from "@/components/StudioButton"
+import {
+  Command,
+  CommandEmpty,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import { microTransition, studioEase, useStudioMotion } from "@/studio-motion"
 
 type ToothSearchPanelProps = {
   query: string
@@ -23,6 +34,8 @@ export function ToothSearchPanel({
   onPick,
   onClose,
 }: ToothSearchPanelProps) {
+  const { reduce } = useStudioMotion()
+  const [highlighted, setHighlighted] = useState("")
   const note = !scanReady
     ? "The scan is still loading."
     : query.trim()
@@ -30,45 +43,62 @@ export function ToothSearchPanel({
       : "All 32 permanent teeth. Missing ones stay in the list."
 
   return (
-    <section className="search-panel glass" aria-label="Find a tooth">
+    <>
       <div className="panel-heading">
         <span>Find a tooth</span>
-        <button type="button" className="icon-button" aria-label="Close search" onClick={onClose}>
+        <StudioButton type="button" className="icon-button" aria-label="Close search" onClick={onClose}>
           <X size={16} aria-hidden="true" />
-        </button>
+        </StudioButton>
       </div>
-      <input
-        autoFocus
-        aria-label="Search teeth by name or FDI number"
-        placeholder="Molar, canine, 36…"
-        value={query}
-        onChange={(event) => onQueryChange(event.target.value)}
-        onKeyDown={(event) => {
-          const first = results[0]
-          if (event.key === "Enter" && first) onPick(first.fdi)
-        }}
-      />
-      {results.length === 0 ? (
-        <p className="search-note">No teeth match that search.</p>
-      ) : (
-        <ul className="search-results">
-          {results.map((tooth) => {
+      <Command shouldFilter={false} loop onValueChange={setHighlighted} label="Find a tooth">
+        <CommandInput
+          autoFocus
+          aria-label="Search teeth by name or FDI number"
+          placeholder="Molar, canine, 36…"
+          value={query}
+          onValueChange={onQueryChange}
+        />
+        <CommandList className="search-results">
+          <CommandEmpty className="search-note">No teeth match that search.</CommandEmpty>
+          {results.map((tooth, index) => {
             const absent = scanReady && !presentFdi.has(tooth.fdi)
             const accent = TOOTH_LAYERS.find((layer) => layer.id === tooth.type)?.color
+            const value = String(tooth.fdi)
             return (
-              <li key={tooth.fdi}>
-                <button type="button" className={absent ? "is-absent" : undefined} onClick={() => onPick(tooth.fdi)}>
+              <CommandItem
+                key={tooth.fdi}
+                value={value}
+                className={absent ? "is-absent" : undefined}
+                onSelect={() => onPick(tooth.fdi)}
+              >
+                {highlighted === value ? (
+                  <motion.span
+                    layoutId="search-highlight"
+                    className="search-row-highlight"
+                    transition={reduce ? { duration: 0 } : microTransition}
+                  />
+                ) : null}
+                <motion.span
+                  className="search-result-body"
+                  initial={reduce ? false : { opacity: 0, y: 7 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reduce ? 0 : 0.18,
+                    ease: studioEase,
+                    delay: reduce ? 0 : Math.min(index, 12) * 0.04,
+                  }}
+                >
                   <span className="system-dot" style={{ background: accent }} />
                   <span className="search-result-name">{tooth.name}</span>
                   <span className="small-number">{absent ? "Not in this scan" : `FDI ${tooth.fdi}`}</span>
-                </button>
-              </li>
+                </motion.span>
+              </CommandItem>
             )
           })}
-        </ul>
-      )}
+        </CommandList>
+      </Command>
       {notice ? <p className="search-miss">{notice}</p> : null}
       <p className="search-note">{note}</p>
-    </section>
+    </>
   )
 }

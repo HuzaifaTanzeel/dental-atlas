@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useProgress } from "@react-three/drei"
+import { AnimatePresence, motion } from "framer-motion"
 import {
-  Activity,
   ArrowUpRight,
   Info,
   Layers3,
@@ -11,6 +11,11 @@ import {
   Search,
   X,
 } from "lucide-react"
+import { StudioButton } from "@/components/StudioButton"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Switch } from "@/components/ui/switch"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { MotionCard, useStudioMotion } from "@/studio-motion"
 import { getFdiTooth } from "@/data/fdi-teeth"
 import { missingToothMessage, searchFdiTeeth } from "@/data/fdi-search"
 import { getPatientById, patientModelUrl, patients } from "@/data/patients"
@@ -38,20 +43,27 @@ if (!defaultPatient) {
 type PanelId = "layers" | "search" | null
 
 function LoadingCard({ progress }: { progress: number }) {
+  const { reduce, panel } = useStudioMotion()
   const width = `${Math.max(4, Math.min(100, Math.round(progress)))}%`
   return (
-    <div className="loading-layer">
+    <motion.div
+      className="loading-layer"
+      initial={reduce ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduce ? { opacity: 1 } : { opacity: 0 }}
+      transition={panel}
+    >
       <div className="loading glass" role="status">
-        <Activity size={18} aria-hidden="true" />
+        <Skeleton className="size-9 shrink-0 rounded-full" />
         <div>
           <strong>Preparing the scan</strong>
           <span>{Math.round(progress)}% · Reading the dental surfaces</span>
           <div className="loading-track">
-            <i style={{ width }} />
+            <motion.i initial={false} animate={{ width }} transition={panel} />
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -61,9 +73,9 @@ function ErrorCard({ message, onReload }: { message: string; onReload: () => voi
       <div className="loading glass error" role="alert">
         <strong>The scan could not be loaded</strong>
         <p>{message}</p>
-        <button type="button" onClick={onReload}>
+        <StudioButton type="button" onClick={onReload}>
           Reload viewer
-        </button>
+        </StudioButton>
       </div>
     </div>
   )
@@ -80,6 +92,7 @@ function sceneCaption(studio: StudioState, selectedName: string | null): string 
 }
 
 export function ViewerShell() {
+  const { reduce, micro, panel: panelMotion } = useStudioMotion()
   const [session, setSession] = useState(0)
   const [activePatientId, setActivePatientId] = useState(defaultPatient.id)
   const [studio, setStudio] = useState<StudioState>(initialStudio)
@@ -382,9 +395,16 @@ export function ViewerShell() {
         />
       )}
       <div className="vignette" />
-      {!error && !ready ? <LoadingCard progress={progress} /> : null}
+      <AnimatePresence>
+        {!error && !ready ? <LoadingCard key="loading" progress={progress} /> : null}
+      </AnimatePresence>
 
-      <header className="identity">
+      <motion.header
+        className="identity"
+        initial={reduce ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={panelMotion}
+      >
         <div className="eyebrow">
           <span className="status-dot" /> INTERACTIVE DENTISTRY
         </div>
@@ -395,15 +415,21 @@ export function ViewerShell() {
           {patients.length} scans <span>·</span> Teeth3DS+
         </div>
         <PatientSwitcher value={activePatientId} onChange={switchPatient} />
-      </header>
+      </motion.header>
 
-      <nav className="top-actions" aria-label="Explorer">
-        <button type="button" className={panel === "search" ? "active" : ""} onClick={() => openPanel("search")}>
+      <motion.nav
+        className="top-actions"
+        aria-label="Explorer"
+        initial={reduce ? false : { opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={panelMotion}
+      >
+        <StudioButton type="button" className={panel === "search" ? "active" : ""} onClick={() => openPanel("search")}>
           <Search size={16} aria-hidden="true" />
           <span>Find a tooth</span>
           <kbd>/</kbd>
-        </button>
-        <button
+        </StudioButton>
+        <StudioButton
           type="button"
           className="icon-button"
           aria-label="About this atlas"
@@ -413,85 +439,87 @@ export function ViewerShell() {
           }}
         >
           <Info size={18} aria-hidden="true" />
-        </button>
-      </nav>
+        </StudioButton>
+      </motion.nav>
 
-      <nav className="arch-tabs glass" aria-label="Jaw">
-        <button type="button" aria-pressed={archMode === "upper"} onClick={() => setArchMode("upper")}>
+      <motion.nav
+        className="arch-tabs"
+        aria-label="Jaw"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={panelMotion}
+      >
+        <StudioButton type="button" aria-pressed={archMode === "upper"} onClick={() => setArchMode("upper")}>
           Upper
-        </button>
-        <button type="button" aria-pressed={archMode === "occlusion"} onClick={() => setArchMode("occlusion")}>
+        </StudioButton>
+        <StudioButton type="button" aria-pressed={archMode === "occlusion"} onClick={() => setArchMode("occlusion")}>
           Occlusion
-        </button>
-        <button type="button" aria-pressed={archMode === "lower"} onClick={() => setArchMode("lower")}>
+        </StudioButton>
+        <StudioButton type="button" aria-pressed={archMode === "lower"} onClick={() => setArchMode("lower")}>
           Lower
-        </button>
-      </nav>
+        </StudioButton>
+      </motion.nav>
 
-      <section className={`layers-panel glass${panel === "layers" ? " mobile-open" : ""}`} aria-label="Dental layers">
+      <MotionCard
+        className={`layers-panel glass gap-0 py-0 ring-0 shadow-none${panel === "layers" ? " mobile-open" : ""}`}
+        aria-label="Dental layers"
+        initial={reduce ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={panelMotion}
+      >
         <div className="panel-heading">
           <span>Layers</span>
-          <button type="button" className="mobile-only icon-button" aria-label="Close layers" onClick={() => setPanel(null)}>
+          <StudioButton type="button" className="mobile-only icon-button" aria-label="Close layers" onClick={() => setPanel(null)}>
             <X size={16} aria-hidden="true" />
-          </button>
+          </StudioButton>
           <span className="count-pill desktop-only">{visibleCount}</span>
         </div>
         <div className="layer-presets">
-          <button type="button" aria-pressed={allOn} onClick={() => applyPreset("all")}>
+          <StudioButton type="button" aria-pressed={allOn} onClick={() => applyPreset("all")}>
             All
-          </button>
-          <button type="button" aria-pressed={teethOn} onClick={() => applyPreset("teeth")}>
+          </StudioButton>
+          <StudioButton type="button" aria-pressed={teethOn} onClick={() => applyPreset("teeth")}>
             Teeth
-          </button>
-          <button type="button" aria-pressed={molarsOn} onClick={() => applyPreset("molars")}>
+          </StudioButton>
+          <StudioButton type="button" aria-pressed={molarsOn} onClick={() => applyPreset("molars")}>
             Molars
-          </button>
+          </StudioButton>
         </div>
         <div className="system-list">
           {TOOTH_LAYERS.map((layer) => (
             <div className={`system-row${studio.layers.includes(layer.id) ? " enabled" : ""}`} key={layer.id}>
-              <button type="button" className="system-name" title={`Show only ${layer.name.toLowerCase()}`} onClick={() => soloLayer(layer.id)}>
+              <StudioButton type="button" className="system-name" title={`Show only ${layer.name.toLowerCase()}`} onClick={() => soloLayer(layer.id)}>
                 <span className="system-dot" style={{ background: layer.color }} />
                 <span>{layer.name}</span>
                 <span className="system-count">{counts[layer.id]}</span>
-              </button>
-              <button
-                type="button"
-                className="switch"
-                role="switch"
-                aria-checked={studio.layers.includes(layer.id)}
+              </StudioButton>
+              <Switch
+                checked={studio.layers.includes(layer.id)}
                 aria-label={`Show ${layer.name.toLowerCase()}`}
-                onClick={() => toggleLayer(layer.id)}
-              >
-                <i />
-              </button>
+                onCheckedChange={() => toggleLayer(layer.id)}
+              />
             </div>
           ))}
           <div className={`system-row${studio.gingiva ? " enabled" : ""}`}>
-            <button type="button" className="system-name" onClick={() => setStudio((current) => ({ ...current, gingiva: !current.gingiva, isolate: false }))}>
+            <StudioButton type="button" className="system-name" onClick={() => setStudio((current) => ({ ...current, gingiva: !current.gingiva, isolate: false }))}>
               <span className="system-dot" style={{ background: GINGIVA_LAYER.color }} />
               <span>{GINGIVA_LAYER.name}</span>
               <span className="system-count">{counts.gingiva}</span>
-            </button>
-            <button
-              type="button"
-              className="switch"
-              role="switch"
-              aria-checked={studio.gingiva}
+            </StudioButton>
+            <Switch
+              checked={studio.gingiva}
               aria-label="Show gingiva"
-              onClick={() => {
+              onCheckedChange={() => {
                 setSelectedFdi(null)
                 setFocusFdi(null)
                 setStudio((current) => ({ ...current, gingiva: !current.gingiva, isolate: false }))
               }}
-            >
-              <i />
-            </button>
+            />
           </div>
         </div>
         <div className="panel-foot">
           <span>{visibleCount} pieces visible</span>
-          <button
+          <StudioButton
             type="button"
             onClick={() => {
               setSelectedFdi(null)
@@ -500,11 +528,23 @@ export function ViewerShell() {
             }}
           >
             Hide all
-          </button>
+          </StudioButton>
         </div>
-      </section>
+      </MotionCard>
 
+      <AnimatePresence>
       {panel === "search" ? (
+        <MotionCard
+          key="search"
+          className="search-panel glass gap-0 py-0 ring-0 shadow-none"
+          role="search"
+          aria-label="Find a tooth"
+          initial={reduce ? false : { opacity: 0, y: 8, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={reduce ? undefined : { opacity: 0, y: 8, scale: 0.98 }}
+          transition={panelMotion}
+          style={{ transformOrigin: "top right" }}
+        >
         <ToothSearchPanel
           query={query}
           onQueryChange={(value) => {
@@ -521,51 +561,87 @@ export function ViewerShell() {
             setPanel(null)
           }}
         />
+        </MotionCard>
       ) : null}
+      </AnimatePresence>
 
-      <nav className="view-controls glass" aria-label="Camera">
+      <motion.nav
+        className="view-controls"
+        aria-label="Camera"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={panelMotion}
+      >
         {STUDIO_VIEWS.map((item) => (
-          <button
-            type="button"
-            key={item.id}
-            className={posedView === item.id ? "active" : ""}
-            aria-pressed={posedView === item.id}
-            aria-label={item.title}
-            title={item.title}
-            disabled={studio.explode > 0.8 && item.id !== "occlusal"}
-            onClick={() => setView(item.id)}
-          >
-            {item.label}
-          </button>
+          <Tooltip key={item.id}>
+            <TooltipTrigger
+              render={
+                <StudioButton
+                  type="button"
+                  className={posedView === item.id ? "active" : ""}
+                  aria-pressed={posedView === item.id}
+                  aria-label={item.title}
+                  disabled={studio.explode > 0.8 && item.id !== "occlusal"}
+                  onClick={() => setView(item.id)}
+                />
+              }
+            >
+              {item.label}
+            </TooltipTrigger>
+            <TooltipContent side="left">{item.title}</TooltipContent>
+          </Tooltip>
         ))}
         <span className="view-sep" />
-        <button
-          type="button"
-          className={studio.rotate ? "active" : ""}
-          aria-label={studio.rotate ? "Pause rotation" : "Rotate scan"}
-          title="Auto rotate"
-          disabled={studio.explode >= 0.4 || studio.isolate}
-          onClick={() => setStudio((current) => ({ ...current, rotate: !current.rotate }))}
-        >
-          {studio.rotate ? <Pause size={16} /> : <RotateCw size={16} />}
-        </button>
-        <button type="button" aria-label="Reset view and layers" title="Reset" onClick={resetStudio}>
-          <RotateCcw size={16} />
-        </button>
-      </nav>
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <StudioButton
+                type="button"
+                className={studio.rotate ? "active" : ""}
+                aria-label={studio.rotate ? "Pause rotation" : "Rotate scan"}
+                disabled={studio.explode >= 0.4 || studio.isolate}
+                onClick={() => setStudio((current) => ({ ...current, rotate: !current.rotate }))}
+              />
+            }
+          >
+            {studio.rotate ? <Pause size={16} /> : <RotateCw size={16} />}
+          </TooltipTrigger>
+          <TooltipContent side="left">Auto rotate</TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <StudioButton type="button" aria-label="Reset view and layers" onClick={resetStudio} />
+            }
+          >
+            <RotateCcw size={16} />
+          </TooltipTrigger>
+          <TooltipContent side="left">Reset</TooltipContent>
+        </Tooltip>
+      </motion.nav>
 
-      <div className="scene-caption">
+      <motion.div
+        className="scene-caption"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={panelMotion}
+      >
         <span className="caption-line" />
         <span>{sceneCaption(studio, selectedTooth?.name ?? null)}</span>
         <span className="caption-line" />
-      </div>
+      </motion.div>
 
-      <div className="dock-anchor">
+      <motion.div
+        className="dock-anchor"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={panelMotion}
+      >
       <div className="bottom-dock glass">
-        <button type="button" className="mobile-only dock-side" onClick={() => openPanel("layers")} aria-label="Open layers">
+        <StudioButton type="button" className="mobile-only dock-side" onClick={() => openPanel("layers")} aria-label="Open layers">
           <Layers3 size={18} aria-hidden="true" />
           <span>Layers</span>
-        </button>
+        </StudioButton>
         <div className="explode-control">
           <div className="explode-label">
             <label id="explode-label" htmlFor="explode-slider">
@@ -600,12 +676,12 @@ export function ViewerShell() {
             <span>Every tooth</span>
           </div>
         </div>
-        <button type="button" className="dock-side" onClick={resetStudio} aria-label="Assemble and reset">
+        <StudioButton type="button" className="dock-side" onClick={resetStudio} aria-label="Assemble and reset">
           <RotateCcw size={16} aria-hidden="true" />
           <span>Reset</span>
-        </button>
+        </StudioButton>
       </div>
-      </div>
+      </motion.div>
 
       <footer className="studio-footer">
         <span>
@@ -618,7 +694,7 @@ export function ViewerShell() {
           <a href="https://github.com/abenhamadou/3DTeethSeg22_challenge" target="_blank" rel="noreferrer">
             3DTeethSeg
           </a>
-          <button
+          <StudioButton
             type="button"
             onClick={() => {
               setPanel(null)
@@ -626,41 +702,74 @@ export function ViewerShell() {
             }}
           >
             Source & credits <ArrowUpRight size={12} aria-hidden="true" />
-          </button>
+          </StudioButton>
         </span>
       </footer>
 
-      {!error && selectedFdi !== null ? (
-        <ToothDetailPanel
-          fdi={selectedFdi}
-          isolated={studio.isolate}
-          onClose={clearSelection}
-          onToggleIsolate={toggleIsolate}
-        />
-      ) : null}
+      <AnimatePresence>
+        {!error && selectedFdi !== null && selectedTooth ? (
+          <MotionCard
+            key="detail"
+            className="detail-sheet glass gap-0 py-0 ring-0 shadow-none"
+            aria-label={`Selected tooth, FDI ${selectedTooth.fdi}`}
+            initial={reduce ? false : { opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduce ? undefined : { opacity: 0, x: 12 }}
+            transition={panelMotion}
+          >
+            <ToothDetailPanel
+              fdi={selectedFdi}
+              isolated={studio.isolate}
+              onClose={clearSelection}
+              onToggleIsolate={toggleIsolate}
+            />
+          </MotionCard>
+        ) : null}
+      </AnimatePresence>
 
-      {hoverStyle && hoveredTooth ? (
-        <div className="part-hover" style={hoverStyle} role="tooltip">
-          {hoveredTooth.name}
-        </div>
-      ) : null}
+      <AnimatePresence>
+        {hoverStyle && hoveredTooth ? (
+          <motion.div
+            key={hoveredTooth.fdi}
+            className="part-hover"
+            style={hoverStyle}
+            role="tooltip"
+            initial={reduce ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: 4 }}
+            transition={micro}
+          >
+            {hoveredTooth.name}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
+      <AnimatePresence>
       {about ? (
-        <div
+        <motion.div
+          key="about"
           className="about-backdrop"
           onClick={() => setAbout(false)}
           role="presentation"
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={reduce ? undefined : { opacity: 0 }}
+          transition={panelMotion}
         >
-          <aside
-            className="about-sheet glass"
+          <MotionCard
+            className="about-sheet glass gap-0 py-0 ring-0 shadow-none"
             role="dialog"
             aria-modal="true"
             aria-labelledby="about-title"
             onClick={(event) => event.stopPropagation()}
+            initial={reduce ? false : { opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduce ? undefined : { opacity: 0, x: 12 }}
+            transition={panelMotion}
           >
-            <button type="button" className="sheet-close" aria-label="Close about" onClick={() => setAbout(false)}>
+            <StudioButton type="button" className="sheet-close" aria-label="Close about" onClick={() => setAbout(false)}>
               <X size={16} aria-hidden="true" />
-            </button>
+            </StudioButton>
             <div className="eyebrow">SOURCE & SCOPE</div>
             <h2 id="about-title">A dentition, revealed.</h2>
             <p className="about-lead">Real intraoral scans, opened tooth by tooth.</p>
@@ -689,9 +798,10 @@ export function ViewerShell() {
                 Read the source paper <ArrowUpRight size={14} aria-hidden="true" />
               </a>
             </div>
-          </aside>
-        </div>
+          </MotionCard>
+        </motion.div>
       ) : null}
+      </AnimatePresence>
 
       <p className="sr-only" aria-live="polite">
         {announcement}

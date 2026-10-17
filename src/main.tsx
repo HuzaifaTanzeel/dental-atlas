@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './App.tsx'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import './index.css'
 import './studio.css'
 
@@ -11,6 +12,8 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <TooltipProvider delay={300}>
+      <App />
+    </TooltipProvider>
   </StrictMode>,
 )
