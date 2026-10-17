@@ -90,3 +90,20 @@ BVH is built only on geometries belonging to the prepared **clone**. The cached 
 | firstFrameMs | 1200 → 1059 | 1881 → 1559 |
 
 Hover raycast is no longer a top bottleneck in preview. Prepare remains dominant.
+
+### b) Prepare once + progressive smooth (preview + StrictMode)
+
+- Module cache keyed by `modelUrl` with deferred dispose so StrictMode remount reuses the display clone (no second `smoothForDisplay`).
+- First paint uses cloned raw geometry + BVH; `mergeVertices` / smooth normals run idle and swap onto the same meshes.
+- `three-mesh-bvh` pinned to `0.8.3` to match `@react-three/drei` (avoids dual-version `boundsTree` typing).
+
+| Metric | patient-02 before → after | patient-05 before → after |
+| --- | ---: | ---: |
+| preview prepareMs | 993 → **434** | 1442 → **610** |
+| preview firstFrameMs | 1059 → **547** | 1559 → **1667**† |
+| preview prepareCount | 1 → 1 | 1 → 1 |
+| **dev** prepareCount (StrictMode) | 2 → **1** | 2 → **1** |
+| dev prepareMs (fast path) | 1927 → **414** | 3514 → **597** |
+| dev firstFrameMs | 4591 → **995** | 7332 → **785** |
+
+† patient-05 preview firstFrame variance (fetch was colder this run); prepare still dropped sharply. Progressive path kept: first paint no longer waits on weld.

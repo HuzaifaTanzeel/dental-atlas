@@ -75,6 +75,8 @@ export function getPerfSnapshot(): PerfSnapshot {
 
 export function beginPatientLoad(modelUrl: string) {
   if (!PERF_ENABLED) return
+  // Same URL: StrictMode re-runs the effect; keep metrics already recorded for this patient.
+  if (snapshot.modelUrl === modelUrl) return
   loadEpoch += 1
   loadStartedAt = performance.now()
   firstFrameDone = false
