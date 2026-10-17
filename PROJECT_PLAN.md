@@ -62,56 +62,6 @@ Nobody has built a public browser for **real patient variation** in dentistry. T
 
 ---
 
-## 4. Agent Skills setup for Cursor
-
-This project should use Anthropic-style Agent Skills via the **addyosmani/agent-skills** pack (https://github.com/addyosmani/agent-skills — MIT licensed, portable `SKILL.md` format, works natively with Cursor's Agent Skills support).
-
-**Install once, at the very start of Phase 0**, via the skills CLI:
-
-```bash
-npx skills add addyosmani/agent-skills --skill using-agent-skills
-npx skills add addyosmani/agent-skills --skill spec-driven-development
-npx skills add addyosmani/agent-skills --skill planning-and-task-breakdown
-npx skills add addyosmani/agent-skills --skill incremental-implementation
-npx skills add addyosmani/agent-skills --skill context-engineering
-npx skills add addyosmani/agent-skills --skill source-driven-development
-npx skills add addyosmani/agent-skills --skill frontend-ui-engineering
-npx skills add addyosmani/agent-skills --skill git-workflow-and-versioning
-npx skills add addyosmani/agent-skills --skill debugging-and-error-recovery
-npx skills add addyosmani/agent-skills --skill code-review-and-quality
-npx skills add addyosmani/agent-skills --skill performance-optimization
-npx skills add addyosmani/agent-skills --skill browser-testing-with-devtools
-npx skills add addyosmani/agent-skills --skill documentation-and-adrs
-```
-
-This installs each skill's `SKILL.md` into `.cursor/skills/`, where Cursor auto-discovers and loads them progressively. If the CLI is unavailable in this environment, manually clone the repo and copy the relevant `skills/<name>/` folders into `.cursor/skills/` per the pack's own `docs/cursor-setup.md`.
-
-**Why these and not the full set of 25** (skip the rest for v1 — they're aimed at production services/APIs/teams, not a solo static-site v1):
-- Skipped: `interview-me`, `idea-refine` (this document already is the spec — no need to re-derive it)
-- Skipped: `constraint-driven-development`, `api-and-interface-design` (no API, no team quality-bar negotiation needed solo)
-- Skipped: `test-driven-development` in its strict form — 3D rendering isn't meaningfully unit-testable; instead, apply light test coverage only to the data-loading/parsing utility functions (see Phase 1), not to rendering code
-- Skipped: `security-and-hardening`, `observability-and-instrumentation`, `ci-cd-and-automation`, `deprecation-and-migration`, `shipping-and-launch` — all aimed at production services; irrelevant until this actually gets deployed, which is out of scope for this doc
-- Skipped: `code-simplification`, `doubt-driven-development`, `api-and-interface-design` — nice-to-haves, apply informally if useful, not required
-
-**How each installed skill is used in this project, concretely:**
-| Skill | Where it applies here |
-|---|---|
-| `using-agent-skills` | Load first, every session — routes you to the right skill for whatever phase you're in |
-| `spec-driven-development` | Treat this document itself as the PRD; don't re-write one |
-| `planning-and-task-breakdown` | Break each phase below into the smallest verifiable tasks before touching code |
-| `incremental-implementation` | One phase = one thin vertical slice = implement → verify → commit. Never batch multiple phases into one commit |
-| `context-engineering` | When referencing human-atlas, pull only the specific file/pattern needed, not the whole repo, into context |
-| `source-driven-development` | Ground every Three.js / React Three Fiber / glTF decision in official docs (threejs.org, docs.pmnd.rs) — don't guess at API shapes |
-| `frontend-ui-engineering` | Component structure, responsive layout, WCAG basics for the viewer UI |
-| `git-workflow-and-versioning` | Atomic commits, trunk-based local workflow, small diffs — see Section 5 |
-| `debugging-and-error-recovery` | Structured triage when mesh loading/parsing breaks (very likely during Phase 1–2) |
-| `code-review-and-quality` | Self-review gate before merging each phase's branch into `main` |
-| `performance-optimization` | Loading real scan meshes can be heavy — measure before assuming it's fine, especially on mobile |
-| `browser-testing-with-devtools` | Verify rendering, check console/network in the actual browser at the end of every phase |
-| `documentation-and-adrs` | Record *why* behind the glTF conversion approach, the patient-subset choice, etc. as short ADRs |
-
----
-
 ## 5. Git workflow — local only, no remote
 
 Cursor must:
