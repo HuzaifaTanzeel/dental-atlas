@@ -14,6 +14,15 @@ import {
   type PerspectiveCamera,
 } from "three"
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js"
+import { PerfOverlay } from "@/components/PerfOverlay"
+import {
+  beginPatientLoad,
+  currentLoadEpoch,
+  isPerfEnabled,
+  logPerfTable,
+  noteFirstFrameIfNeeded,
+  recordDrawCalls,
+} from "@/perf"
 import type { StudioState } from "@/studio-state"
 import { PatientModel } from "@/three/PatientModel"
 import { cameraFocusFilter, studioPose, type ModelPiece, type PieceFilter } from "@/three/model-space"
@@ -382,6 +391,31 @@ function CanvasLabel({ onContextLost }: { onContextLost: () => void }) {
   return null
 }
 
+/** Records first painted frame + draw calls when `?perf=1`. Renders nothing. */
+function PerfFrameProbe({ modelReady }: { modelReady: boolean }) {
+  const gl = useThree((state) => state.gl)
+  const epochRef = useRef(currentLoadEpoch())
+  const loggedRef = useRef(false)
+
+  useEffect(() => {
+    if (!isPerfEnabled()) return
+    epochRef.current = currentLoadEpoch()
+    loggedRef.current = false
+  }, [modelReady])
+
+  useFrame(() => {
+    if (!isPerfEnabled() || !modelReady) return
+    noteFirstFrameIfNeeded(epochRef.current)
+    recordDrawCalls(gl.info.render.calls)
+    if (!loggedRef.current) {
+      loggedRef.current = true
+      queueMicrotask(() => logPerfTable())
+    }
+  })
+
+  return null
+}
+
 export function DentalScene({
   patientKey,
   modelUrl,
@@ -407,6 +441,10 @@ export function DentalScene({
     setFramedPatient(patientKey)
     setPieces([])
   }
+
+  useEffect(() => {
+    beginPatientLoad(modelUrl)
+  }, [modelUrl, patientKey])
   const filter = useMemo<PieceFilter>(
     () => ({
       arches: studio.arches,
@@ -428,6 +466,7 @@ export function DentalScene({
   }
 
   const spread = studio.explode >= 0.8
+  const perfOn = isPerfEnabled()
 
   return (
     <div className="scene">
@@ -445,6 +484,7 @@ export function DentalScene({
           <StudioEnvironment />
           <CanvasLabel onContextLost={() => onError(contextLostError)} />
           <SelectionGestures tapRef={tap} armed={armed} onHover={onHover} />
+          {perfOn ? <PerfFrameProbe modelReady={pieces.length > 0} /> : null}
           <hemisphereLight args={["#f4efe8", "#6d7c8a", 0.55]} />
           <directionalLight position={[-2.4, 5.2, 3.4]} intensity={2.05} color="#fff6ee" />
           <directionalLight position={[3.2, 1.8, -2.6]} intensity={0.62} color="#d5e2f2" />
@@ -500,6 +540,7 @@ export function DentalScene({
           </group>
         </Canvas>
       </SceneErrorBoundary>
+      {perfOn ? <PerfOverlay /> : null}
     </div>
   )
 }

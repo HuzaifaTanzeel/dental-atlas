@@ -1,74 +1,9002 @@
 [
   {
-    "id": "patient-01",
-    "sourceId": "O9U99070",
-    "label": "Patient 1 — several missing teeth",
-    "file": "patient-01.glb"
+    "id": "patient-001",
+    "sourceId": "EBSXE6SY",
+    "label": "Patient 1 \u2014 several missing teeth",
+    "file": "patient-001.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-02",
-    "sourceId": "N53MDM0A",
-    "label": "Patient 2 — second and third molars absent",
-    "file": "patient-02.glb"
+    "id": "patient-002",
+    "sourceId": "01FJT0PR",
+    "label": "Patient 2 \u2014 third molars absent",
+    "file": "patient-002.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-03",
-    "sourceId": "7IGA0W6E",
-    "label": "Patient 3 — upper left canine absent",
-    "file": "patient-03.glb"
+    "id": "patient-003",
+    "sourceId": "015DTXR8",
+    "label": "Patient 3 \u2014 third molars absent",
+    "file": "patient-003.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-04",
-    "sourceId": "7IKF2TIW",
-    "label": "Patient 4 — both upper canines absent",
-    "file": "patient-04.glb"
+    "id": "patient-004",
+    "sourceId": "4PW7S6FP",
+    "label": "Patient 4 \u2014 third molars absent",
+    "file": "patient-004.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-05",
-    "sourceId": "8JYS0DD1",
-    "label": "Patient 5 — several second molars absent",
-    "file": "patient-05.glb"
+    "id": "patient-005",
+    "sourceId": "IF1GKK1E",
+    "label": "Patient 5 \u2014 several missing teeth",
+    "file": "patient-005.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-06",
-    "sourceId": "NQ2A571C",
-    "label": "Patient 6 — upper second molars absent",
-    "file": "patient-06.glb"
+    "id": "patient-006",
+    "sourceId": "1LYSVDBP",
+    "label": "Patient 6 \u2014 several missing teeth",
+    "file": "patient-006.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-07",
-    "sourceId": "MGYSCSI9",
-    "label": "Patient 7 — lower right molars absent",
-    "file": "patient-07.glb"
+    "id": "patient-007",
+    "sourceId": "01FUZ18R",
+    "label": "Patient 7 \u2014 several missing teeth",
+    "file": "patient-007.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-08",
-    "sourceId": "8MTEIYKY",
-    "label": "Patient 8 — lower left second molar absent",
-    "file": "patient-08.glb"
+    "id": "patient-008",
+    "sourceId": "F892DPWZ",
+    "label": "Patient 8 \u2014 third molars absent",
+    "file": "patient-008.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-09",
+    "id": "patient-009",
+    "sourceId": "RTPHYQ5V",
+    "label": "Patient 9 \u2014 several missing teeth",
+    "file": "patient-009.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-010",
+    "sourceId": "0158XRYK",
+    "label": "Patient 10 \u2014 third molars absent",
+    "file": "patient-010.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-011",
+    "sourceId": "1QHIL7V2",
+    "label": "Patient 11 \u2014 third molars absent",
+    "file": "patient-011.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-012",
+    "sourceId": "KX9HKC3D",
+    "label": "Patient 12 \u2014 third molars absent",
+    "file": "patient-012.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-013",
+    "sourceId": "WINM1RGX",
+    "label": "Patient 13 \u2014 third molars absent",
+    "file": "patient-013.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-014",
+    "sourceId": "X67M31XQ",
+    "label": "Patient 14 \u2014 several missing teeth",
+    "file": "patient-014.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-015",
+    "sourceId": "01M6SK94",
+    "label": "Patient 15 \u2014 several missing teeth",
+    "file": "patient-015.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-016",
+    "sourceId": "019Z57FF",
+    "label": "Patient 16 \u2014 several missing teeth",
+    "file": "patient-016.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-017",
+    "sourceId": "017U0890",
+    "label": "Patient 17 \u2014 several missing teeth",
+    "file": "patient-017.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-018",
+    "sourceId": "01E5XG8Z",
+    "label": "Patient 18 \u2014 third molars absent",
+    "file": "patient-018.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-019",
+    "sourceId": "2GB3W1J0",
+    "label": "Patient 19 \u2014 several missing teeth",
+    "file": "patient-019.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-020",
+    "sourceId": "01422MSK",
+    "label": "Patient 20 \u2014 several missing teeth",
+    "file": "patient-020.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-021",
+    "sourceId": "ZCZHZ260",
+    "label": "Patient 21 \u2014 several missing teeth",
+    "file": "patient-021.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-022",
+    "sourceId": "51MXL2ZA",
+    "label": "Patient 22 \u2014 third molars absent",
+    "file": "patient-022.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-023",
+    "sourceId": "M7RTPNPC",
+    "label": "Patient 23 \u2014 third molars absent",
+    "file": "patient-023.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-024",
+    "sourceId": "0158T9ED",
+    "label": "Patient 24 \u2014 third molars absent",
+    "file": "patient-024.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-025",
+    "sourceId": "5JOHQLJK",
+    "label": "Patient 25 \u2014 FDI 18, 28, 48 absent",
+    "file": "patient-025.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-026",
+    "sourceId": "W82LGNOE",
+    "label": "Patient 26 \u2014 several missing teeth",
+    "file": "patient-026.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-027",
+    "sourceId": "UNKC1VVC",
+    "label": "Patient 27 \u2014 third molars absent",
+    "file": "patient-027.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-028",
+    "sourceId": "IAKXN91M",
+    "label": "Patient 28 \u2014 several missing teeth",
+    "file": "patient-028.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-029",
+    "sourceId": "Q3NA514X",
+    "label": "Patient 29 \u2014 several missing teeth",
+    "file": "patient-029.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-030",
+    "sourceId": "01ETW4JZ",
+    "label": "Patient 30 \u2014 third molars absent",
+    "file": "patient-030.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-031",
+    "sourceId": "QTDZUUZV",
+    "label": "Patient 31 \u2014 third molars absent",
+    "file": "patient-031.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-032",
+    "sourceId": "01FG729R",
+    "label": "Patient 32 \u2014 third molars absent",
+    "file": "patient-032.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-033",
+    "sourceId": "LBY32W80",
+    "label": "Patient 33 \u2014 several missing teeth",
+    "file": "patient-033.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-034",
+    "sourceId": "01ENPFHF",
+    "label": "Patient 34 \u2014 several missing teeth",
+    "file": "patient-034.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-035",
+    "sourceId": "0154T9CN",
+    "label": "Patient 35 \u2014 several missing teeth",
+    "file": "patient-035.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-036",
+    "sourceId": "V6R7KK6G",
+    "label": "Patient 36 \u2014 third molars absent",
+    "file": "patient-036.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-037",
+    "sourceId": "KC1RZ7D9",
+    "label": "Patient 37 \u2014 third molars absent",
+    "file": "patient-037.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-038",
+    "sourceId": "CD81F1F4",
+    "label": "Patient 38 \u2014 third molars absent",
+    "file": "patient-038.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-039",
+    "sourceId": "01KRDUKX",
+    "label": "Patient 39 \u2014 several missing teeth",
+    "file": "patient-039.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-040",
+    "sourceId": "2CE5VDAE",
+    "label": "Patient 40 \u2014 several missing teeth",
+    "file": "patient-040.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-041",
+    "sourceId": "013NUWYR",
+    "label": "Patient 41 \u2014 FDI 18, 35 absent",
+    "file": "patient-041.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-042",
+    "sourceId": "016T6810",
+    "label": "Patient 42 \u2014 several missing teeth",
+    "file": "patient-042.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-043",
+    "sourceId": "N9K2UFAU",
+    "label": "Patient 43 \u2014 third molars absent",
+    "file": "patient-043.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-044",
+    "sourceId": "0OTKQ5J9",
+    "label": "Patient 44 \u2014 several missing teeth",
+    "file": "patient-044.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-045",
+    "sourceId": "54RS4WY0",
+    "label": "Patient 45 \u2014 several missing teeth",
+    "file": "patient-045.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-046",
+    "sourceId": "3EU06ZN9",
+    "label": "Patient 46 \u2014 FDI 23, 38, 48 absent",
+    "file": "patient-046.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-047",
+    "sourceId": "50O9GUWT",
+    "label": "Patient 47 \u2014 several missing teeth",
+    "file": "patient-047.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-048",
+    "sourceId": "9OOBRVB8",
+    "label": "Patient 48 \u2014 third molars absent",
+    "file": "patient-048.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-049",
+    "sourceId": "0178PAPZ",
+    "label": "Patient 49 \u2014 several missing teeth",
+    "file": "patient-049.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-050",
+    "sourceId": "QPYE7NOP",
+    "label": "Patient 50 \u2014 several missing teeth",
+    "file": "patient-050.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-051",
+    "sourceId": "NV3U6JM9",
+    "label": "Patient 51 \u2014 third molars absent",
+    "file": "patient-051.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-052",
+    "sourceId": "6PTI2HX6",
+    "label": "Patient 52 \u2014 third molars absent",
+    "file": "patient-052.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-053",
+    "sourceId": "G3IG4NVH",
+    "label": "Patient 53 \u2014 third molars absent",
+    "file": "patient-053.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-054",
+    "sourceId": "P744BHYG",
+    "label": "Patient 54 \u2014 third molars absent",
+    "file": "patient-054.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-055",
+    "sourceId": "THGBYHX3",
+    "label": "Patient 55 \u2014 several missing teeth",
+    "file": "patient-055.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-056",
+    "sourceId": "01J9K9S6",
+    "label": "Patient 56 \u2014 FDI 18 absent",
+    "file": "patient-056.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-057",
+    "sourceId": "VBUD4E5R",
+    "label": "Patient 57 \u2014 third molars absent",
+    "file": "patient-057.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-058",
+    "sourceId": "8C8LPIIY",
+    "label": "Patient 58 \u2014 third molars absent",
+    "file": "patient-058.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-059",
+    "sourceId": "01328DDN",
+    "label": "Patient 59 \u2014 third molars absent",
+    "file": "patient-059.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-060",
+    "sourceId": "VEAVRKX3",
+    "label": "Patient 60 \u2014 third molars absent",
+    "file": "patient-060.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-061",
+    "sourceId": "IKZNMT4Z",
+    "label": "Patient 61 \u2014 third molars absent",
+    "file": "patient-061.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-062",
+    "sourceId": "DNDYES9U",
+    "label": "Patient 62 \u2014 third molars absent",
+    "file": "patient-062.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-063",
+    "sourceId": "018RSPYF",
+    "label": "Patient 63 \u2014 several missing teeth",
+    "file": "patient-063.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-064",
+    "sourceId": "R544MS3L",
+    "label": "Patient 64 \u2014 several missing teeth",
+    "file": "patient-064.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-065",
+    "sourceId": "OEPN5LUR",
+    "label": "Patient 65 \u2014 complete dentition",
+    "file": "patient-065.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-066",
+    "sourceId": "0DNK2I7H",
+    "label": "Patient 66 \u2014 several missing teeth",
+    "file": "patient-066.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-067",
+    "sourceId": "LWUJBHYO",
+    "label": "Patient 67 \u2014 third molars absent",
+    "file": "patient-067.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-068",
+    "sourceId": "013FHA7K",
+    "label": "Patient 68 \u2014 several missing teeth",
+    "file": "patient-068.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-069",
+    "sourceId": "V9CAFAV4",
+    "label": "Patient 69 \u2014 third molars absent",
+    "file": "patient-069.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-070",
+    "sourceId": "0140W3ND",
+    "label": "Patient 70 \u2014 third molars absent",
+    "file": "patient-070.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-071",
+    "sourceId": "9ZI8RSEP",
+    "label": "Patient 71 \u2014 third molars absent",
+    "file": "patient-071.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-072",
+    "sourceId": "AYSCFCO8",
+    "label": "Patient 72 \u2014 third molars absent",
+    "file": "patient-072.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-073",
+    "sourceId": "6BWQC0CT",
+    "label": "Patient 73 \u2014 third molars absent",
+    "file": "patient-073.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-074",
+    "sourceId": "S18Q8Q4Z",
+    "label": "Patient 74 \u2014 third molars absent",
+    "file": "patient-074.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-075",
+    "sourceId": "85ARPPFY",
+    "label": "Patient 75 \u2014 several missing teeth",
+    "file": "patient-075.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-076",
+    "sourceId": "CLNVA9MZ",
+    "label": "Patient 76 \u2014 third molars absent",
+    "file": "patient-076.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-077",
+    "sourceId": "HJ9PT4DQ",
+    "label": "Patient 77 \u2014 several missing teeth",
+    "file": "patient-077.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-078",
+    "sourceId": "CR6E6PTV",
+    "label": "Patient 78 \u2014 third molars absent",
+    "file": "patient-078.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-079",
+    "sourceId": "X7Z33TIA",
+    "label": "Patient 79 \u2014 several missing teeth",
+    "file": "patient-079.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-080",
+    "sourceId": "01M6JVVN",
+    "label": "Patient 80 \u2014 several missing teeth",
+    "file": "patient-080.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-081",
+    "sourceId": "I8CPN1UN",
+    "label": "Patient 81 \u2014 several missing teeth",
+    "file": "patient-081.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-082",
+    "sourceId": "TEPBA32B",
+    "label": "Patient 82 \u2014 FDI 48 absent",
+    "file": "patient-082.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-083",
+    "sourceId": "01FYW6K6",
+    "label": "Patient 83 \u2014 third molars absent",
+    "file": "patient-083.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-084",
+    "sourceId": "WKDWFB4W",
+    "label": "Patient 84 \u2014 several missing teeth",
+    "file": "patient-084.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-085",
+    "sourceId": "EA8SBGX4",
+    "label": "Patient 85 \u2014 third molars absent",
+    "file": "patient-085.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-086",
+    "sourceId": "ZM8PCSK6",
+    "label": "Patient 86 \u2014 several missing teeth",
+    "file": "patient-086.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-087",
+    "sourceId": "D0NMVCKH",
+    "label": "Patient 87 \u2014 third molars absent",
+    "file": "patient-087.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-088",
+    "sourceId": "XGOF741N",
+    "label": "Patient 88 \u2014 third molars absent",
+    "file": "patient-088.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-089",
+    "sourceId": "KWWQJ60M",
+    "label": "Patient 89 \u2014 several missing teeth",
+    "file": "patient-089.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-090",
+    "sourceId": "JFQDC74U",
+    "label": "Patient 90 \u2014 several missing teeth",
+    "file": "patient-090.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-091",
+    "sourceId": "0177JSNX",
+    "label": "Patient 91 \u2014 several missing teeth",
+    "file": "patient-091.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-092",
+    "sourceId": "01G1AKV2",
+    "label": "Patient 92 \u2014 third molars absent",
+    "file": "patient-092.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-093",
+    "sourceId": "PCXO5HOG",
+    "label": "Patient 93 \u2014 several missing teeth",
+    "file": "patient-093.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-094",
+    "sourceId": "QF3P9YRI",
+    "label": "Patient 94 \u2014 several missing teeth",
+    "file": "patient-094.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-095",
+    "sourceId": "B7ZCYID1",
+    "label": "Patient 95 \u2014 third molars absent",
+    "file": "patient-095.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-096",
+    "sourceId": "UHV31TFH",
+    "label": "Patient 96 \u2014 several missing teeth",
+    "file": "patient-096.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-097",
     "sourceId": "09BMUY86",
-    "label": "Patient 9 — third molars absent",
-    "file": "patient-09.glb"
+    "label": "Patient 97 \u2014 third molars absent",
+    "file": "patient-097.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-10",
-    "sourceId": "6XSU5W4B",
-    "label": "Patient 10 — third molars absent",
-    "file": "patient-10.glb"
+    "id": "patient-098",
+    "sourceId": "N8SOKA9R",
+    "label": "Patient 98 \u2014 third molars absent",
+    "file": "patient-098.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-11",
-    "sourceId": "MAIPESOV",
-    "label": "Patient 11 — third molars absent",
-    "file": "patient-11.glb"
+    "id": "patient-099",
+    "sourceId": "78WMB1PB",
+    "label": "Patient 99 \u2014 third molars absent",
+    "file": "patient-099.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   },
   {
-    "id": "patient-12",
+    "id": "patient-100",
+    "sourceId": "211UTGV1",
+    "label": "Patient 100 \u2014 FDI 28 absent",
+    "file": "patient-100.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-101",
+    "sourceId": "01KAS2KD",
+    "label": "Patient 101 \u2014 several missing teeth",
+    "file": "patient-101.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-102",
+    "sourceId": "7B46ZOVS",
+    "label": "Patient 102 \u2014 several missing teeth",
+    "file": "patient-102.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-103",
+    "sourceId": "014JJ942",
+    "label": "Patient 103 \u2014 third molars absent",
+    "file": "patient-103.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-104",
+    "sourceId": "013TXGFK",
+    "label": "Patient 104 \u2014 several missing teeth",
+    "file": "patient-104.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-105",
+    "sourceId": "55EXF0WK",
+    "label": "Patient 105 \u2014 several missing teeth",
+    "file": "patient-105.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-106",
+    "sourceId": "mccarthy",
+    "label": "Patient 106 \u2014 third molars absent",
+    "file": "patient-106.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-107",
+    "sourceId": "K70NYZYE",
+    "label": "Patient 107 \u2014 third molars absent",
+    "file": "patient-107.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-108",
+    "sourceId": "07ZWIO50",
+    "label": "Patient 108 \u2014 several missing teeth",
+    "file": "patient-108.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-109",
+    "sourceId": "01FURZ62",
+    "label": "Patient 109 \u2014 third molars absent",
+    "file": "patient-109.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-110",
+    "sourceId": "VGZWVOXX",
+    "label": "Patient 110 \u2014 several missing teeth",
+    "file": "patient-110.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-111",
+    "sourceId": "6L4N5MA2",
+    "label": "Patient 111 \u2014 several missing teeth",
+    "file": "patient-111.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-112",
+    "sourceId": "1419YTY4",
+    "label": "Patient 112 \u2014 third molars absent",
+    "file": "patient-112.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-113",
+    "sourceId": "ISX690IR",
+    "label": "Patient 113 \u2014 third molars absent",
+    "file": "patient-113.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-114",
+    "sourceId": "H9EM9IEE",
+    "label": "Patient 114 \u2014 third molars absent",
+    "file": "patient-114.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-115",
+    "sourceId": "4FEQPMVC",
+    "label": "Patient 115 \u2014 several missing teeth",
+    "file": "patient-115.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-116",
+    "sourceId": "Z1OCAFH9",
+    "label": "Patient 116 \u2014 third molars absent",
+    "file": "patient-116.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-117",
+    "sourceId": "01533W1T",
+    "label": "Patient 117 \u2014 third molars absent",
+    "file": "patient-117.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-118",
+    "sourceId": "K4E9RKYU",
+    "label": "Patient 118 \u2014 several missing teeth",
+    "file": "patient-118.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-119",
+    "sourceId": "202Z1L1N",
+    "label": "Patient 119 \u2014 several missing teeth",
+    "file": "patient-119.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-120",
+    "sourceId": "56R9FBMK",
+    "label": "Patient 120 \u2014 third molars absent",
+    "file": "patient-120.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-121",
+    "sourceId": "I9TWNSD1",
+    "label": "Patient 121 \u2014 third molars absent",
+    "file": "patient-121.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-122",
+    "sourceId": "OR84V09H",
+    "label": "Patient 122 \u2014 third molars absent",
+    "file": "patient-122.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-123",
+    "sourceId": "67PV9M7X",
+    "label": "Patient 123 \u2014 several missing teeth",
+    "file": "patient-123.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-124",
+    "sourceId": "4OWAG3SG",
+    "label": "Patient 124 \u2014 complete dentition",
+    "file": "patient-124.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-125",
+    "sourceId": "SAIQAN8Y",
+    "label": "Patient 125 \u2014 third molars absent",
+    "file": "patient-125.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-126",
+    "sourceId": "L1WXOSF6",
+    "label": "Patient 126 \u2014 third molars absent",
+    "file": "patient-126.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-127",
+    "sourceId": "3EIXXI7Z",
+    "label": "Patient 127 \u2014 third molars absent",
+    "file": "patient-127.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-128",
+    "sourceId": "L428SD7J",
+    "label": "Patient 128 \u2014 complete dentition",
+    "file": "patient-128.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-129",
+    "sourceId": "BC0OWLNW",
+    "label": "Patient 129 \u2014 several missing teeth",
+    "file": "patient-129.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-130",
+    "sourceId": "0175DC9K",
+    "label": "Patient 130 \u2014 third molars absent",
+    "file": "patient-130.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-131",
+    "sourceId": "01M10NMV",
+    "label": "Patient 131 \u2014 third molars absent",
+    "file": "patient-131.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-132",
+    "sourceId": "T4YI54O5",
+    "label": "Patient 132 \u2014 third molars absent",
+    "file": "patient-132.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-133",
+    "sourceId": "SI19V0MY",
+    "label": "Patient 133 \u2014 third molars absent",
+    "file": "patient-133.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-134",
+    "sourceId": "01FAXM1D",
+    "label": "Patient 134 \u2014 several missing teeth",
+    "file": "patient-134.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-135",
+    "sourceId": "BIIEY91S",
+    "label": "Patient 135 \u2014 third molars absent",
+    "file": "patient-135.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-136",
+    "sourceId": "016X1CJT",
+    "label": "Patient 136 \u2014 several missing teeth",
+    "file": "patient-136.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-137",
+    "sourceId": "653MMYW8",
+    "label": "Patient 137 \u2014 third molars absent",
+    "file": "patient-137.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-138",
+    "sourceId": "01M6GFPV",
+    "label": "Patient 138 \u2014 third molars absent",
+    "file": "patient-138.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-139",
+    "sourceId": "5JRH5J6E",
+    "label": "Patient 139 \u2014 several missing teeth",
+    "file": "patient-139.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-140",
+    "sourceId": "01FR9KKX",
+    "label": "Patient 140 \u2014 third molars absent",
+    "file": "patient-140.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-141",
+    "sourceId": "ASUXPX7O",
+    "label": "Patient 141 \u2014 third molars absent",
+    "file": "patient-141.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-142",
+    "sourceId": "VNM3GH9Z",
+    "label": "Patient 142 \u2014 third molars absent",
+    "file": "patient-142.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-143",
+    "sourceId": "08VJ02L0",
+    "label": "Patient 143 \u2014 several missing teeth",
+    "file": "patient-143.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-144",
+    "sourceId": "015DK78F",
+    "label": "Patient 144 \u2014 several missing teeth",
+    "file": "patient-144.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-145",
+    "sourceId": "013Z78FX",
+    "label": "Patient 145 \u2014 third molars absent",
+    "file": "patient-145.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-146",
+    "sourceId": "Z6BKBK3G",
+    "label": "Patient 146 \u2014 both 38 and 48 absent",
+    "file": "patient-146.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-147",
+    "sourceId": "JY7F4AAF",
+    "label": "Patient 147 \u2014 third molars absent",
+    "file": "patient-147.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-148",
+    "sourceId": "R3UKC00Q",
+    "label": "Patient 148 \u2014 several missing teeth",
+    "file": "patient-148.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-149",
+    "sourceId": "RMZC48A0",
+    "label": "Patient 149 \u2014 complete dentition",
+    "file": "patient-149.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-150",
+    "sourceId": "SMP891U8",
+    "label": "Patient 150 \u2014 third molars absent",
+    "file": "patient-150.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-151",
+    "sourceId": "4TXFGFJS",
+    "label": "Patient 151 \u2014 FDI 38 absent",
+    "file": "patient-151.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-152",
+    "sourceId": "H1HUQBYJ",
+    "label": "Patient 152 \u2014 third molars absent",
+    "file": "patient-152.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-153",
+    "sourceId": "GNR6QR3P",
+    "label": "Patient 153 \u2014 several missing teeth",
+    "file": "patient-153.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-154",
+    "sourceId": "J8CXVF59",
+    "label": "Patient 154 \u2014 several missing teeth",
+    "file": "patient-154.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-155",
+    "sourceId": "DEBDX44O",
+    "label": "Patient 155 \u2014 complete dentition",
+    "file": "patient-155.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-156",
+    "sourceId": "019ZGSJR",
+    "label": "Patient 156 \u2014 several missing teeth",
+    "file": "patient-156.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-157",
+    "sourceId": "22AEG48N",
+    "label": "Patient 157 \u2014 third molars absent",
+    "file": "patient-157.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-158",
+    "sourceId": "01J1XXHR",
+    "label": "Patient 158 \u2014 third molars absent",
+    "file": "patient-158.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-159",
+    "sourceId": "949XHLS5",
+    "label": "Patient 159 \u2014 several missing teeth",
+    "file": "patient-159.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-160",
+    "sourceId": "WME8HO0N",
+    "label": "Patient 160 \u2014 third molars absent",
+    "file": "patient-160.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-161",
+    "sourceId": "2HVVCR7B",
+    "label": "Patient 161 \u2014 third molars absent",
+    "file": "patient-161.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-162",
+    "sourceId": "patient2",
+    "label": "Patient 162 \u2014 several missing teeth",
+    "file": "patient-162.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-163",
+    "sourceId": "01AS72AN",
+    "label": "Patient 163 \u2014 several missing teeth",
+    "file": "patient-163.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-164",
+    "sourceId": "TVSR5QBQ",
+    "label": "Patient 164 \u2014 several missing teeth",
+    "file": "patient-164.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-165",
+    "sourceId": "YN26T284",
+    "label": "Patient 165 \u2014 several missing teeth",
+    "file": "patient-165.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-166",
+    "sourceId": "014ZWMZ8",
+    "label": "Patient 166 \u2014 several missing teeth",
+    "file": "patient-166.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-167",
+    "sourceId": "HE565KIU",
+    "label": "Patient 167 \u2014 several missing teeth",
+    "file": "patient-167.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-168",
+    "sourceId": "M4HYU284",
+    "label": "Patient 168 \u2014 third molars absent",
+    "file": "patient-168.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-169",
+    "sourceId": "0NH6X4SS",
+    "label": "Patient 169 \u2014 third molars absent",
+    "file": "patient-169.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-170",
+    "sourceId": "7PQAZ8X1",
+    "label": "Patient 170 \u2014 third molars absent",
+    "file": "patient-170.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-171",
+    "sourceId": "9R5CDLK4",
+    "label": "Patient 171 \u2014 several missing teeth",
+    "file": "patient-171.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-172",
+    "sourceId": "0140U5D6",
+    "label": "Patient 172 \u2014 several missing teeth",
+    "file": "patient-172.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-173",
+    "sourceId": "FJS5HCDU",
+    "label": "Patient 173 \u2014 third molars absent",
+    "file": "patient-173.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-174",
+    "sourceId": "016NA0VD",
+    "label": "Patient 174 \u2014 third molars absent",
+    "file": "patient-174.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-175",
+    "sourceId": "T9NVJ8ZL",
+    "label": "Patient 175 \u2014 third molars absent",
+    "file": "patient-175.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-176",
+    "sourceId": "016A053T",
+    "label": "Patient 176 \u2014 third molars absent",
+    "file": "patient-176.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-177",
+    "sourceId": "7IKF2TIW",
+    "label": "Patient 177 \u2014 several missing teeth",
+    "file": "patient-177.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-178",
+    "sourceId": "AD8EQEUR",
+    "label": "Patient 178 \u2014 several missing teeth",
+    "file": "patient-178.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-179",
+    "sourceId": "DC8VMT30",
+    "label": "Patient 179 \u2014 FDI 18, 28, 38 absent",
+    "file": "patient-179.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-180",
+    "sourceId": "OO75RHX3",
+    "label": "Patient 180 \u2014 several missing teeth",
+    "file": "patient-180.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-181",
+    "sourceId": "DVVHA02D",
+    "label": "Patient 181 \u2014 several missing teeth",
+    "file": "patient-181.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-182",
+    "sourceId": "01CJ68G2",
+    "label": "Patient 182 \u2014 third molars absent",
+    "file": "patient-182.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-183",
+    "sourceId": "FHA6N618",
+    "label": "Patient 183 \u2014 third molars absent",
+    "file": "patient-183.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-184",
+    "sourceId": "VNRRN6ZF",
+    "label": "Patient 184 \u2014 both 18 and 28 absent",
+    "file": "patient-184.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-185",
+    "sourceId": "PY6M5YZ2",
+    "label": "Patient 185 \u2014 complete dentition",
+    "file": "patient-185.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-186",
+    "sourceId": "01J9RWK6",
+    "label": "Patient 186 \u2014 several missing teeth",
+    "file": "patient-186.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-187",
+    "sourceId": "3PLVMF2P",
+    "label": "Patient 187 \u2014 third molars absent",
+    "file": "patient-187.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-188",
+    "sourceId": "YCJO4386",
+    "label": "Patient 188 \u2014 third molars absent",
+    "file": "patient-188.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-189",
+    "sourceId": "2PNHPSAX",
+    "label": "Patient 189 \u2014 several missing teeth",
+    "file": "patient-189.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-190",
+    "sourceId": "RSUL1J8U",
+    "label": "Patient 190 \u2014 third molars absent",
+    "file": "patient-190.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-191",
+    "sourceId": "7G52QKXB",
+    "label": "Patient 191 \u2014 FDI 18, 48 absent",
+    "file": "patient-191.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-192",
+    "sourceId": "019NTT78",
+    "label": "Patient 192 \u2014 several missing teeth",
+    "file": "patient-192.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-193",
+    "sourceId": "SE68JIRS",
+    "label": "Patient 193 \u2014 third molars absent",
+    "file": "patient-193.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-194",
+    "sourceId": "01FC2D4A",
+    "label": "Patient 194 \u2014 several missing teeth",
+    "file": "patient-194.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-195",
+    "sourceId": "H5EFRXCQ",
+    "label": "Patient 195 \u2014 complete dentition",
+    "file": "patient-195.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-196",
+    "sourceId": "019TUUZD",
+    "label": "Patient 196 \u2014 several missing teeth",
+    "file": "patient-196.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-197",
+    "sourceId": "0140VD2R",
+    "label": "Patient 197 \u2014 third molars absent",
+    "file": "patient-197.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-198",
+    "sourceId": "UHU2XH25",
+    "label": "Patient 198 \u2014 several missing teeth",
+    "file": "patient-198.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-199",
+    "sourceId": "0165W7J4",
+    "label": "Patient 199 \u2014 several missing teeth",
+    "file": "patient-199.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-200",
+    "sourceId": "01JZDW8K",
+    "label": "Patient 200 \u2014 several missing teeth",
+    "file": "patient-200.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-201",
+    "sourceId": "WIF3WKRG",
+    "label": "Patient 201 \u2014 third molars absent",
+    "file": "patient-201.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-202",
+    "sourceId": "CBH07YND",
+    "label": "Patient 202 \u2014 third molars absent",
+    "file": "patient-202.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-203",
+    "sourceId": "8SLVB1AH",
+    "label": "Patient 203 \u2014 third molars absent",
+    "file": "patient-203.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-204",
+    "sourceId": "I13W39XQ",
+    "label": "Patient 204 \u2014 several missing teeth",
+    "file": "patient-204.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-205",
+    "sourceId": "SL5I9AXM",
+    "label": "Patient 205 \u2014 third molars absent",
+    "file": "patient-205.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-206",
+    "sourceId": "4NEUQLYY",
+    "label": "Patient 206 \u2014 third molars absent",
+    "file": "patient-206.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-207",
+    "sourceId": "0EJBIPTC",
+    "label": "Patient 207 \u2014 third molars absent",
+    "file": "patient-207.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-208",
+    "sourceId": "4J24X0ES",
+    "label": "Patient 208 \u2014 several missing teeth",
+    "file": "patient-208.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-209",
+    "sourceId": "01E5T402",
+    "label": "Patient 209 \u2014 third molars absent",
+    "file": "patient-209.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-210",
+    "sourceId": "JTK0GQ2B",
+    "label": "Patient 210 \u2014 third molars absent",
+    "file": "patient-210.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-211",
+    "sourceId": "LHP32GAK",
+    "label": "Patient 211 \u2014 both 18 and 28 absent",
+    "file": "patient-211.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-212",
+    "sourceId": "6TZ254SP",
+    "label": "Patient 212 \u2014 third molars absent",
+    "file": "patient-212.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-213",
+    "sourceId": "01KTSH6A",
+    "label": "Patient 213 \u2014 third molars absent",
+    "file": "patient-213.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-214",
+    "sourceId": "0AAQ6BO3",
+    "label": "Patient 214 \u2014 third molars absent",
+    "file": "patient-214.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-215",
+    "sourceId": "O4WFMHT1",
+    "label": "Patient 215 \u2014 third molars absent",
+    "file": "patient-215.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-216",
+    "sourceId": "I04GI3H5",
+    "label": "Patient 216 \u2014 several missing teeth",
+    "file": "patient-216.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-217",
+    "sourceId": "01HXX9J8",
+    "label": "Patient 217 \u2014 third molars absent",
+    "file": "patient-217.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-218",
+    "sourceId": "01A6HAN6",
+    "label": "Patient 218 \u2014 several missing teeth",
+    "file": "patient-218.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-219",
+    "sourceId": "CX7JD1LO",
+    "label": "Patient 219 \u2014 several missing teeth",
+    "file": "patient-219.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-220",
+    "sourceId": "N49I3941",
+    "label": "Patient 220 \u2014 complete dentition",
+    "file": "patient-220.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-221",
+    "sourceId": "014JUMCF",
+    "label": "Patient 221 \u2014 several missing teeth",
+    "file": "patient-221.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-222",
+    "sourceId": "01F737KT",
+    "label": "Patient 222 \u2014 several missing teeth",
+    "file": "patient-222.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-223",
+    "sourceId": "K8SZYQ72",
+    "label": "Patient 223 \u2014 third molars absent",
+    "file": "patient-223.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-224",
+    "sourceId": "26CY2H2Q",
+    "label": "Patient 224 \u2014 several missing teeth",
+    "file": "patient-224.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-225",
+    "sourceId": "RZ69JRI9",
+    "label": "Patient 225 \u2014 several missing teeth",
+    "file": "patient-225.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-226",
+    "sourceId": "JKLNUYPM",
+    "label": "Patient 226 \u2014 third molars absent",
+    "file": "patient-226.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-227",
+    "sourceId": "MGYSCSI9",
+    "label": "Patient 227 \u2014 several missing teeth",
+    "file": "patient-227.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-228",
+    "sourceId": "015KRWDT",
+    "label": "Patient 228 \u2014 several missing teeth",
+    "file": "patient-228.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-229",
+    "sourceId": "01ECNYXT",
+    "label": "Patient 229 \u2014 several missing teeth",
+    "file": "patient-229.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-230",
+    "sourceId": "0OF8OOCX",
+    "label": "Patient 230 \u2014 several missing teeth",
+    "file": "patient-230.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-231",
+    "sourceId": "MNIAB8K3",
+    "label": "Patient 231 \u2014 several missing teeth",
+    "file": "patient-231.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-232",
+    "sourceId": "01G1KN8Z",
+    "label": "Patient 232 \u2014 third molars absent",
+    "file": "patient-232.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-233",
+    "sourceId": "QHBUEFZ2",
+    "label": "Patient 233 \u2014 several missing teeth",
+    "file": "patient-233.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-234",
+    "sourceId": "B5GFZIRW",
+    "label": "Patient 234 \u2014 several missing teeth",
+    "file": "patient-234.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-235",
+    "sourceId": "5SD5BWLR",
+    "label": "Patient 235 \u2014 third molars absent",
+    "file": "patient-235.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-236",
+    "sourceId": "DOMAN83I",
+    "label": "Patient 236 \u2014 third molars absent",
+    "file": "patient-236.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-237",
+    "sourceId": "TZ2JPAJT",
+    "label": "Patient 237 \u2014 third molars absent",
+    "file": "patient-237.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-238",
+    "sourceId": "01HMF5HV",
+    "label": "Patient 238 \u2014 third molars absent",
+    "file": "patient-238.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-239",
+    "sourceId": "014RZUKF",
+    "label": "Patient 239 \u2014 several missing teeth",
+    "file": "patient-239.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-240",
+    "sourceId": "JJ19KE8W",
+    "label": "Patient 240 \u2014 several missing teeth",
+    "file": "patient-240.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-241",
+    "sourceId": "014F2T8F",
+    "label": "Patient 241 \u2014 several missing teeth",
+    "file": "patient-241.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-242",
+    "sourceId": "ITTMBOHC",
+    "label": "Patient 242 \u2014 several missing teeth",
+    "file": "patient-242.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-243",
+    "sourceId": "016KWDMV",
+    "label": "Patient 243 \u2014 several missing teeth",
+    "file": "patient-243.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-244",
+    "sourceId": "XKC3KSSB",
+    "label": "Patient 244 \u2014 several missing teeth",
+    "file": "patient-244.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-245",
+    "sourceId": "SY3JLB0V",
+    "label": "Patient 245 \u2014 several missing teeth",
+    "file": "patient-245.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-246",
+    "sourceId": "3OHU0Q5V",
+    "label": "Patient 246 \u2014 several missing teeth",
+    "file": "patient-246.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-247",
+    "sourceId": "ZK06H6RE",
+    "label": "Patient 247 \u2014 third molars absent",
+    "file": "patient-247.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-248",
+    "sourceId": "THY8Z5DD",
+    "label": "Patient 248 \u2014 third molars absent",
+    "file": "patient-248.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-249",
+    "sourceId": "019EK6N2",
+    "label": "Patient 249 \u2014 several missing teeth",
+    "file": "patient-249.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-250",
+    "sourceId": "ameziani",
+    "label": "Patient 250 \u2014 several missing teeth",
+    "file": "patient-250.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-251",
+    "sourceId": "MXWH2ZXJ",
+    "label": "Patient 251 \u2014 several missing teeth",
+    "file": "patient-251.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-252",
+    "sourceId": "0140YFGV",
+    "label": "Patient 252 \u2014 several missing teeth",
+    "file": "patient-252.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-253",
+    "sourceId": "XH94C2GV",
+    "label": "Patient 253 \u2014 several missing teeth",
+    "file": "patient-253.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-254",
+    "sourceId": "EI585456",
+    "label": "Patient 254 \u2014 third molars absent",
+    "file": "patient-254.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-255",
+    "sourceId": "01ECZRY6",
+    "label": "Patient 255 \u2014 several missing teeth",
+    "file": "patient-255.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-256",
+    "sourceId": "018RHCTX",
+    "label": "Patient 256 \u2014 several missing teeth",
+    "file": "patient-256.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-257",
+    "sourceId": "SEN849RI",
+    "label": "Patient 257 \u2014 several missing teeth",
+    "file": "patient-257.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-258",
+    "sourceId": "CYU4HS3D",
+    "label": "Patient 258 \u2014 third molars absent",
+    "file": "patient-258.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-259",
+    "sourceId": "8T3LV6TZ",
+    "label": "Patient 259 \u2014 third molars absent",
+    "file": "patient-259.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-260",
+    "sourceId": "WBIEGF2H",
+    "label": "Patient 260 \u2014 third molars absent",
+    "file": "patient-260.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-261",
+    "sourceId": "0145NKWZ",
+    "label": "Patient 261 \u2014 several missing teeth",
+    "file": "patient-261.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-262",
+    "sourceId": "014ADZ2K",
+    "label": "Patient 262 \u2014 third molars absent",
+    "file": "patient-262.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-263",
+    "sourceId": "01FGGPZX",
+    "label": "Patient 263 \u2014 several missing teeth",
+    "file": "patient-263.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-264",
+    "sourceId": "E11NEPB6",
+    "label": "Patient 264 \u2014 several missing teeth",
+    "file": "patient-264.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-265",
+    "sourceId": "016FSM14",
+    "label": "Patient 265 \u2014 several missing teeth",
+    "file": "patient-265.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-266",
+    "sourceId": "QQKBAWLF",
+    "label": "Patient 266 \u2014 several missing teeth",
+    "file": "patient-266.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-267",
     "sourceId": "MXWIBTGF",
-    "label": "Patient 12 — lower right third molar present",
-    "file": "patient-12.glb"
+    "label": "Patient 267 \u2014 FDI 18, 28, 38 absent",
+    "file": "patient-267.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-268",
+    "sourceId": "KSHNN3DV",
+    "label": "Patient 268 \u2014 several missing teeth",
+    "file": "patient-268.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-269",
+    "sourceId": "NUYIOL97",
+    "label": "Patient 269 \u2014 several missing teeth",
+    "file": "patient-269.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-270",
+    "sourceId": "018VF1PV",
+    "label": "Patient 270 \u2014 third molars absent",
+    "file": "patient-270.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-271",
+    "sourceId": "9Y5UP7GB",
+    "label": "Patient 271 \u2014 several missing teeth",
+    "file": "patient-271.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-272",
+    "sourceId": "6I8A5049",
+    "label": "Patient 272 \u2014 several missing teeth",
+    "file": "patient-272.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-273",
+    "sourceId": "XYCYM84N",
+    "label": "Patient 273 \u2014 several missing teeth",
+    "file": "patient-273.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-274",
+    "sourceId": "C4LOTSKE",
+    "label": "Patient 274 \u2014 third molars absent",
+    "file": "patient-274.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-275",
+    "sourceId": "015KFJV6",
+    "label": "Patient 275 \u2014 several missing teeth",
+    "file": "patient-275.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-276",
+    "sourceId": "BNQ3Q4G3",
+    "label": "Patient 276 \u2014 several missing teeth",
+    "file": "patient-276.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-277",
+    "sourceId": "AEOQ4Q9Q",
+    "label": "Patient 277 \u2014 third molars absent",
+    "file": "patient-277.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-278",
+    "sourceId": "0KPHM46Q",
+    "label": "Patient 278 \u2014 third molars absent",
+    "file": "patient-278.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-279",
+    "sourceId": "UJ6IAKFD",
+    "label": "Patient 279 \u2014 third molars absent",
+    "file": "patient-279.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-280",
+    "sourceId": "ZKJEPFDD",
+    "label": "Patient 280 \u2014 several missing teeth",
+    "file": "patient-280.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-281",
+    "sourceId": "4ZIK093I",
+    "label": "Patient 281 \u2014 FDI 28 absent",
+    "file": "patient-281.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-282",
+    "sourceId": "014RZJT4",
+    "label": "Patient 282 \u2014 several missing teeth",
+    "file": "patient-282.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-283",
+    "sourceId": "T21AWMTR",
+    "label": "Patient 283 \u2014 several missing teeth",
+    "file": "patient-283.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-284",
+    "sourceId": "3JCUF41E",
+    "label": "Patient 284 \u2014 several missing teeth",
+    "file": "patient-284.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-285",
+    "sourceId": "0LF355FQ",
+    "label": "Patient 285 \u2014 FDI 18, 28, 48 absent",
+    "file": "patient-285.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-286",
+    "sourceId": "X2J0T3NG",
+    "label": "Patient 286 \u2014 third molars absent",
+    "file": "patient-286.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-287",
+    "sourceId": "MPLQN22P",
+    "label": "Patient 287 \u2014 third molars absent",
+    "file": "patient-287.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-288",
+    "sourceId": "5N1YM01F",
+    "label": "Patient 288 \u2014 FDI 48 absent",
+    "file": "patient-288.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-289",
+    "sourceId": "019NUXJV",
+    "label": "Patient 289 \u2014 several missing teeth",
+    "file": "patient-289.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-290",
+    "sourceId": "AY0DEPFN",
+    "label": "Patient 290 \u2014 several missing teeth",
+    "file": "patient-290.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-291",
+    "sourceId": "01JHAGK0",
+    "label": "Patient 291 \u2014 several missing teeth",
+    "file": "patient-291.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-292",
+    "sourceId": "01A6H4PZ",
+    "label": "Patient 292 \u2014 several missing teeth",
+    "file": "patient-292.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-293",
+    "sourceId": "baliwish",
+    "label": "Patient 293 \u2014 complete dentition",
+    "file": "patient-293.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-294",
+    "sourceId": "YV4OEIZ5",
+    "label": "Patient 294 \u2014 third molars absent",
+    "file": "patient-294.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-295",
+    "sourceId": "01FPY2PZ",
+    "label": "Patient 295 \u2014 third molars absent",
+    "file": "patient-295.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-296",
+    "sourceId": "01KKD7YK",
+    "label": "Patient 296 \u2014 several missing teeth",
+    "file": "patient-296.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-297",
+    "sourceId": "XCBAJJUV",
+    "label": "Patient 297 \u2014 both 18 and 28 absent",
+    "file": "patient-297.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-298",
+    "sourceId": "GSHA8E4C",
+    "label": "Patient 298 \u2014 third molars absent",
+    "file": "patient-298.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-299",
+    "sourceId": "MHDYIWUS",
+    "label": "Patient 299 \u2014 third molars absent",
+    "file": "patient-299.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-300",
+    "sourceId": "Z27UU3OM",
+    "label": "Patient 300 \u2014 several missing teeth",
+    "file": "patient-300.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-301",
+    "sourceId": "01FC0082",
+    "label": "Patient 301 \u2014 several missing teeth",
+    "file": "patient-301.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-302",
+    "sourceId": "6VX3OJFR",
+    "label": "Patient 302 \u2014 several missing teeth",
+    "file": "patient-302.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-303",
+    "sourceId": "230CAJXL",
+    "label": "Patient 303 \u2014 several missing teeth",
+    "file": "patient-303.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-304",
+    "sourceId": "APLDXK7R",
+    "label": "Patient 304 \u2014 several missing teeth",
+    "file": "patient-304.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-305",
+    "sourceId": "E1OLNXQ5",
+    "label": "Patient 305 \u2014 third molars absent",
+    "file": "patient-305.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-306",
+    "sourceId": "V5U3CUGX",
+    "label": "Patient 306 \u2014 third molars absent",
+    "file": "patient-306.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-307",
+    "sourceId": "01KXSPAA",
+    "label": "Patient 307 \u2014 several missing teeth",
+    "file": "patient-307.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-308",
+    "sourceId": "018XZVD6",
+    "label": "Patient 308 \u2014 several missing teeth",
+    "file": "patient-308.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-309",
+    "sourceId": "6N26U3H8",
+    "label": "Patient 309 \u2014 several missing teeth",
+    "file": "patient-309.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-310",
+    "sourceId": "01JH0154",
+    "label": "Patient 310 \u2014 third molars absent",
+    "file": "patient-310.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-311",
+    "sourceId": "01J24RCK",
+    "label": "Patient 311 \u2014 third molars absent",
+    "file": "patient-311.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-312",
+    "sourceId": "YJXIBVIM",
+    "label": "Patient 312 \u2014 several missing teeth",
+    "file": "patient-312.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-313",
+    "sourceId": "X9OQZ131",
+    "label": "Patient 313 \u2014 third molars absent",
+    "file": "patient-313.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-314",
+    "sourceId": "MC39MU3H",
+    "label": "Patient 314 \u2014 several missing teeth",
+    "file": "patient-314.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-315",
+    "sourceId": "014ZTSJ8",
+    "label": "Patient 315 \u2014 several missing teeth",
+    "file": "patient-315.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-316",
+    "sourceId": "019ZHT7Z",
+    "label": "Patient 316 \u2014 several missing teeth",
+    "file": "patient-316.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-317",
+    "sourceId": "017U1TED",
+    "label": "Patient 317 \u2014 several missing teeth",
+    "file": "patient-317.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-318",
+    "sourceId": "EJWZZZRF",
+    "label": "Patient 318 \u2014 third molars absent",
+    "file": "patient-318.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-319",
+    "sourceId": "82D9U6D6",
+    "label": "Patient 319 \u2014 several missing teeth",
+    "file": "patient-319.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-320",
+    "sourceId": "4W9X0QQI",
+    "label": "Patient 320 \u2014 several missing teeth",
+    "file": "patient-320.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-321",
+    "sourceId": "0140E7V2",
+    "label": "Patient 321 \u2014 several missing teeth",
+    "file": "patient-321.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-322",
+    "sourceId": "460C7711",
+    "label": "Patient 322 \u2014 several missing teeth",
+    "file": "patient-322.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-323",
+    "sourceId": "ZB8NU437",
+    "label": "Patient 323 \u2014 third molars absent",
+    "file": "patient-323.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-324",
+    "sourceId": "Z8HJR6YS",
+    "label": "Patient 324 \u2014 third molars absent",
+    "file": "patient-324.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-325",
+    "sourceId": "01J9AXDD",
+    "label": "Patient 325 \u2014 several missing teeth",
+    "file": "patient-325.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-326",
+    "sourceId": "X35AUUVF",
+    "label": "Patient 326 \u2014 several missing teeth",
+    "file": "patient-326.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-327",
+    "sourceId": "01MAU84T",
+    "label": "Patient 327 \u2014 several missing teeth",
+    "file": "patient-327.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-328",
+    "sourceId": "01HJK61N",
+    "label": "Patient 328 \u2014 third molars absent",
+    "file": "patient-328.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-329",
+    "sourceId": "016FT33T",
+    "label": "Patient 329 \u2014 third molars absent",
+    "file": "patient-329.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-330",
+    "sourceId": "WBR4UERA",
+    "label": "Patient 330 \u2014 several missing teeth",
+    "file": "patient-330.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-331",
+    "sourceId": "VXRFUE19",
+    "label": "Patient 331 \u2014 several missing teeth",
+    "file": "patient-331.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-332",
+    "sourceId": "28Q7CM3T",
+    "label": "Patient 332 \u2014 several missing teeth",
+    "file": "patient-332.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-333",
+    "sourceId": "5LP835GA",
+    "label": "Patient 333 \u2014 third molars absent",
+    "file": "patient-333.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-334",
+    "sourceId": "6A019QAT",
+    "label": "Patient 334 \u2014 third molars absent",
+    "file": "patient-334.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-335",
+    "sourceId": "LE4E8YWJ",
+    "label": "Patient 335 \u2014 third molars absent",
+    "file": "patient-335.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-336",
+    "sourceId": "GRG0112S",
+    "label": "Patient 336 \u2014 third molars absent",
+    "file": "patient-336.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-337",
+    "sourceId": "JDRJHMFZ",
+    "label": "Patient 337 \u2014 third molars absent",
+    "file": "patient-337.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-338",
+    "sourceId": "WTZ3ZI3U",
+    "label": "Patient 338 \u2014 third molars absent",
+    "file": "patient-338.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-339",
+    "sourceId": "LNELLH3H",
+    "label": "Patient 339 \u2014 FDI 28, 37, 38 absent",
+    "file": "patient-339.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-340",
+    "sourceId": "01DXDP2R",
+    "label": "Patient 340 \u2014 several missing teeth",
+    "file": "patient-340.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-341",
+    "sourceId": "2U54CEI3",
+    "label": "Patient 341 \u2014 several missing teeth",
+    "file": "patient-341.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-342",
+    "sourceId": "GK7OJEPT",
+    "label": "Patient 342 \u2014 several missing teeth",
+    "file": "patient-342.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-343",
+    "sourceId": "01A6GW4A",
+    "label": "Patient 343 \u2014 several missing teeth",
+    "file": "patient-343.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-344",
+    "sourceId": "8WZSZBYG",
+    "label": "Patient 344 \u2014 third molars absent",
+    "file": "patient-344.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-345",
+    "sourceId": "GSICB2I6",
+    "label": "Patient 345 \u2014 FDI 18, 28, 31 absent",
+    "file": "patient-345.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-346",
+    "sourceId": "01J07922",
+    "label": "Patient 346 \u2014 several missing teeth",
+    "file": "patient-346.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-347",
+    "sourceId": "3ARXXI22",
+    "label": "Patient 347 \u2014 third molars absent",
+    "file": "patient-347.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-348",
+    "sourceId": "015WW8D6",
+    "label": "Patient 348 \u2014 several missing teeth",
+    "file": "patient-348.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-349",
+    "sourceId": "KNIH5AER",
+    "label": "Patient 349 \u2014 several missing teeth",
+    "file": "patient-349.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-350",
+    "sourceId": "KS84R9LU",
+    "label": "Patient 350 \u2014 several missing teeth",
+    "file": "patient-350.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-351",
+    "sourceId": "B5708797",
+    "label": "Patient 351 \u2014 several missing teeth",
+    "file": "patient-351.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-352",
+    "sourceId": "C928TR28",
+    "label": "Patient 352 \u2014 several missing teeth",
+    "file": "patient-352.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-353",
+    "sourceId": "SMF65G9B",
+    "label": "Patient 353 \u2014 third molars absent",
+    "file": "patient-353.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-354",
+    "sourceId": "8BA4388V",
+    "label": "Patient 354 \u2014 third molars absent",
+    "file": "patient-354.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-355",
+    "sourceId": "276N3YRC",
+    "label": "Patient 355 \u2014 third molars absent",
+    "file": "patient-355.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-356",
+    "sourceId": "3RHL4BKW",
+    "label": "Patient 356 \u2014 third molars absent",
+    "file": "patient-356.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-357",
+    "sourceId": "015RM178",
+    "label": "Patient 357 \u2014 several missing teeth",
+    "file": "patient-357.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-358",
+    "sourceId": "W06EM826",
+    "label": "Patient 358 \u2014 third molars absent",
+    "file": "patient-358.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-359",
+    "sourceId": "552HVG7E",
+    "label": "Patient 359 \u2014 third molars absent",
+    "file": "patient-359.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-360",
+    "sourceId": "MX0PKG9L",
+    "label": "Patient 360 \u2014 third molars absent",
+    "file": "patient-360.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-361",
+    "sourceId": "OSZV3Q38",
+    "label": "Patient 361 \u2014 several missing teeth",
+    "file": "patient-361.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-362",
+    "sourceId": "ITB1L2PL",
+    "label": "Patient 362 \u2014 several missing teeth",
+    "file": "patient-362.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-363",
+    "sourceId": "019GEJTN",
+    "label": "Patient 363 \u2014 several missing teeth",
+    "file": "patient-363.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-364",
+    "sourceId": "01MAVHYZ",
+    "label": "Patient 364 \u2014 several missing teeth",
+    "file": "patient-364.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-365",
+    "sourceId": "01A6HG3N",
+    "label": "Patient 365 \u2014 third molars absent",
+    "file": "patient-365.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-366",
+    "sourceId": "P5NL90OZ",
+    "label": "Patient 366 \u2014 third molars absent",
+    "file": "patient-366.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-367",
+    "sourceId": "0O4502M7",
+    "label": "Patient 367 \u2014 FDI 28 absent",
+    "file": "patient-367.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-368",
+    "sourceId": "014JV25R",
+    "label": "Patient 368 \u2014 several missing teeth",
+    "file": "patient-368.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-369",
+    "sourceId": "15AIQVK8",
+    "label": "Patient 369 \u2014 third molars absent",
+    "file": "patient-369.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-370",
+    "sourceId": "FA7LBP95",
+    "label": "Patient 370 \u2014 third molars absent",
+    "file": "patient-370.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-371",
+    "sourceId": "0175MHGN",
+    "label": "Patient 371 \u2014 third molars absent",
+    "file": "patient-371.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-372",
+    "sourceId": "KS0FGXGB",
+    "label": "Patient 372 \u2014 third molars absent",
+    "file": "patient-372.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-373",
+    "sourceId": "G73V8OVW",
+    "label": "Patient 373 \u2014 third molars absent",
+    "file": "patient-373.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-374",
+    "sourceId": "S5VIQ478",
+    "label": "Patient 374 \u2014 several missing teeth",
+    "file": "patient-374.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-375",
+    "sourceId": "01FGPDFR",
+    "label": "Patient 375 \u2014 third molars absent",
+    "file": "patient-375.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-376",
+    "sourceId": "5WCMFAT0",
+    "label": "Patient 376 \u2014 third molars absent",
+    "file": "patient-376.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-377",
+    "sourceId": "01E9V1EX",
+    "label": "Patient 377 \u2014 several missing teeth",
+    "file": "patient-377.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-378",
+    "sourceId": "01A91JH6",
+    "label": "Patient 378 \u2014 third molars absent",
+    "file": "patient-378.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-379",
+    "sourceId": "01K5X8CN",
+    "label": "Patient 379 \u2014 several missing teeth",
+    "file": "patient-379.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-380",
+    "sourceId": "YCM36SR6",
+    "label": "Patient 380 \u2014 several missing teeth",
+    "file": "patient-380.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-381",
+    "sourceId": "01KC08MV",
+    "label": "Patient 381 \u2014 several missing teeth",
+    "file": "patient-381.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-382",
+    "sourceId": "9YQIGSGN",
+    "label": "Patient 382 \u2014 several missing teeth",
+    "file": "patient-382.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-383",
+    "sourceId": "B9TZ4IAO",
+    "label": "Patient 383 \u2014 third molars absent",
+    "file": "patient-383.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-384",
+    "sourceId": "01K17AN8",
+    "label": "Patient 384 \u2014 several missing teeth",
+    "file": "patient-384.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-385",
+    "sourceId": "2DZ821ZJ",
+    "label": "Patient 385 \u2014 several missing teeth",
+    "file": "patient-385.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-386",
+    "sourceId": "HQN0ZJDP",
+    "label": "Patient 386 \u2014 several missing teeth",
+    "file": "patient-386.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-387",
+    "sourceId": "IBG3DGZJ",
+    "label": "Patient 387 \u2014 both 38 and 48 absent",
+    "file": "patient-387.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-388",
+    "sourceId": "K2T9J4YW",
+    "label": "Patient 388 \u2014 several missing teeth",
+    "file": "patient-388.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-389",
+    "sourceId": "DGUTSTAN",
+    "label": "Patient 389 \u2014 third molars absent",
+    "file": "patient-389.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-390",
+    "sourceId": "FKSYZ9LA",
+    "label": "Patient 390 \u2014 several missing teeth",
+    "file": "patient-390.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-391",
+    "sourceId": "Q21I52KT",
+    "label": "Patient 391 \u2014 several missing teeth",
+    "file": "patient-391.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-392",
+    "sourceId": "DWXU0WC3",
+    "label": "Patient 392 \u2014 several missing teeth",
+    "file": "patient-392.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-393",
+    "sourceId": "V4CI6LT2",
+    "label": "Patient 393 \u2014 third molars absent",
+    "file": "patient-393.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-394",
+    "sourceId": "IUIE4BYI",
+    "label": "Patient 394 \u2014 several missing teeth",
+    "file": "patient-394.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-395",
+    "sourceId": "V5KEFD0N",
+    "label": "Patient 395 \u2014 several missing teeth",
+    "file": "patient-395.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-396",
+    "sourceId": "015XE9MT",
+    "label": "Patient 396 \u2014 third molars absent",
+    "file": "patient-396.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-397",
+    "sourceId": "I9OKVRWS",
+    "label": "Patient 397 \u2014 third molars absent",
+    "file": "patient-397.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-398",
+    "sourceId": "QA27COSZ",
+    "label": "Patient 398 \u2014 third molars absent",
+    "file": "patient-398.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-399",
+    "sourceId": "MHG8FM6A",
+    "label": "Patient 399 \u2014 several missing teeth",
+    "file": "patient-399.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-400",
+    "sourceId": "01EGTCG0",
+    "label": "Patient 400 \u2014 third molars absent",
+    "file": "patient-400.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-401",
+    "sourceId": "4O6ZE6F3",
+    "label": "Patient 401 \u2014 several missing teeth",
+    "file": "patient-401.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-402",
+    "sourceId": "F92OKIOI",
+    "label": "Patient 402 \u2014 several missing teeth",
+    "file": "patient-402.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-403",
+    "sourceId": "DLVODLKR",
+    "label": "Patient 403 \u2014 third molars absent",
+    "file": "patient-403.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-404",
+    "sourceId": "W33KWDRX",
+    "label": "Patient 404 \u2014 several missing teeth",
+    "file": "patient-404.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-405",
+    "sourceId": "QVUPP39R",
+    "label": "Patient 405 \u2014 third molars absent",
+    "file": "patient-405.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-406",
+    "sourceId": "SFTVTQOW",
+    "label": "Patient 406 \u2014 several missing teeth",
+    "file": "patient-406.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-407",
+    "sourceId": "WQOGLZY4",
+    "label": "Patient 407 \u2014 third molars absent",
+    "file": "patient-407.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-408",
+    "sourceId": "M357DNS7",
+    "label": "Patient 408 \u2014 third molars absent",
+    "file": "patient-408.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-409",
+    "sourceId": "01KK2DER",
+    "label": "Patient 409 \u2014 several missing teeth",
+    "file": "patient-409.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-410",
+    "sourceId": "ZGAEQQH7",
+    "label": "Patient 410 \u2014 third molars absent",
+    "file": "patient-410.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-411",
+    "sourceId": "IHKL3Y8N",
+    "label": "Patient 411 \u2014 several missing teeth",
+    "file": "patient-411.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-412",
+    "sourceId": "YVGEP1R6",
+    "label": "Patient 412 \u2014 several missing teeth",
+    "file": "patient-412.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-413",
+    "sourceId": "JFZUIR52",
+    "label": "Patient 413 \u2014 third molars absent",
+    "file": "patient-413.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-414",
+    "sourceId": "W6T6G0B6",
+    "label": "Patient 414 \u2014 several missing teeth",
+    "file": "patient-414.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-415",
+    "sourceId": "01FX4X4R",
+    "label": "Patient 415 \u2014 third molars absent",
+    "file": "patient-415.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-416",
+    "sourceId": "UKH51GS2",
+    "label": "Patient 416 \u2014 third molars absent",
+    "file": "patient-416.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-417",
+    "sourceId": "6KPUNI4X",
+    "label": "Patient 417 \u2014 several missing teeth",
+    "file": "patient-417.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-418",
+    "sourceId": "01FVAE34",
+    "label": "Patient 418 \u2014 several missing teeth",
+    "file": "patient-418.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-419",
+    "sourceId": "4MC4KRQV",
+    "label": "Patient 419 \u2014 third molars absent",
+    "file": "patient-419.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-420",
+    "sourceId": "C2SF98X5",
+    "label": "Patient 420 \u2014 third molars absent",
+    "file": "patient-420.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-421",
+    "sourceId": "016PTY8K",
+    "label": "Patient 421 \u2014 FDI 18, 28, 48 absent",
+    "file": "patient-421.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-422",
+    "sourceId": "015SW0RN",
+    "label": "Patient 422 \u2014 several missing teeth",
+    "file": "patient-422.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-423",
+    "sourceId": "TUXRQYU8",
+    "label": "Patient 423 \u2014 several missing teeth",
+    "file": "patient-423.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-424",
+    "sourceId": "H79I7NHI",
+    "label": "Patient 424 \u2014 several missing teeth",
+    "file": "patient-424.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-425",
+    "sourceId": "UAO672OA",
+    "label": "Patient 425 \u2014 several missing teeth",
+    "file": "patient-425.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-426",
+    "sourceId": "FJPU30RL",
+    "label": "Patient 426 \u2014 several missing teeth",
+    "file": "patient-426.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-427",
+    "sourceId": "01KK775H",
+    "label": "Patient 427 \u2014 several missing teeth",
+    "file": "patient-427.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-428",
+    "sourceId": "VS5EECWH",
+    "label": "Patient 428 \u2014 third molars absent",
+    "file": "patient-428.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-429",
+    "sourceId": "016G9TFH",
+    "label": "Patient 429 \u2014 third molars absent",
+    "file": "patient-429.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-430",
+    "sourceId": "HSY4YB1J",
+    "label": "Patient 430 \u2014 third molars absent",
+    "file": "patient-430.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-431",
+    "sourceId": "KW108G1P",
+    "label": "Patient 431 \u2014 complete dentition",
+    "file": "patient-431.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-432",
+    "sourceId": "VR3UZPCR",
+    "label": "Patient 432 \u2014 several missing teeth",
+    "file": "patient-432.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-433",
+    "sourceId": "0148VUFR",
+    "label": "Patient 433 \u2014 several missing teeth",
+    "file": "patient-433.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-434",
+    "sourceId": "VY1R353X",
+    "label": "Patient 434 \u2014 several missing teeth",
+    "file": "patient-434.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-435",
+    "sourceId": "01FPTYH2",
+    "label": "Patient 435 \u2014 several missing teeth",
+    "file": "patient-435.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-436",
+    "sourceId": "4I10EMWA",
+    "label": "Patient 436 \u2014 several missing teeth",
+    "file": "patient-436.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-437",
+    "sourceId": "01KRESY6",
+    "label": "Patient 437 \u2014 third molars absent",
+    "file": "patient-437.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-438",
+    "sourceId": "013ZD6EX",
+    "label": "Patient 438 \u2014 several missing teeth",
+    "file": "patient-438.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-439",
+    "sourceId": "017UXKRN",
+    "label": "Patient 439 \u2014 several missing teeth",
+    "file": "patient-439.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-440",
+    "sourceId": "X9QY6TGT",
+    "label": "Patient 440 \u2014 several missing teeth",
+    "file": "patient-440.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-441",
+    "sourceId": "6FUR0HKF",
+    "label": "Patient 441 \u2014 third molars absent",
+    "file": "patient-441.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-442",
+    "sourceId": "YBSESUN6",
+    "label": "Patient 442 \u2014 several missing teeth",
+    "file": "patient-442.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-443",
+    "sourceId": "1MWJLE4X",
+    "label": "Patient 443 \u2014 FDI 48 absent",
+    "file": "patient-443.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-444",
+    "sourceId": "01A6HE9H",
+    "label": "Patient 444 \u2014 several missing teeth",
+    "file": "patient-444.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-445",
+    "sourceId": "6TVH3SNC",
+    "label": "Patient 445 \u2014 several missing teeth",
+    "file": "patient-445.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-446",
+    "sourceId": "0151RHMK",
+    "label": "Patient 446 \u2014 several missing teeth",
+    "file": "patient-446.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-447",
+    "sourceId": "019GGYZ4",
+    "label": "Patient 447 \u2014 third molars absent",
+    "file": "patient-447.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-448",
+    "sourceId": "019EMA3D",
+    "label": "Patient 448 \u2014 several missing teeth",
+    "file": "patient-448.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-449",
+    "sourceId": "01661EUZ",
+    "label": "Patient 449 \u2014 several missing teeth",
+    "file": "patient-449.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-450",
+    "sourceId": "ORDHT9TX",
+    "label": "Patient 450 \u2014 several missing teeth",
+    "file": "patient-450.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-451",
+    "sourceId": "38JDN4ZV",
+    "label": "Patient 451 \u2014 several missing teeth",
+    "file": "patient-451.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-452",
+    "sourceId": "58M9IXQ2",
+    "label": "Patient 452 \u2014 third molars absent",
+    "file": "patient-452.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-453",
+    "sourceId": "C6C00RHE",
+    "label": "Patient 453 \u2014 several missing teeth",
+    "file": "patient-453.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-454",
+    "sourceId": "LA67YYVJ",
+    "label": "Patient 454 \u2014 several missing teeth",
+    "file": "patient-454.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-455",
+    "sourceId": "01MAVT6A",
+    "label": "Patient 455 \u2014 several missing teeth",
+    "file": "patient-455.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-456",
+    "sourceId": "018W5JTD",
+    "label": "Patient 456 \u2014 third molars absent",
+    "file": "patient-456.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-457",
+    "sourceId": "EVWJL2PL",
+    "label": "Patient 457 \u2014 FDI 18, 26 absent",
+    "file": "patient-457.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-458",
+    "sourceId": "H83RDQT1",
+    "label": "Patient 458 \u2014 several missing teeth",
+    "file": "patient-458.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-459",
+    "sourceId": "SJDH33M1",
+    "label": "Patient 459 \u2014 several missing teeth",
+    "file": "patient-459.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-460",
+    "sourceId": "VJZXIP9X",
+    "label": "Patient 460 \u2014 third molars absent",
+    "file": "patient-460.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-461",
+    "sourceId": "HWO9T72O",
+    "label": "Patient 461 \u2014 several missing teeth",
+    "file": "patient-461.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-462",
+    "sourceId": "01ENJ8TT",
+    "label": "Patient 462 \u2014 third molars absent",
+    "file": "patient-462.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-463",
+    "sourceId": "BWWLPBF7",
+    "label": "Patient 463 \u2014 several missing teeth",
+    "file": "patient-463.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-464",
+    "sourceId": "U8V34P1M",
+    "label": "Patient 464 \u2014 third molars absent",
+    "file": "patient-464.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-465",
+    "sourceId": "PBG8YZJ9",
+    "label": "Patient 465 \u2014 third molars absent",
+    "file": "patient-465.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-466",
+    "sourceId": "01EH2EGV",
+    "label": "Patient 466 \u2014 third molars absent",
+    "file": "patient-466.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-467",
+    "sourceId": "LUQGC700",
+    "label": "Patient 467 \u2014 several missing teeth",
+    "file": "patient-467.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-468",
+    "sourceId": "R8YTI9HB",
+    "label": "Patient 468 \u2014 third molars absent",
+    "file": "patient-468.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-469",
+    "sourceId": "NQJYZS60",
+    "label": "Patient 469 \u2014 several missing teeth",
+    "file": "patient-469.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-470",
+    "sourceId": "0TMOBYXS",
+    "label": "Patient 470 \u2014 third molars absent",
+    "file": "patient-470.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-471",
+    "sourceId": "01MCNDR0",
+    "label": "Patient 471 \u2014 several missing teeth",
+    "file": "patient-471.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-472",
+    "sourceId": "1FKZ98MK",
+    "label": "Patient 472 \u2014 third molars absent",
+    "file": "patient-472.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-473",
+    "sourceId": "7CPH3KRT",
+    "label": "Patient 473 \u2014 third molars absent",
+    "file": "patient-473.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-474",
+    "sourceId": "0169NHT6",
+    "label": "Patient 474 \u2014 several missing teeth",
+    "file": "patient-474.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-475",
+    "sourceId": "01AFES4K",
+    "label": "Patient 475 \u2014 third molars absent",
+    "file": "patient-475.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-476",
+    "sourceId": "T9GV3ZWX",
+    "label": "Patient 476 \u2014 third molars absent",
+    "file": "patient-476.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-477",
+    "sourceId": "0140XF2Z",
+    "label": "Patient 477 \u2014 several missing teeth",
+    "file": "patient-477.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-478",
+    "sourceId": "AVI68NCT",
+    "label": "Patient 478 \u2014 several missing teeth",
+    "file": "patient-478.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-479",
+    "sourceId": "S307GDC6",
+    "label": "Patient 479 \u2014 several missing teeth",
+    "file": "patient-479.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-480",
+    "sourceId": "0VFZZY32",
+    "label": "Patient 480 \u2014 third molars absent",
+    "file": "patient-480.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-481",
+    "sourceId": "019P6PZD",
+    "label": "Patient 481 \u2014 third molars absent",
+    "file": "patient-481.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-482",
+    "sourceId": "ODC3F7X8",
+    "label": "Patient 482 \u2014 several missing teeth",
+    "file": "patient-482.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-483",
+    "sourceId": "01JNZKAX",
+    "label": "Patient 483 \u2014 third molars absent",
+    "file": "patient-483.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-484",
+    "sourceId": "5J9O0LG3",
+    "label": "Patient 484 \u2014 third molars absent",
+    "file": "patient-484.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-485",
+    "sourceId": "013JX8W4",
+    "label": "Patient 485 \u2014 several missing teeth",
+    "file": "patient-485.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-486",
+    "sourceId": "AQLXAN8L",
+    "label": "Patient 486 \u2014 third molars absent",
+    "file": "patient-486.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-487",
+    "sourceId": "5M23YGJN",
+    "label": "Patient 487 \u2014 third molars absent",
+    "file": "patient-487.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-488",
+    "sourceId": "45UD35GC",
+    "label": "Patient 488 \u2014 third molars absent",
+    "file": "patient-488.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-489",
+    "sourceId": "XA2VLAUJ",
+    "label": "Patient 489 \u2014 several missing teeth",
+    "file": "patient-489.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-490",
+    "sourceId": "0EAKT1CU",
+    "label": "Patient 490 \u2014 third molars absent",
+    "file": "patient-490.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-491",
+    "sourceId": "karklina",
+    "label": "Patient 491 \u2014 several missing teeth",
+    "file": "patient-491.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-492",
+    "sourceId": "017FHD6X",
+    "label": "Patient 492 \u2014 third molars absent",
+    "file": "patient-492.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-493",
+    "sourceId": "KAHYFGOY",
+    "label": "Patient 493 \u2014 FDI 18, 28, 48 absent",
+    "file": "patient-493.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-494",
+    "sourceId": "HJMHHU6N",
+    "label": "Patient 494 \u2014 third molars absent",
+    "file": "patient-494.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-495",
+    "sourceId": "01533UH2",
+    "label": "Patient 495 \u2014 third molars absent",
+    "file": "patient-495.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-496",
+    "sourceId": "RWZ7MK1G",
+    "label": "Patient 496 \u2014 third molars absent",
+    "file": "patient-496.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-497",
+    "sourceId": "ZD89X7G1",
+    "label": "Patient 497 \u2014 several missing teeth",
+    "file": "patient-497.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-498",
+    "sourceId": "XMFOMUYV",
+    "label": "Patient 498 \u2014 several missing teeth",
+    "file": "patient-498.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-499",
+    "sourceId": "RAFITTZB",
+    "label": "Patient 499 \u2014 third molars absent",
+    "file": "patient-499.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-500",
+    "sourceId": "CNUR69O9",
+    "label": "Patient 500 \u2014 complete dentition",
+    "file": "patient-500.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-501",
+    "sourceId": "CK45DVLG",
+    "label": "Patient 501 \u2014 third molars absent",
+    "file": "patient-501.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-502",
+    "sourceId": "KBGVMAF7",
+    "label": "Patient 502 \u2014 several missing teeth",
+    "file": "patient-502.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-503",
+    "sourceId": "EUCFQ9KW",
+    "label": "Patient 503 \u2014 several missing teeth",
+    "file": "patient-503.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-504",
+    "sourceId": "TTW81N1R",
+    "label": "Patient 504 \u2014 several missing teeth",
+    "file": "patient-504.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-505",
+    "sourceId": "019NJEW6",
+    "label": "Patient 505 \u2014 several missing teeth",
+    "file": "patient-505.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-506",
+    "sourceId": "MBCDT4BG",
+    "label": "Patient 506 \u2014 third molars absent",
+    "file": "patient-506.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-507",
+    "sourceId": "01F6WV5D",
+    "label": "Patient 507 \u2014 several missing teeth",
+    "file": "patient-507.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-508",
+    "sourceId": "0U1LI1CB",
+    "label": "Patient 508 \u2014 third molars absent",
+    "file": "patient-508.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-509",
+    "sourceId": "LLJGPB8I",
+    "label": "Patient 509 \u2014 third molars absent",
+    "file": "patient-509.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-510",
+    "sourceId": "80RPZWJT",
+    "label": "Patient 510 \u2014 several missing teeth",
+    "file": "patient-510.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-511",
+    "sourceId": "HM1A4QZR",
+    "label": "Patient 511 \u2014 third molars absent",
+    "file": "patient-511.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-512",
+    "sourceId": "VB7GYS2O",
+    "label": "Patient 512 \u2014 several missing teeth",
+    "file": "patient-512.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-513",
+    "sourceId": "PYKS3V33",
+    "label": "Patient 513 \u2014 third molars absent",
+    "file": "patient-513.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-514",
+    "sourceId": "918HS04U",
+    "label": "Patient 514 \u2014 third molars absent",
+    "file": "patient-514.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-515",
+    "sourceId": "4OPR2WF4",
+    "label": "Patient 515 \u2014 third molars absent",
+    "file": "patient-515.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-516",
+    "sourceId": "S0AON6PZ",
+    "label": "Patient 516 \u2014 several missing teeth",
+    "file": "patient-516.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-517",
+    "sourceId": "UJPJ175B",
+    "label": "Patient 517 \u2014 third molars absent",
+    "file": "patient-517.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-518",
+    "sourceId": "I3PL4JRE",
+    "label": "Patient 518 \u2014 several missing teeth",
+    "file": "patient-518.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-519",
+    "sourceId": "016SVMHT",
+    "label": "Patient 519 \u2014 several missing teeth",
+    "file": "patient-519.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-520",
+    "sourceId": "IODU1NRC",
+    "label": "Patient 520 \u2014 third molars absent",
+    "file": "patient-520.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-521",
+    "sourceId": "2HTC4QTP",
+    "label": "Patient 521 \u2014 several missing teeth",
+    "file": "patient-521.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-522",
+    "sourceId": "OJKNS9DO",
+    "label": "Patient 522 \u2014 several missing teeth",
+    "file": "patient-522.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-523",
+    "sourceId": "87ILJ6BK",
+    "label": "Patient 523 \u2014 several missing teeth",
+    "file": "patient-523.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-524",
+    "sourceId": "I004CBAW",
+    "label": "Patient 524 \u2014 several missing teeth",
+    "file": "patient-524.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-525",
+    "sourceId": "01M3N1UK",
+    "label": "Patient 525 \u2014 several missing teeth",
+    "file": "patient-525.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-526",
+    "sourceId": "ZOUIF2W4",
+    "label": "Patient 526 \u2014 third molars absent",
+    "file": "patient-526.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-527",
+    "sourceId": "3PSS0ONL",
+    "label": "Patient 527 \u2014 several missing teeth",
+    "file": "patient-527.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-528",
+    "sourceId": "0166M778",
+    "label": "Patient 528 \u2014 third molars absent",
+    "file": "patient-528.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-529",
+    "sourceId": "SGIFTXFD",
+    "label": "Patient 529 \u2014 third molars absent",
+    "file": "patient-529.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-530",
+    "sourceId": "01E84NTX",
+    "label": "Patient 530 \u2014 several missing teeth",
+    "file": "patient-530.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-531",
+    "sourceId": "XBDVGZ7V",
+    "label": "Patient 531 \u2014 third molars absent",
+    "file": "patient-531.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-532",
+    "sourceId": "6B5BDMQS",
+    "label": "Patient 532 \u2014 several missing teeth",
+    "file": "patient-532.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-533",
+    "sourceId": "2Z5OXS0K",
+    "label": "Patient 533 \u2014 complete dentition",
+    "file": "patient-533.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-534",
+    "sourceId": "GW8YVYNF",
+    "label": "Patient 534 \u2014 several missing teeth",
+    "file": "patient-534.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-535",
+    "sourceId": "2C4FVXU0",
+    "label": "Patient 535 \u2014 third molars absent",
+    "file": "patient-535.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-536",
+    "sourceId": "01AKES86",
+    "label": "Patient 536 \u2014 third molars absent",
+    "file": "patient-536.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-537",
+    "sourceId": "01E5PXS8",
+    "label": "Patient 537 \u2014 several missing teeth",
+    "file": "patient-537.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-538",
+    "sourceId": "0155EZ2V",
+    "label": "Patient 538 \u2014 several missing teeth",
+    "file": "patient-538.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-539",
+    "sourceId": "WK3XHJR5",
+    "label": "Patient 539 \u2014 third molars absent",
+    "file": "patient-539.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-540",
+    "sourceId": "DKZWON8N",
+    "label": "Patient 540 \u2014 third molars absent",
+    "file": "patient-540.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-541",
+    "sourceId": "01KEV6ET",
+    "label": "Patient 541 \u2014 third molars absent",
+    "file": "patient-541.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-542",
+    "sourceId": "35XFO1ZF",
+    "label": "Patient 542 \u2014 third molars absent",
+    "file": "patient-542.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-543",
+    "sourceId": "1RT7WBH4",
+    "label": "Patient 543 \u2014 third molars absent",
+    "file": "patient-543.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-544",
+    "sourceId": "017U3R3T",
+    "label": "Patient 544 \u2014 several missing teeth",
+    "file": "patient-544.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-545",
+    "sourceId": "RGSLRERP",
+    "label": "Patient 545 \u2014 third molars absent",
+    "file": "patient-545.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-546",
+    "sourceId": "Y48DURWV",
+    "label": "Patient 546 \u2014 third molars absent",
+    "file": "patient-546.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-547",
+    "sourceId": "013H3Y8H",
+    "label": "Patient 547 \u2014 third molars absent",
+    "file": "patient-547.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-548",
+    "sourceId": "4OTQF1P6",
+    "label": "Patient 548 \u2014 several missing teeth",
+    "file": "patient-548.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-549",
+    "sourceId": "1EC2MSZR",
+    "label": "Patient 549 \u2014 several missing teeth",
+    "file": "patient-549.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-550",
+    "sourceId": "YNKZHRP0",
+    "label": "Patient 550 \u2014 several missing teeth",
+    "file": "patient-550.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-551",
+    "sourceId": "01M6A1CH",
+    "label": "Patient 551 \u2014 several missing teeth",
+    "file": "patient-551.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-552",
+    "sourceId": "GPADPK3N",
+    "label": "Patient 552 \u2014 third molars absent",
+    "file": "patient-552.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-553",
+    "sourceId": "0148UTKX",
+    "label": "Patient 553 \u2014 third molars absent",
+    "file": "patient-553.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-554",
+    "sourceId": "CVTHSBS5",
+    "label": "Patient 554 \u2014 several missing teeth",
+    "file": "patient-554.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-555",
+    "sourceId": "01JZF0KX",
+    "label": "Patient 555 \u2014 several missing teeth",
+    "file": "patient-555.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-556",
+    "sourceId": "9KDRM0A8",
+    "label": "Patient 556 \u2014 several missing teeth",
+    "file": "patient-556.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-557",
+    "sourceId": "GE7LXGDG",
+    "label": "Patient 557 \u2014 several missing teeth",
+    "file": "patient-557.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-558",
+    "sourceId": "019ZJY1H",
+    "label": "Patient 558 \u2014 third molars absent",
+    "file": "patient-558.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-559",
+    "sourceId": "014996KX",
+    "label": "Patient 559 \u2014 third molars absent",
+    "file": "patient-559.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-560",
+    "sourceId": "82J9I2HU",
+    "label": "Patient 560 \u2014 FDI 18, 38, 48 absent",
+    "file": "patient-560.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-561",
+    "sourceId": "01MCM1UK",
+    "label": "Patient 561 \u2014 several missing teeth",
+    "file": "patient-561.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-562",
+    "sourceId": "P0YTJU57",
+    "label": "Patient 562 \u2014 third molars absent",
+    "file": "patient-562.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-563",
+    "sourceId": "014Z1E5D",
+    "label": "Patient 563 \u2014 third molars absent",
+    "file": "patient-563.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-564",
+    "sourceId": "013FWKMZ",
+    "label": "Patient 564 \u2014 several missing teeth",
+    "file": "patient-564.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-565",
+    "sourceId": "01MCCA3X",
+    "label": "Patient 565 \u2014 several missing teeth",
+    "file": "patient-565.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-566",
+    "sourceId": "AKBDPB4C",
+    "label": "Patient 566 \u2014 third molars absent",
+    "file": "patient-566.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-567",
+    "sourceId": "01F4JV8X",
+    "label": "Patient 567 \u2014 third molars absent",
+    "file": "patient-567.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-568",
+    "sourceId": "RHGVYFQ9",
+    "label": "Patient 568 \u2014 third molars absent",
+    "file": "patient-568.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-569",
+    "sourceId": "KHLZKW97",
+    "label": "Patient 569 \u2014 third molars absent",
+    "file": "patient-569.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-570",
+    "sourceId": "01KJXCTX",
+    "label": "Patient 570 \u2014 several missing teeth",
+    "file": "patient-570.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-571",
+    "sourceId": "018UV7KV",
+    "label": "Patient 571 \u2014 third molars absent",
+    "file": "patient-571.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-572",
+    "sourceId": "QOCAWJXM",
+    "label": "Patient 572 \u2014 FDI 41 absent",
+    "file": "patient-572.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-573",
+    "sourceId": "QD5BSKK9",
+    "label": "Patient 573 \u2014 third molars absent",
+    "file": "patient-573.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-574",
+    "sourceId": "01HY2W2Z",
+    "label": "Patient 574 \u2014 third molars absent",
+    "file": "patient-574.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-575",
+    "sourceId": "1AX7AB2P",
+    "label": "Patient 575 \u2014 third molars absent",
+    "file": "patient-575.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-576",
+    "sourceId": "019Z31A2",
+    "label": "Patient 576 \u2014 third molars absent",
+    "file": "patient-576.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-577",
+    "sourceId": "FUYJPUPX",
+    "label": "Patient 577 \u2014 FDI 27, 28, 48 absent",
+    "file": "patient-577.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-578",
+    "sourceId": "8MTEIYKY",
+    "label": "Patient 578 \u2014 several missing teeth",
+    "file": "patient-578.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-579",
+    "sourceId": "CUOT8S6L",
+    "label": "Patient 579 \u2014 third molars absent",
+    "file": "patient-579.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-580",
+    "sourceId": "9S7DPB1Q",
+    "label": "Patient 580 \u2014 several missing teeth",
+    "file": "patient-580.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-581",
+    "sourceId": "ULCJXQS5",
+    "label": "Patient 581 \u2014 several missing teeth",
+    "file": "patient-581.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-582",
+    "sourceId": "9TLHF8TV",
+    "label": "Patient 582 \u2014 third molars absent",
+    "file": "patient-582.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-583",
+    "sourceId": "01E1XHG8",
+    "label": "Patient 583 \u2014 several missing teeth",
+    "file": "patient-583.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-584",
+    "sourceId": "DA6ONC9Z",
+    "label": "Patient 584 \u2014 third molars absent",
+    "file": "patient-584.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-585",
+    "sourceId": "BTDMOORI",
+    "label": "Patient 585 \u2014 several missing teeth",
+    "file": "patient-585.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-586",
+    "sourceId": "FGXB4D4K",
+    "label": "Patient 586 \u2014 several missing teeth",
+    "file": "patient-586.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-587",
+    "sourceId": "IFVHVDFO",
+    "label": "Patient 587 \u2014 several missing teeth",
+    "file": "patient-587.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-588",
+    "sourceId": "01K6HYF6",
+    "label": "Patient 588 \u2014 several missing teeth",
+    "file": "patient-588.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-589",
+    "sourceId": "ZGH1UT1Q",
+    "label": "Patient 589 \u2014 several missing teeth",
+    "file": "patient-589.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-590",
+    "sourceId": "01JZ8C06",
+    "label": "Patient 590 \u2014 third molars absent",
+    "file": "patient-590.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-591",
+    "sourceId": "VY5POH5L",
+    "label": "Patient 591 \u2014 third molars absent",
+    "file": "patient-591.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-592",
+    "sourceId": "XGTCZ6LH",
+    "label": "Patient 592 \u2014 several missing teeth",
+    "file": "patient-592.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-593",
+    "sourceId": "IFB97TD3",
+    "label": "Patient 593 \u2014 several missing teeth",
+    "file": "patient-593.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-594",
+    "sourceId": "01FV7258",
+    "label": "Patient 594 \u2014 third molars absent",
+    "file": "patient-594.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-595",
+    "sourceId": "4G9LHQ2X",
+    "label": "Patient 595 \u2014 several missing teeth",
+    "file": "patient-595.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-596",
+    "sourceId": "VVUXTBF8",
+    "label": "Patient 596 \u2014 third molars absent",
+    "file": "patient-596.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-597",
+    "sourceId": "01AVY0SK",
+    "label": "Patient 597 \u2014 third molars absent",
+    "file": "patient-597.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-598",
+    "sourceId": "D8FLAW28",
+    "label": "Patient 598 \u2014 third molars absent",
+    "file": "patient-598.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-599",
+    "sourceId": "01EDMPPZ",
+    "label": "Patient 599 \u2014 several missing teeth",
+    "file": "patient-599.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-600",
+    "sourceId": "R7SB5B5N",
+    "label": "Patient 600 \u2014 several missing teeth",
+    "file": "patient-600.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-601",
+    "sourceId": "01HJHZ5X",
+    "label": "Patient 601 \u2014 several missing teeth",
+    "file": "patient-601.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-602",
+    "sourceId": "01E66M2X",
+    "label": "Patient 602 \u2014 third molars absent",
+    "file": "patient-602.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-603",
+    "sourceId": "W7PDBF6N",
+    "label": "Patient 603 \u2014 several missing teeth",
+    "file": "patient-603.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-604",
+    "sourceId": "01CCTTK4",
+    "label": "Patient 604 \u2014 several missing teeth",
+    "file": "patient-604.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-605",
+    "sourceId": "LPISNMTY",
+    "label": "Patient 605 \u2014 third molars absent",
+    "file": "patient-605.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-606",
+    "sourceId": "KBN31K7D",
+    "label": "Patient 606 \u2014 third molars absent",
+    "file": "patient-606.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-607",
+    "sourceId": "WRT7Y7P9",
+    "label": "Patient 607 \u2014 several missing teeth",
+    "file": "patient-607.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-608",
+    "sourceId": "HDVYC7UQ",
+    "label": "Patient 608 \u2014 third molars absent",
+    "file": "patient-608.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-609",
+    "sourceId": "CQZX40I5",
+    "label": "Patient 609 \u2014 several missing teeth",
+    "file": "patient-609.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-610",
+    "sourceId": "3XXKPMWE",
+    "label": "Patient 610 \u2014 several missing teeth",
+    "file": "patient-610.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-611",
+    "sourceId": "0JN50XQR",
+    "label": "Patient 611 \u2014 several missing teeth",
+    "file": "patient-611.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-612",
+    "sourceId": "F5NBC5X3",
+    "label": "Patient 612 \u2014 complete dentition",
+    "file": "patient-612.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-613",
+    "sourceId": "01FR2S9H",
+    "label": "Patient 613 \u2014 several missing teeth",
+    "file": "patient-613.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-614",
+    "sourceId": "IMFA1IHI",
+    "label": "Patient 614 \u2014 complete dentition",
+    "file": "patient-614.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-615",
+    "sourceId": "XD63NNJX",
+    "label": "Patient 615 \u2014 third molars absent",
+    "file": "patient-615.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-616",
+    "sourceId": "OEIWQQMQ",
+    "label": "Patient 616 \u2014 several missing teeth",
+    "file": "patient-616.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-617",
+    "sourceId": "XTF24UY3",
+    "label": "Patient 617 \u2014 several missing teeth",
+    "file": "patient-617.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-618",
+    "sourceId": "ENQ0R553",
+    "label": "Patient 618 \u2014 several missing teeth",
+    "file": "patient-618.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-619",
+    "sourceId": "6X2UD6H6",
+    "label": "Patient 619 \u2014 several missing teeth",
+    "file": "patient-619.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-620",
+    "sourceId": "01F4RGN8",
+    "label": "Patient 620 \u2014 several missing teeth",
+    "file": "patient-620.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-621",
+    "sourceId": "01M0RWA6",
+    "label": "Patient 621 \u2014 several missing teeth",
+    "file": "patient-621.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-622",
+    "sourceId": "AKHIE0CJ",
+    "label": "Patient 622 \u2014 FDI 18, 48 absent",
+    "file": "patient-622.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-623",
+    "sourceId": "017FADFV",
+    "label": "Patient 623 \u2014 third molars absent",
+    "file": "patient-623.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-624",
+    "sourceId": "013VGW18",
+    "label": "Patient 624 \u2014 third molars absent",
+    "file": "patient-624.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-625",
+    "sourceId": "K9X2TVDE",
+    "label": "Patient 625 \u2014 third molars absent",
+    "file": "patient-625.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-626",
+    "sourceId": "9LWEGQLI",
+    "label": "Patient 626 \u2014 third molars absent",
+    "file": "patient-626.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-627",
+    "sourceId": "PM5K088N",
+    "label": "Patient 627 \u2014 several missing teeth",
+    "file": "patient-627.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-628",
+    "sourceId": "014S002X",
+    "label": "Patient 628 \u2014 several missing teeth",
+    "file": "patient-628.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-629",
+    "sourceId": "BMQDU97G",
+    "label": "Patient 629 \u2014 FDI 28, 38, 48 absent",
+    "file": "patient-629.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-630",
+    "sourceId": "01558X1D",
+    "label": "Patient 630 \u2014 several missing teeth",
+    "file": "patient-630.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-631",
+    "sourceId": "01FPR7JA",
+    "label": "Patient 631 \u2014 third molars absent",
+    "file": "patient-631.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-632",
+    "sourceId": "H8RSX6T2",
+    "label": "Patient 632 \u2014 several missing teeth",
+    "file": "patient-632.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-633",
+    "sourceId": "01ADYT70",
+    "label": "Patient 633 \u2014 several missing teeth",
+    "file": "patient-633.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-634",
+    "sourceId": "8XVU7PN9",
+    "label": "Patient 634 \u2014 several missing teeth",
+    "file": "patient-634.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-635",
+    "sourceId": "7KRVT5N0",
+    "label": "Patient 635 \u2014 third molars absent",
+    "file": "patient-635.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-636",
+    "sourceId": "BEONHKS1",
+    "label": "Patient 636 \u2014 third molars absent",
+    "file": "patient-636.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-637",
+    "sourceId": "01HXMTNF",
+    "label": "Patient 637 \u2014 several missing teeth",
+    "file": "patient-637.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-638",
+    "sourceId": "YTMRIXFD",
+    "label": "Patient 638 \u2014 several missing teeth",
+    "file": "patient-638.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-639",
+    "sourceId": "CBSF6Q84",
+    "label": "Patient 639 \u2014 several missing teeth",
+    "file": "patient-639.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-640",
+    "sourceId": "EB6DQGAR",
+    "label": "Patient 640 \u2014 several missing teeth",
+    "file": "patient-640.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-641",
+    "sourceId": "DNSRP767",
+    "label": "Patient 641 \u2014 third molars absent",
+    "file": "patient-641.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-642",
+    "sourceId": "014EZU5V",
+    "label": "Patient 642 \u2014 third molars absent",
+    "file": "patient-642.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-643",
+    "sourceId": "DKDRMRFK",
+    "label": "Patient 643 \u2014 third molars absent",
+    "file": "patient-643.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-644",
+    "sourceId": "20AHRBL3",
+    "label": "Patient 644 \u2014 several missing teeth",
+    "file": "patient-644.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-645",
+    "sourceId": "NFE03ULN",
+    "label": "Patient 645 \u2014 several missing teeth",
+    "file": "patient-645.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-646",
+    "sourceId": "01J4R99K",
+    "label": "Patient 646 \u2014 several missing teeth",
+    "file": "patient-646.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-647",
+    "sourceId": "ZELRVD3C",
+    "label": "Patient 647 \u2014 several missing teeth",
+    "file": "patient-647.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-648",
+    "sourceId": "01502VH6",
+    "label": "Patient 648 \u2014 third molars absent",
+    "file": "patient-648.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-649",
+    "sourceId": "01K3G866",
+    "label": "Patient 649 \u2014 several missing teeth",
+    "file": "patient-649.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-650",
+    "sourceId": "K23X2RAU",
+    "label": "Patient 650 \u2014 several missing teeth",
+    "file": "patient-650.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-651",
+    "sourceId": "01CDZ2WA",
+    "label": "Patient 651 \u2014 several missing teeth",
+    "file": "patient-651.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-652",
+    "sourceId": "016T80GN",
+    "label": "Patient 652 \u2014 several missing teeth",
+    "file": "patient-652.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-653",
+    "sourceId": "HPVH85IJ",
+    "label": "Patient 653 \u2014 several missing teeth",
+    "file": "patient-653.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-654",
+    "sourceId": "O52P1SZT",
+    "label": "Patient 654 \u2014 several missing teeth",
+    "file": "patient-654.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-655",
+    "sourceId": "3HRLKQ4M",
+    "label": "Patient 655 \u2014 third molars absent",
+    "file": "patient-655.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-656",
+    "sourceId": "0160NTKK",
+    "label": "Patient 656 \u2014 several missing teeth",
+    "file": "patient-656.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-657",
+    "sourceId": "XNNFHCFV",
+    "label": "Patient 657 \u2014 several missing teeth",
+    "file": "patient-657.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-658",
+    "sourceId": "3SVY023X",
+    "label": "Patient 658 \u2014 complete dentition",
+    "file": "patient-658.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-659",
+    "sourceId": "U1HFBZ1F",
+    "label": "Patient 659 \u2014 several missing teeth",
+    "file": "patient-659.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-660",
+    "sourceId": "B7JSFJPG",
+    "label": "Patient 660 \u2014 several missing teeth",
+    "file": "patient-660.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-661",
+    "sourceId": "KKBN198S",
+    "label": "Patient 661 \u2014 several missing teeth",
+    "file": "patient-661.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-662",
+    "sourceId": "01HJKFR8",
+    "label": "Patient 662 \u2014 several missing teeth",
+    "file": "patient-662.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-663",
+    "sourceId": "09H2L7DM",
+    "label": "Patient 663 \u2014 several missing teeth",
+    "file": "patient-663.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-664",
+    "sourceId": "VD3KNUMV",
+    "label": "Patient 664 \u2014 third molars absent",
+    "file": "patient-664.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-665",
+    "sourceId": "VCVHV931",
+    "label": "Patient 665 \u2014 complete dentition",
+    "file": "patient-665.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-666",
+    "sourceId": "01AS9ER0",
+    "label": "Patient 666 \u2014 third molars absent",
+    "file": "patient-666.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-667",
+    "sourceId": "8OHPQ7X8",
+    "label": "Patient 667 \u2014 several missing teeth",
+    "file": "patient-667.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-668",
+    "sourceId": "01J54NZ0",
+    "label": "Patient 668 \u2014 several missing teeth",
+    "file": "patient-668.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-669",
+    "sourceId": "LOVM549U",
+    "label": "Patient 669 \u2014 third molars absent",
+    "file": "patient-669.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-670",
+    "sourceId": "K6LK1YRK",
+    "label": "Patient 670 \u2014 third molars absent",
+    "file": "patient-670.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-671",
+    "sourceId": "016Y55Z0",
+    "label": "Patient 671 \u2014 third molars absent",
+    "file": "patient-671.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-672",
+    "sourceId": "14M656LK",
+    "label": "Patient 672 \u2014 several missing teeth",
+    "file": "patient-672.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-673",
+    "sourceId": "015WYXSK",
+    "label": "Patient 673 \u2014 third molars absent",
+    "file": "patient-673.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-674",
+    "sourceId": "X0DGDJA3",
+    "label": "Patient 674 \u2014 several missing teeth",
+    "file": "patient-674.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-675",
+    "sourceId": "01JHDRT4",
+    "label": "Patient 675 \u2014 third molars absent",
+    "file": "patient-675.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-676",
+    "sourceId": "013TGCFK",
+    "label": "Patient 676 \u2014 several missing teeth",
+    "file": "patient-676.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-677",
+    "sourceId": "0142CYK4",
+    "label": "Patient 677 \u2014 several missing teeth",
+    "file": "patient-677.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-678",
+    "sourceId": "GB5JUSDJ",
+    "label": "Patient 678 \u2014 third molars absent",
+    "file": "patient-678.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-679",
+    "sourceId": "013475VT",
+    "label": "Patient 679 \u2014 several missing teeth",
+    "file": "patient-679.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-680",
+    "sourceId": "3DDGECCR",
+    "label": "Patient 680 \u2014 several missing teeth",
+    "file": "patient-680.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-681",
+    "sourceId": "DBNTTNY9",
+    "label": "Patient 681 \u2014 third molars absent",
+    "file": "patient-681.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-682",
+    "sourceId": "L8IYFLQP",
+    "label": "Patient 682 \u2014 third molars absent",
+    "file": "patient-682.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-683",
+    "sourceId": "019T94KX",
+    "label": "Patient 683 \u2014 several missing teeth",
+    "file": "patient-683.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-684",
+    "sourceId": "UEPDPBK2",
+    "label": "Patient 684 \u2014 third molars absent",
+    "file": "patient-684.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-685",
+    "sourceId": "JXVWXY0L",
+    "label": "Patient 685 \u2014 several missing teeth",
+    "file": "patient-685.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-686",
+    "sourceId": "0154PPVX",
+    "label": "Patient 686 \u2014 several missing teeth",
+    "file": "patient-686.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-687",
+    "sourceId": "JRG6Y6E0",
+    "label": "Patient 687 \u2014 third molars absent",
+    "file": "patient-687.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-688",
+    "sourceId": "YMB2MN8L",
+    "label": "Patient 688 \u2014 FDI 28, 38 absent",
+    "file": "patient-688.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-689",
+    "sourceId": "79R5A68H",
+    "label": "Patient 689 \u2014 third molars absent",
+    "file": "patient-689.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-690",
+    "sourceId": "YQXY68KA",
+    "label": "Patient 690 \u2014 third molars absent",
+    "file": "patient-690.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-691",
+    "sourceId": "01909P9K",
+    "label": "Patient 691 \u2014 third molars absent",
+    "file": "patient-691.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-692",
+    "sourceId": "013V9CKV",
+    "label": "Patient 692 \u2014 third molars absent",
+    "file": "patient-692.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-693",
+    "sourceId": "ANLLPLV7",
+    "label": "Patient 693 \u2014 several missing teeth",
+    "file": "patient-693.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-694",
+    "sourceId": "0199XT22",
+    "label": "Patient 694 \u2014 several missing teeth",
+    "file": "patient-694.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-695",
+    "sourceId": "S8FFW0OP",
+    "label": "Patient 695 \u2014 third molars absent",
+    "file": "patient-695.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-696",
+    "sourceId": "2Q8KKZ6V",
+    "label": "Patient 696 \u2014 FDI 28, 38 absent",
+    "file": "patient-696.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-697",
+    "sourceId": "6X24ILNE",
+    "label": "Patient 697 \u2014 FDI 48 absent",
+    "file": "patient-697.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-698",
+    "sourceId": "8QFKXVYB",
+    "label": "Patient 698 \u2014 several missing teeth",
+    "file": "patient-698.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-699",
+    "sourceId": "A9TECAGP",
+    "label": "Patient 699 \u2014 third molars absent",
+    "file": "patient-699.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-700",
+    "sourceId": "01F4SYN8",
+    "label": "Patient 700 \u2014 third molars absent",
+    "file": "patient-700.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-701",
+    "sourceId": "UX9MEDVJ",
+    "label": "Patient 701 \u2014 several missing teeth",
+    "file": "patient-701.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-702",
+    "sourceId": "014F9HTN",
+    "label": "Patient 702 \u2014 several missing teeth",
+    "file": "patient-702.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-703",
+    "sourceId": "AJP25A9G",
+    "label": "Patient 703 \u2014 third molars absent",
+    "file": "patient-703.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-704",
+    "sourceId": "DHS59TDF",
+    "label": "Patient 704 \u2014 third molars absent",
+    "file": "patient-704.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-705",
+    "sourceId": "X8I1PX6F",
+    "label": "Patient 705 \u2014 third molars absent",
+    "file": "patient-705.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-706",
+    "sourceId": "CIGUMDD0",
+    "label": "Patient 706 \u2014 several missing teeth",
+    "file": "patient-706.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-707",
+    "sourceId": "S14CSG9U",
+    "label": "Patient 707 \u2014 complete dentition",
+    "file": "patient-707.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-708",
+    "sourceId": "8JYS0DD1",
+    "label": "Patient 708 \u2014 several missing teeth",
+    "file": "patient-708.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-709",
+    "sourceId": "Q5GSR6N2",
+    "label": "Patient 709 \u2014 several missing teeth",
+    "file": "patient-709.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-710",
+    "sourceId": "01FJTJU6",
+    "label": "Patient 710 \u2014 several missing teeth",
+    "file": "patient-710.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-711",
+    "sourceId": "0132CR0A",
+    "label": "Patient 711 \u2014 several missing teeth",
+    "file": "patient-711.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-712",
+    "sourceId": "X3EW8O0A",
+    "label": "Patient 712 \u2014 third molars absent",
+    "file": "patient-712.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-713",
+    "sourceId": "LSMGKLAH",
+    "label": "Patient 713 \u2014 several missing teeth",
+    "file": "patient-713.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-714",
+    "sourceId": "0KIUZ4G5",
+    "label": "Patient 714 \u2014 both 18 and 28 absent",
+    "file": "patient-714.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-715",
+    "sourceId": "013NXP1H",
+    "label": "Patient 715 \u2014 third molars absent",
+    "file": "patient-715.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-716",
+    "sourceId": "Z83V9A9D",
+    "label": "Patient 716 \u2014 several missing teeth",
+    "file": "patient-716.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-717",
+    "sourceId": "013H18FF",
+    "label": "Patient 717 \u2014 third molars absent",
+    "file": "patient-717.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-718",
+    "sourceId": "019M7KEN",
+    "label": "Patient 718 \u2014 third molars absent",
+    "file": "patient-718.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-719",
+    "sourceId": "HT9XQCYL",
+    "label": "Patient 719 \u2014 several missing teeth",
+    "file": "patient-719.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-720",
+    "sourceId": "014ZTUSK",
+    "label": "Patient 720 \u2014 third molars absent",
+    "file": "patient-720.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-721",
+    "sourceId": "01KRCSKD",
+    "label": "Patient 721 \u2014 third molars absent",
+    "file": "patient-721.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-722",
+    "sourceId": "01J4YSDX",
+    "label": "Patient 722 \u2014 several missing teeth",
+    "file": "patient-722.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-723",
+    "sourceId": "270KABNB",
+    "label": "Patient 723 \u2014 several missing teeth",
+    "file": "patient-723.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-724",
+    "sourceId": "01343APK",
+    "label": "Patient 724 \u2014 several missing teeth",
+    "file": "patient-724.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-725",
+    "sourceId": "0191WKPV",
+    "label": "Patient 725 \u2014 several missing teeth",
+    "file": "patient-725.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-726",
+    "sourceId": "01FX95TX",
+    "label": "Patient 726 \u2014 several missing teeth",
+    "file": "patient-726.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-727",
+    "sourceId": "OLS97NA3",
+    "label": "Patient 727 \u2014 third molars absent",
+    "file": "patient-727.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-728",
+    "sourceId": "PKVZEFCD",
+    "label": "Patient 728 \u2014 several missing teeth",
+    "file": "patient-728.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-729",
+    "sourceId": "E23G704K",
+    "label": "Patient 729 \u2014 third molars absent",
+    "file": "patient-729.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-730",
+    "sourceId": "CVXIS1C2",
+    "label": "Patient 730 \u2014 several missing teeth",
+    "file": "patient-730.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-731",
+    "sourceId": "00OMSZGW",
+    "label": "Patient 731 \u2014 several missing teeth",
+    "file": "patient-731.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-732",
+    "sourceId": "09HRNJZ8",
+    "label": "Patient 732 \u2014 third molars absent",
+    "file": "patient-732.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-733",
+    "sourceId": "L9EKTZMV",
+    "label": "Patient 733 \u2014 third molars absent",
+    "file": "patient-733.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-734",
+    "sourceId": "LGADV15G",
+    "label": "Patient 734 \u2014 third molars absent",
+    "file": "patient-734.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-735",
+    "sourceId": "OS06596E",
+    "label": "Patient 735 \u2014 third molars absent",
+    "file": "patient-735.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-736",
+    "sourceId": "0159CS26",
+    "label": "Patient 736 \u2014 third molars absent",
+    "file": "patient-736.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-737",
+    "sourceId": "GBRCT97W",
+    "label": "Patient 737 \u2014 several missing teeth",
+    "file": "patient-737.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-738",
+    "sourceId": "patient1",
+    "label": "Patient 738 \u2014 several missing teeth",
+    "file": "patient-738.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-739",
+    "sourceId": "S1Y7IWMP",
+    "label": "Patient 739 \u2014 third molars absent",
+    "file": "patient-739.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-740",
+    "sourceId": "016THRCV",
+    "label": "Patient 740 \u2014 third molars absent",
+    "file": "patient-740.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-741",
+    "sourceId": "PKPW730K",
+    "label": "Patient 741 \u2014 third molars absent",
+    "file": "patient-741.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-742",
+    "sourceId": "MAIPESOV",
+    "label": "Patient 742 \u2014 third molars absent",
+    "file": "patient-742.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-743",
+    "sourceId": "L7Z4TSKP",
+    "label": "Patient 743 \u2014 third molars absent",
+    "file": "patient-743.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-744",
+    "sourceId": "API3O9JV",
+    "label": "Patient 744 \u2014 third molars absent",
+    "file": "patient-744.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-745",
+    "sourceId": "01346914",
+    "label": "Patient 745 \u2014 several missing teeth",
+    "file": "patient-745.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-746",
+    "sourceId": "01KCA1CT",
+    "label": "Patient 746 \u2014 third molars absent",
+    "file": "patient-746.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-747",
+    "sourceId": "FBZLIQ1L",
+    "label": "Patient 747 \u2014 several missing teeth",
+    "file": "patient-747.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-748",
+    "sourceId": "V68KILV2",
+    "label": "Patient 748 \u2014 several missing teeth",
+    "file": "patient-748.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-749",
+    "sourceId": "PYAY9ZYX",
+    "label": "Patient 749 \u2014 several missing teeth",
+    "file": "patient-749.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-750",
+    "sourceId": "015DXGZH",
+    "label": "Patient 750 \u2014 several missing teeth",
+    "file": "patient-750.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-751",
+    "sourceId": "01KXSC9K",
+    "label": "Patient 751 \u2014 third molars absent",
+    "file": "patient-751.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-752",
+    "sourceId": "017APYC4",
+    "label": "Patient 752 \u2014 several missing teeth",
+    "file": "patient-752.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-753",
+    "sourceId": "017YFPPR",
+    "label": "Patient 753 \u2014 third molars absent",
+    "file": "patient-753.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-754",
+    "sourceId": "GANLQSL1",
+    "label": "Patient 754 \u2014 third molars absent",
+    "file": "patient-754.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-755",
+    "sourceId": "01EU1338",
+    "label": "Patient 755 \u2014 several missing teeth",
+    "file": "patient-755.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-756",
+    "sourceId": "01CCUKV4",
+    "label": "Patient 756 \u2014 third molars absent",
+    "file": "patient-756.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-757",
+    "sourceId": "FXMJG80Y",
+    "label": "Patient 757 \u2014 third molars absent",
+    "file": "patient-757.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-758",
+    "sourceId": "019EJZFH",
+    "label": "Patient 758 \u2014 third molars absent",
+    "file": "patient-758.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-759",
+    "sourceId": "XAET4JJL",
+    "label": "Patient 759 \u2014 several missing teeth",
+    "file": "patient-759.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-760",
+    "sourceId": "SZQ66Y5A",
+    "label": "Patient 760 \u2014 several missing teeth",
+    "file": "patient-760.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-761",
+    "sourceId": "015SUFFX",
+    "label": "Patient 761 \u2014 third molars absent",
+    "file": "patient-761.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-762",
+    "sourceId": "DG27PDD4",
+    "label": "Patient 762 \u2014 several missing teeth",
+    "file": "patient-762.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-763",
+    "sourceId": "01FUXUMF",
+    "label": "Patient 763 \u2014 third molars absent",
+    "file": "patient-763.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-764",
+    "sourceId": "019PEUMN",
+    "label": "Patient 764 \u2014 third molars absent",
+    "file": "patient-764.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-765",
+    "sourceId": "01M24NSZ",
+    "label": "Patient 765 \u2014 third molars absent",
+    "file": "patient-765.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-766",
+    "sourceId": "U9UBDO05",
+    "label": "Patient 766 \u2014 several missing teeth",
+    "file": "patient-766.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-767",
+    "sourceId": "PS0WAD4X",
+    "label": "Patient 767 \u2014 third molars absent",
+    "file": "patient-767.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-768",
+    "sourceId": "AYJQ5YMF",
+    "label": "Patient 768 \u2014 several missing teeth",
+    "file": "patient-768.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-769",
+    "sourceId": "QDI80G6G",
+    "label": "Patient 769 \u2014 third molars absent",
+    "file": "patient-769.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-770",
+    "sourceId": "I3T81ZK8",
+    "label": "Patient 770 \u2014 third molars absent",
+    "file": "patient-770.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-771",
+    "sourceId": "13AFGBBC",
+    "label": "Patient 771 \u2014 several missing teeth",
+    "file": "patient-771.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-772",
+    "sourceId": "9VI3MAFZ",
+    "label": "Patient 772 \u2014 third molars absent",
+    "file": "patient-772.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-773",
+    "sourceId": "EKITH3BB",
+    "label": "Patient 773 \u2014 FDI 18, 28, 38 absent",
+    "file": "patient-773.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-774",
+    "sourceId": "HZH8DYC7",
+    "label": "Patient 774 \u2014 complete dentition",
+    "file": "patient-774.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-775",
+    "sourceId": "0VYQUKGQ",
+    "label": "Patient 775 \u2014 third molars absent",
+    "file": "patient-775.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-776",
+    "sourceId": "2TPJ3FG9",
+    "label": "Patient 776 \u2014 third molars absent",
+    "file": "patient-776.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-777",
+    "sourceId": "Y9WQHQMT",
+    "label": "Patient 777 \u2014 third molars absent",
+    "file": "patient-777.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-778",
+    "sourceId": "4A02S6L3",
+    "label": "Patient 778 \u2014 third molars absent",
+    "file": "patient-778.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-779",
+    "sourceId": "01AS003D",
+    "label": "Patient 779 \u2014 several missing teeth",
+    "file": "patient-779.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-780",
+    "sourceId": "01MGY4X8",
+    "label": "Patient 780 \u2014 third molars absent",
+    "file": "patient-780.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-781",
+    "sourceId": "0171X5EV",
+    "label": "Patient 781 \u2014 third molars absent",
+    "file": "patient-781.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-782",
+    "sourceId": "OE8BA9EK",
+    "label": "Patient 782 \u2014 third molars absent",
+    "file": "patient-782.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-783",
+    "sourceId": "RUXSXSCL",
+    "label": "Patient 783 \u2014 third molars absent",
+    "file": "patient-783.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-784",
+    "sourceId": "Y8NWJUEB",
+    "label": "Patient 784 \u2014 third molars absent",
+    "file": "patient-784.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-785",
+    "sourceId": "017UYAW4",
+    "label": "Patient 785 \u2014 several missing teeth",
+    "file": "patient-785.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-786",
+    "sourceId": "EK26QFUW",
+    "label": "Patient 786 \u2014 third molars absent",
+    "file": "patient-786.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-787",
+    "sourceId": "01KY7E6A",
+    "label": "Patient 787 \u2014 several missing teeth",
+    "file": "patient-787.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-788",
+    "sourceId": "E552BK9X",
+    "label": "Patient 788 \u2014 several missing teeth",
+    "file": "patient-788.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-789",
+    "sourceId": "2AK5QKZ7",
+    "label": "Patient 789 \u2014 several missing teeth",
+    "file": "patient-789.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-790",
+    "sourceId": "XD8J3TG7",
+    "label": "Patient 790 \u2014 third molars absent",
+    "file": "patient-790.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-791",
+    "sourceId": "014X0F4K",
+    "label": "Patient 791 \u2014 several missing teeth",
+    "file": "patient-791.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-792",
+    "sourceId": "LAFJJKAE",
+    "label": "Patient 792 \u2014 several missing teeth",
+    "file": "patient-792.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-793",
+    "sourceId": "HLA5ODT6",
+    "label": "Patient 793 \u2014 third molars absent",
+    "file": "patient-793.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-794",
+    "sourceId": "9RXZC3H4",
+    "label": "Patient 794 \u2014 third molars absent",
+    "file": "patient-794.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-795",
+    "sourceId": "019TTV1D",
+    "label": "Patient 795 \u2014 several missing teeth",
+    "file": "patient-795.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-796",
+    "sourceId": "P2XZ9Q6L",
+    "label": "Patient 796 \u2014 several missing teeth",
+    "file": "patient-796.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-797",
+    "sourceId": "7DRMXZ3A",
+    "label": "Patient 797 \u2014 third molars absent",
+    "file": "patient-797.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-798",
+    "sourceId": "12MM6PD7",
+    "label": "Patient 798 \u2014 several missing teeth",
+    "file": "patient-798.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-799",
+    "sourceId": "7IYV2N3D",
+    "label": "Patient 799 \u2014 third molars absent",
+    "file": "patient-799.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-800",
+    "sourceId": "01ADUNMV",
+    "label": "Patient 800 \u2014 third molars absent",
+    "file": "patient-800.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-801",
+    "sourceId": "BBHLWUPK",
+    "label": "Patient 801 \u2014 several missing teeth",
+    "file": "patient-801.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-802",
+    "sourceId": "X273URFW",
+    "label": "Patient 802 \u2014 third molars absent",
+    "file": "patient-802.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-803",
+    "sourceId": "JJEIMAPR",
+    "label": "Patient 803 \u2014 FDI 38 absent",
+    "file": "patient-803.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-804",
+    "sourceId": "NQ2A571C",
+    "label": "Patient 804 \u2014 several missing teeth",
+    "file": "patient-804.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-805",
+    "sourceId": "K4BAII5F",
+    "label": "Patient 805 \u2014 third molars absent",
+    "file": "patient-805.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-806",
+    "sourceId": "1QI2XWMD",
+    "label": "Patient 806 \u2014 several missing teeth",
+    "file": "patient-806.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-807",
+    "sourceId": "E0CUCLHY",
+    "label": "Patient 807 \u2014 several missing teeth",
+    "file": "patient-807.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-808",
+    "sourceId": "ERCT8ZLW",
+    "label": "Patient 808 \u2014 both 38 and 48 absent",
+    "file": "patient-808.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-809",
+    "sourceId": "OGQI7QQX",
+    "label": "Patient 809 \u2014 several missing teeth",
+    "file": "patient-809.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-810",
+    "sourceId": "2XV86U1F",
+    "label": "Patient 810 \u2014 several missing teeth",
+    "file": "patient-810.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-811",
+    "sourceId": "BT6UVVI2",
+    "label": "Patient 811 \u2014 third molars absent",
+    "file": "patient-811.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-812",
+    "sourceId": "OQMRF1N4",
+    "label": "Patient 812 \u2014 several missing teeth",
+    "file": "patient-812.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-813",
+    "sourceId": "9U19TREK",
+    "label": "Patient 813 \u2014 third molars absent",
+    "file": "patient-813.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-814",
+    "sourceId": "J8YGBFK2",
+    "label": "Patient 814 \u2014 third molars absent",
+    "file": "patient-814.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-815",
+    "sourceId": "3Y8A14TI",
+    "label": "Patient 815 \u2014 several missing teeth",
+    "file": "patient-815.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-816",
+    "sourceId": "RXKYWHG6",
+    "label": "Patient 816 \u2014 several missing teeth",
+    "file": "patient-816.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-817",
+    "sourceId": "NFC5OJPM",
+    "label": "Patient 817 \u2014 third molars absent",
+    "file": "patient-817.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-818",
+    "sourceId": "Y8BV16EI",
+    "label": "Patient 818 \u2014 third molars absent",
+    "file": "patient-818.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-819",
+    "sourceId": "7QW884Y4",
+    "label": "Patient 819 \u2014 third molars absent",
+    "file": "patient-819.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-820",
+    "sourceId": "J1A5FRQN",
+    "label": "Patient 820 \u2014 several missing teeth",
+    "file": "patient-820.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-821",
+    "sourceId": "ZK5A0EXI",
+    "label": "Patient 821 \u2014 third molars absent",
+    "file": "patient-821.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-822",
+    "sourceId": "E4GH1D3S",
+    "label": "Patient 822 \u2014 third molars absent",
+    "file": "patient-822.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-823",
+    "sourceId": "PP48V5RU",
+    "label": "Patient 823 \u2014 several missing teeth",
+    "file": "patient-823.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-824",
+    "sourceId": "9M60SBBP",
+    "label": "Patient 824 \u2014 several missing teeth",
+    "file": "patient-824.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-825",
+    "sourceId": "01G1GYUF",
+    "label": "Patient 825 \u2014 several missing teeth",
+    "file": "patient-825.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-826",
+    "sourceId": "019ZKUHV",
+    "label": "Patient 826 \u2014 several missing teeth",
+    "file": "patient-826.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-827",
+    "sourceId": "01KTRG9K",
+    "label": "Patient 827 \u2014 third molars absent",
+    "file": "patient-827.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-828",
+    "sourceId": "NZ9C9J2G",
+    "label": "Patient 828 \u2014 third molars absent",
+    "file": "patient-828.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-829",
+    "sourceId": "013Z8U5Z",
+    "label": "Patient 829 \u2014 several missing teeth",
+    "file": "patient-829.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-830",
+    "sourceId": "4LQPEQN5",
+    "label": "Patient 830 \u2014 third molars absent",
+    "file": "patient-830.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-831",
+    "sourceId": "017UWE8F",
+    "label": "Patient 831 \u2014 several missing teeth",
+    "file": "patient-831.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-832",
+    "sourceId": "XC6ID68Q",
+    "label": "Patient 832 \u2014 complete dentition",
+    "file": "patient-832.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-833",
+    "sourceId": "DXNHHADD",
+    "label": "Patient 833 \u2014 third molars absent",
+    "file": "patient-833.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-834",
+    "sourceId": "013NXHPV",
+    "label": "Patient 834 \u2014 third molars absent",
+    "file": "patient-834.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-835",
+    "sourceId": "LNQ2C7W2",
+    "label": "Patient 835 \u2014 several missing teeth",
+    "file": "patient-835.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-836",
+    "sourceId": "87N5YSES",
+    "label": "Patient 836 \u2014 both 18 and 28 absent",
+    "file": "patient-836.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-837",
+    "sourceId": "3XIVSP8G",
+    "label": "Patient 837 \u2014 third molars absent",
+    "file": "patient-837.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-838",
+    "sourceId": "016N696F",
+    "label": "Patient 838 \u2014 several missing teeth",
+    "file": "patient-838.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-839",
+    "sourceId": "92NOTURU",
+    "label": "Patient 839 \u2014 third molars absent",
+    "file": "patient-839.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-840",
+    "sourceId": "SW62DGWI",
+    "label": "Patient 840 \u2014 several missing teeth",
+    "file": "patient-840.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-841",
+    "sourceId": "0158JZXN",
+    "label": "Patient 841 \u2014 third molars absent",
+    "file": "patient-841.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-842",
+    "sourceId": "0145FC8N",
+    "label": "Patient 842 \u2014 several missing teeth",
+    "file": "patient-842.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-843",
+    "sourceId": "FWTHWWD3",
+    "label": "Patient 843 \u2014 several missing teeth",
+    "file": "patient-843.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-844",
+    "sourceId": "U0YVRCMS",
+    "label": "Patient 844 \u2014 third molars absent",
+    "file": "patient-844.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-845",
+    "sourceId": "01E7MMEF",
+    "label": "Patient 845 \u2014 third molars absent",
+    "file": "patient-845.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-846",
+    "sourceId": "014M2HZD",
+    "label": "Patient 846 \u2014 third molars absent",
+    "file": "patient-846.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-847",
+    "sourceId": "GG5ARUVQ",
+    "label": "Patient 847 \u2014 third molars absent",
+    "file": "patient-847.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-848",
+    "sourceId": "3JVRS0V2",
+    "label": "Patient 848 \u2014 third molars absent",
+    "file": "patient-848.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-849",
+    "sourceId": "019CNYA6",
+    "label": "Patient 849 \u2014 several missing teeth",
+    "file": "patient-849.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-850",
+    "sourceId": "TZRY3HIX",
+    "label": "Patient 850 \u2014 several missing teeth",
+    "file": "patient-850.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-851",
+    "sourceId": "Z5SBGG6H",
+    "label": "Patient 851 \u2014 several missing teeth",
+    "file": "patient-851.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-852",
+    "sourceId": "ULYCMXUY",
+    "label": "Patient 852 \u2014 several missing teeth",
+    "file": "patient-852.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-853",
+    "sourceId": "6PNM29W7",
+    "label": "Patient 853 \u2014 several missing teeth",
+    "file": "patient-853.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-854",
+    "sourceId": "725VOCK0",
+    "label": "Patient 854 \u2014 third molars absent",
+    "file": "patient-854.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-855",
+    "sourceId": "U7UBW70K",
+    "label": "Patient 855 \u2014 several missing teeth",
+    "file": "patient-855.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-856",
+    "sourceId": "019ZMN7R",
+    "label": "Patient 856 \u2014 third molars absent",
+    "file": "patient-856.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-857",
+    "sourceId": "014WKP6A",
+    "label": "Patient 857 \u2014 several missing teeth",
+    "file": "patient-857.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-858",
+    "sourceId": "XG9DMI04",
+    "label": "Patient 858 \u2014 third molars absent",
+    "file": "patient-858.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-859",
+    "sourceId": "015WXFRN",
+    "label": "Patient 859 \u2014 third molars absent",
+    "file": "patient-859.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-860",
+    "sourceId": "4SA064Y7",
+    "label": "Patient 860 \u2014 third molars absent",
+    "file": "patient-860.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-861",
+    "sourceId": "Z4CBCCVE",
+    "label": "Patient 861 \u2014 third molars absent",
+    "file": "patient-861.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-862",
+    "sourceId": "015RHV4X",
+    "label": "Patient 862 \u2014 several missing teeth",
+    "file": "patient-862.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-863",
+    "sourceId": "VQENDTP2",
+    "label": "Patient 863 \u2014 several missing teeth",
+    "file": "patient-863.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-864",
+    "sourceId": "019CP4YZ",
+    "label": "Patient 864 \u2014 third molars absent",
+    "file": "patient-864.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-865",
+    "sourceId": "CZ0XDR02",
+    "label": "Patient 865 \u2014 several missing teeth",
+    "file": "patient-865.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-866",
+    "sourceId": "01HMZ9RN",
+    "label": "Patient 866 \u2014 third molars absent",
+    "file": "patient-866.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-867",
+    "sourceId": "XNEIPJH8",
+    "label": "Patient 867 \u2014 third molars absent",
+    "file": "patient-867.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-868",
+    "sourceId": "014Z13Z2",
+    "label": "Patient 868 \u2014 several missing teeth",
+    "file": "patient-868.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-869",
+    "sourceId": "9GSQBATD",
+    "label": "Patient 869 \u2014 several missing teeth",
+    "file": "patient-869.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-870",
+    "sourceId": "01FAYE3T",
+    "label": "Patient 870 \u2014 several missing teeth",
+    "file": "patient-870.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-871",
+    "sourceId": "N53MDM0A",
+    "label": "Patient 871 \u2014 several missing teeth",
+    "file": "patient-871.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-872",
+    "sourceId": "01KEK90A",
+    "label": "Patient 872 \u2014 several missing teeth",
+    "file": "patient-872.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-873",
+    "sourceId": "6XSU5W4B",
+    "label": "Patient 873 \u2014 third molars absent",
+    "file": "patient-873.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-874",
+    "sourceId": "0178P1CT",
+    "label": "Patient 874 \u2014 several missing teeth",
+    "file": "patient-874.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-875",
+    "sourceId": "H205AOTN",
+    "label": "Patient 875 \u2014 third molars absent",
+    "file": "patient-875.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-876",
+    "sourceId": "01A9282X",
+    "label": "Patient 876 \u2014 several missing teeth",
+    "file": "patient-876.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-877",
+    "sourceId": "01JM5T86",
+    "label": "Patient 877 \u2014 several missing teeth",
+    "file": "patient-877.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-878",
+    "sourceId": "7IGA0W6E",
+    "label": "Patient 878 \u2014 several missing teeth",
+    "file": "patient-878.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-879",
+    "sourceId": "AV3JBM98",
+    "label": "Patient 879 \u2014 third molars absent",
+    "file": "patient-879.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-880",
+    "sourceId": "O9U99070",
+    "label": "Patient 880 \u2014 several missing teeth",
+    "file": "patient-880.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-881",
+    "sourceId": "1FJ3MLSY",
+    "label": "Patient 881 \u2014 third molars absent",
+    "file": "patient-881.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-882",
+    "sourceId": "CXAJM3O9",
+    "label": "Patient 882 \u2014 third molars absent",
+    "file": "patient-882.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-883",
+    "sourceId": "6QJ5RART",
+    "label": "Patient 883 \u2014 third molars absent",
+    "file": "patient-883.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-884",
+    "sourceId": "HCGXNZ4O",
+    "label": "Patient 884 \u2014 several missing teeth",
+    "file": "patient-884.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-885",
+    "sourceId": "XNNZTXK5",
+    "label": "Patient 885 \u2014 third molars absent",
+    "file": "patient-885.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-886",
+    "sourceId": "NX1SXEJY",
+    "label": "Patient 886 \u2014 third molars absent",
+    "file": "patient-886.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-887",
+    "sourceId": "BUGB9DY1",
+    "label": "Patient 887 \u2014 several missing teeth",
+    "file": "patient-887.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-888",
+    "sourceId": "O2LXM8BS",
+    "label": "Patient 888 \u2014 several missing teeth",
+    "file": "patient-888.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-889",
+    "sourceId": "XKTTBEE0",
+    "label": "Patient 889 \u2014 third molars absent",
+    "file": "patient-889.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-890",
+    "sourceId": "0IU0UV8E",
+    "label": "Patient 890 \u2014 several missing teeth",
+    "file": "patient-890.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-891",
+    "sourceId": "013Z9SM2",
+    "label": "Patient 891 \u2014 several missing teeth",
+    "file": "patient-891.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-892",
+    "sourceId": "016XWJ8X",
+    "label": "Patient 892 \u2014 third molars absent",
+    "file": "patient-892.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-893",
+    "sourceId": "I8V5YEDR",
+    "label": "Patient 893 \u2014 third molars absent",
+    "file": "patient-893.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-894",
+    "sourceId": "015DUP26",
+    "label": "Patient 894 \u2014 several missing teeth",
+    "file": "patient-894.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-895",
+    "sourceId": "G29MBJ1O",
+    "label": "Patient 895 \u2014 several missing teeth",
+    "file": "patient-895.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-896",
+    "sourceId": "C4EMFL0D",
+    "label": "Patient 896 \u2014 several missing teeth",
+    "file": "patient-896.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-897",
+    "sourceId": "C3TQ47Z0",
+    "label": "Patient 897 \u2014 several missing teeth",
+    "file": "patient-897.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-898",
+    "sourceId": "0Y047OQK",
+    "label": "Patient 898 \u2014 several missing teeth",
+    "file": "patient-898.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-899",
+    "sourceId": "5NMDP9FJ",
+    "label": "Patient 899 \u2014 several missing teeth",
+    "file": "patient-899.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
+  },
+  {
+    "id": "patient-900",
+    "sourceId": "VR3C4L0M",
+    "label": "Patient 900 \u2014 third molars absent",
+    "file": "patient-900.glb",
+    "arches": [
+      "upper",
+      "lower"
+    ]
   }
 ]

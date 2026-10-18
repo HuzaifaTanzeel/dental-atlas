@@ -5,26 +5,77 @@ import {
   ArrowUpRight,
   Info,
   Layers3,
+  Library,
   Pause,
   RotateCcw,
   RotateCw,
   Search,
   X,
 } from "lucide-react"
+import { CaseLibrary } from "@/components/CaseLibrary"
 import { StudioButton } from "@/components/StudioButton"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { MotionCard, useStudioMotion } from "@/studio-motion"
+import {
+  emptyCaseLibraryFilters,
+  parseTagsParam,
+  serializeTagsParam,
+  type CaseLibraryFilters,
+} from "@/data/case-library"
 import { getFdiTooth } from "@/data/fdi-teeth"
 import { missingToothMessage, searchFdiTeeth } from "@/data/fdi-search"
-import { getPatientById, patientModelUrl, patients } from "@/data/patients"
-import { PatientSwitcher } from "@/components/PatientSwitcher"
+import {
+  getPatientById,
+  patientArches,
+  patientDisplayName,
+  patientHasArch,
+  patientModelUrl,
+  patients,
+  type ArchId as PatientArchId,
+} from "@/data/patients"
 import { ToothDetailPanel } from "@/components/ToothDetailPanel"
 import { ToothSearchPanel } from "@/components/ToothSearchPanel"
 import { DentalScene } from "@/three/DentalScene"
 import type { ModelPiece } from "@/three/model-space"
 import { pieceVisible } from "@/three/model-space"
+import { prefetchNeighborPatients } from "@/three/prefetch-patients"
+
+function readCaseIdFromUrl(): string | null {
+  try {
+    const value = new URLSearchParams(window.location.search).get("case")
+    if (value && patients.some((patient) => patient.id === value)) return value
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+function readFiltersFromUrl(): CaseLibraryFilters {
+  try {
+    return {
+      tags: parseTagsParam(new URLSearchParams(window.location.search).get("tags")),
+      query: "",
+    }
+  } catch {
+    return emptyCaseLibraryFilters()
+  }
+}
+
+function writeCaseLibraryUrl(caseId: string, filters: CaseLibraryFilters) {
+  try {
+    const params = new URLSearchParams(window.location.search)
+    params.set("case", caseId)
+    if (filters.tags.length > 0) params.set("tags", serializeTagsParam(filters.tags))
+    else params.delete("tags")
+    const query = params.toString()
+    const next = query ? `${window.location.pathname}?${query}` : window.location.pathname
+    window.history.replaceState(null, "", next)
+  } catch {
+    /* ignore */
+  }
+}
 import {
   GINGIVA_LAYER,
   STUDIO_VIEWS,
@@ -81,12 +132,25 @@ function ErrorCard({ message, onReload }: { message: string; onReload: () => voi
   )
 }
 
+function defaultArchForPatient(patientId: string): PatientArchId {
+  const arches = patientArches(getPatientById(patientId))
+  if (arches.includes("lower")) return "lower"
+  return arches[0] ?? "lower"
+}
+
+function clampStudioArches(arches: StudioState["arches"], patientId: string): StudioState["arches"] {
+  const available = patientArches(getPatientById(patientId))
+  const kept = arches.filter((arch): arch is PatientArchId => available.includes(arch))
+  if (kept.length > 0) return [kept[0]!]
+  return [defaultArchForPatient(patientId)]
+}
+
 function sceneCaption(studio: StudioState, selectedName: string | null): string {
   if (studio.isolate && selectedName) return selectedName.toUpperCase()
   if (studio.explode > 0.85) return "EVERY TOOTH"
   if (studio.explode > 0.05) return "OPENING THE BITE"
-  if (studio.arches.length === 2) return "IN OCCLUSION"
-  if (studio.arches.length === 1) return studio.arches[0] === "upper" ? "UPPER ARCH" : "LOWER ARCH"
+  if (studio.arches[0] === "upper") return "UPPER ARCH"
+  if (studio.arches[0] === "lower") return "LOWER ARCH"
   if (!studio.gingiva) return "CROWNS ONLY"
   return "DENTAL ARCH"
 }
@@ -94,8 +158,12 @@ function sceneCaption(studio: StudioState, selectedName: string | null): string 
 export function ViewerShell() {
   const { reduce, micro, panel: panelMotion } = useStudioMotion()
   const [session, setSession] = useState(0)
-  const [activePatientId, setActivePatientId] = useState(defaultPatient.id)
-  const [studio, setStudio] = useState<StudioState>(initialStudio)
+  const urlCaseId = readCaseIdFromUrl()
+  const [activePatientId, setActivePatientId] = useState(urlCaseId ?? defaultPatient.id)
+  const [studio, setStudio] = useState<StudioState>(() => ({
+    ...initialStudio,
+    arches: [defaultArchForPatient(urlCaseId ?? defaultPatient.id)],
+  }))
   const [pieces, setPieces] = useState<ModelPiece[]>([])
   const [ready, setReady] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -104,6 +172,8 @@ export function ViewerShell() {
   const [selectedFdi, setSelectedFdi] = useState<number | null>(null)
   const [panel, setPanel] = useState<PanelId>(null)
   const [about, setAbout] = useState(false)
+  const [libraryOpen, setLibraryOpen] = useState(() => urlCaseId === null)
+  const [libraryFilters, setLibraryFilters] = useState<CaseLibraryFilters>(() => readFiltersFromUrl())
   const [query, setQuery] = useState("")
   const [searchNotice, setSearchNotice] = useState<string | null>(null)
   const [focusFdi, setFocusFdi] = useState<number | null>(null)
@@ -169,6 +239,11 @@ export function ViewerShell() {
     setAnnouncement(missingToothMessage(soleMiss))
   }, [soleMiss])
 
+  useEffect(() => {
+    if (!ready) return
+    return prefetchNeighborPatients(activePatientId)
+  }, [activePatientId, ready])
+
   const clearSelection = useCallback(() => {
     setSelectedFdi(null)
     setFocusFdi(null)
@@ -176,30 +251,37 @@ export function ViewerShell() {
     setAnnouncement((current) => (current.startsWith("Selected") ? "Selection cleared" : current))
   }, [])
 
-  const chooseTooth = useCallback((fdi: number, fromSearch = false) => {
-    const tooth = getFdiTooth(fdi)
-    const onThisArch = archesRef.current.includes(tooth.arch)
-    if (!fromSearch && !onThisArch) return
-    setSelectedFdi(fdi)
-    setSearchNotice(null)
-    setPanel(null)
-    setAbout(false)
-    if (fromSearch) {
-      setFocusFdi(fdi)
-      setFocusSerial((current) => current + 1)
-    } else {
-      setFocusFdi((current) => (current === fdi ? current : null))
-    }
-    setStudio((current) => ({
-      ...current,
-      isolate: false,
-      rotate: false,
-      explode: fromSearch ? 0 : current.explode,
-      arches: fromSearch && !current.arches.includes(tooth.arch) ? [tooth.arch] : current.arches,
-      layers: current.layers.includes(tooth.type) ? current.layers : [...current.layers, tooth.type],
-    }))
-    setAnnouncement(`Selected FDI ${tooth.fdi}, ${tooth.name}`)
-  }, [])
+  const chooseTooth = useCallback(
+    (fdi: number, fromSearch = false) => {
+      const tooth = getFdiTooth(fdi)
+      const onThisArch = archesRef.current.includes(tooth.arch)
+      if (!fromSearch && !onThisArch) return
+      if (fromSearch && !patientHasArch(activePatient, tooth.arch)) return
+      setSelectedFdi(fdi)
+      setSearchNotice(null)
+      setPanel(null)
+      setAbout(false)
+      if (fromSearch) {
+        setFocusFdi(fdi)
+        setFocusSerial((current) => current + 1)
+      } else {
+        setFocusFdi((current) => (current === fdi ? current : null))
+      }
+      setStudio((current) => ({
+        ...current,
+        isolate: false,
+        rotate: false,
+        explode: fromSearch ? 0 : current.explode,
+        arches:
+          fromSearch && !current.arches.includes(tooth.arch) && patientHasArch(activePatient, tooth.arch)
+            ? [tooth.arch]
+            : current.arches,
+        layers: current.layers.includes(tooth.type) ? current.layers : [...current.layers, tooth.type],
+      }))
+      setAnnouncement(`Selected FDI ${tooth.fdi}, ${tooth.name}`)
+    },
+    [activePatient],
+  )
 
   const pickSearchResult = useCallback(
     (fdi: number) => {
@@ -244,6 +326,7 @@ export function ViewerShell() {
 
   const switchPatient = useCallback(
     (nextId: string) => {
+      writeCaseLibraryUrl(nextId, libraryFilters)
       if (nextId === activePatientId) return
       setReady(false)
       setPieces([])
@@ -253,8 +336,34 @@ export function ViewerShell() {
       setSearchNotice(null)
       setAnnouncement("")
       setPanel(null)
-      setStudio((current) => ({ ...current, explode: 0, isolate: false, rotate: false, reset: current.reset + 1 }))
+      setStudio((current) => ({
+        ...current,
+        explode: 0,
+        isolate: false,
+        rotate: false,
+        reset: current.reset + 1,
+        arches: clampStudioArches(current.arches, nextId),
+      }))
       setActivePatientId(nextId)
+    },
+    [activePatientId, libraryFilters],
+  )
+
+  const openCaseFromLibrary = useCallback(
+    (nextId: string) => {
+      switchPatient(nextId)
+      setLibraryOpen(false)
+      setAbout(false)
+      const patient = getPatientById(nextId)
+      setAnnouncement(`Opened ${patientDisplayName(patient)}`)
+    },
+    [switchPatient],
+  )
+
+  const updateLibraryFilters = useCallback(
+    (next: CaseLibraryFilters) => {
+      setLibraryFilters(next)
+      writeCaseLibraryUrl(activePatientId, next)
     },
     [activePatientId],
   )
@@ -267,8 +376,12 @@ export function ViewerShell() {
     setPanel(null)
     setQuery("")
     setAnnouncement("View reset")
-    setStudio((current) => ({ ...initialStudio, reset: current.reset + 1 }))
-  }, [])
+    setStudio((current) => ({
+      ...initialStudio,
+      arches: [defaultArchForPatient(activePatientId)],
+      reset: current.reset + 1,
+    }))
+  }, [activePatientId])
 
   const openPanel = (next: Exclude<PanelId, null>) => {
     setAbout(false)
@@ -290,16 +403,17 @@ export function ViewerShell() {
     }))
   }
 
-  const setArchMode = (mode: "upper" | "lower" | "occlusion") => {
+  const setArchMode = (mode: "upper" | "lower") => {
+    if (!patientHasArch(activePatient, mode)) return
     setSelectedFdi(null)
     setFocusFdi(null)
     setHoveredFdi(null)
     setStudio((current) => ({
       ...current,
       isolate: false,
-      arches: mode === "occlusion" ? ["upper", "lower"] : [mode],
+      arches: [mode],
     }))
-    setAnnouncement(mode === "occlusion" ? "Occlusion" : mode === "upper" ? "Upper arch" : "Lower arch")
+    setAnnouncement(mode === "upper" ? "Upper arch" : "Lower arch")
   }
 
   const soloLayer = (layer: ToothLayerId) => {
@@ -366,7 +480,9 @@ export function ViewerShell() {
         }
       : null
 
-  const archMode = studio.arches.includes("upper") && studio.arches.includes("lower") ? "occlusion" : studio.arches[0] === "upper" ? "upper" : "lower"
+  const availableArches = patientArches(activePatient)
+  const archMode: "upper" | "lower" = studio.arches[0] === "upper" ? "upper" : "lower"
+  const canSwitchArch = availableArches.length > 1
   const allOn = studio.layers.length === 4 && studio.gingiva && !studio.isolate
   const teethOn = studio.layers.length === 4 && !studio.gingiva && !studio.isolate
   const molarsOn = studio.layers.length === 1 && studio.layers[0] === "molar" && !studio.gingiva && !studio.isolate
@@ -413,8 +529,8 @@ export function ViewerShell() {
         </h1>
         <div className="identity-meta">
           {patients.length} scans <span>·</span> Teeth3DS+
+          <span>·</span> {patientDisplayName(activePatient)}
         </div>
-        <PatientSwitcher value={activePatientId} onChange={switchPatient} />
       </motion.header>
 
       <motion.nav
@@ -424,6 +540,19 @@ export function ViewerShell() {
         animate={{ opacity: 1, y: 0 }}
         transition={panelMotion}
       >
+        <StudioButton
+          type="button"
+          className={libraryOpen ? "active" : ""}
+          aria-expanded={libraryOpen}
+          onClick={() => {
+            setAbout(false)
+            setPanel(null)
+            setLibraryOpen(true)
+          }}
+        >
+          <Library size={16} aria-hidden="true" />
+          <span>Cases</span>
+        </StudioButton>
         <StudioButton type="button" className={panel === "search" ? "active" : ""} onClick={() => openPanel("search")}>
           <Search size={16} aria-hidden="true" />
           <span>Find a tooth</span>
@@ -435,6 +564,7 @@ export function ViewerShell() {
           aria-label="About this atlas"
           onClick={() => {
             setPanel(null)
+            setLibraryOpen(false)
             setAbout(true)
           }}
         >
@@ -442,22 +572,46 @@ export function ViewerShell() {
         </StudioButton>
       </motion.nav>
 
+      <CaseLibrary
+        open={libraryOpen}
+        filters={libraryFilters}
+        onFiltersChange={updateLibraryFilters}
+        activePatientId={activePatientId}
+        onSelect={openCaseFromLibrary}
+        onClose={() => setLibraryOpen(false)}
+      />
+
       <motion.nav
-        className="arch-tabs"
+        className={`arch-tabs${canSwitchArch ? "" : " arch-tabs-static"}`}
         aria-label="Jaw"
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={panelMotion}
       >
-        <StudioButton type="button" aria-pressed={archMode === "upper"} onClick={() => setArchMode("upper")}>
-          Upper
-        </StudioButton>
-        <StudioButton type="button" aria-pressed={archMode === "occlusion"} onClick={() => setArchMode("occlusion")}>
-          Occlusion
-        </StudioButton>
-        <StudioButton type="button" aria-pressed={archMode === "lower"} onClick={() => setArchMode("lower")}>
-          Lower
-        </StudioButton>
+        {canSwitchArch ? (
+          <>
+            <StudioButton
+              type="button"
+              aria-pressed={archMode === "upper"}
+              disabled={!patientHasArch(activePatient, "upper")}
+              onClick={() => setArchMode("upper")}
+            >
+              Upper
+            </StudioButton>
+            <StudioButton
+              type="button"
+              aria-pressed={archMode === "lower"}
+              disabled={!patientHasArch(activePatient, "lower")}
+              onClick={() => setArchMode("lower")}
+            >
+              Lower
+            </StudioButton>
+          </>
+        ) : (
+          <span className="arch-tabs-label" aria-current="true">
+            {availableArches[0] === "upper" ? "Upper arch only" : "Lower arch only"}
+          </span>
+        )}
       </motion.nav>
 
       <MotionCard
@@ -777,7 +931,9 @@ export function ViewerShell() {
               <p>
                 <strong>{patients.length} patients · Teeth3DS+</strong>
                 <br />
-                Each scan keeps the upper and lower crowns from the 3DTeethSeg challenge, including the gingiva surface.
+                Each scan keeps the labeled crowns from the 3DTeethSeg challenge (upper, lower, or both when
+                available), including the gingiva surface. Cusp and other landmarks are included when the
+                3DTeethLand annotations cover that case.
               </p>
               <p>
                 Colors mark tooth type so the arches are easier to read. Separation, isolation, and camera moves are for

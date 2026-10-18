@@ -1,12 +1,31 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react"
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useLoader } from "@react-three/fiber"
 import type { ThreeEvent } from "@react-three/fiber"
-import { useGLTF } from "@react-three/drei"
 import { getFdiTooth, parseFdiNodeName } from "@/data/fdi-teeth"
+import {
+  beginPatientLoad,
+  countTriangles,
+  isPerfEnabled,
+  noteRaycastMs,
+  recordPrepare,
+  recordTriangles,
+} from "@/perf"
 import type { ArchId } from "@/studio-state"
 import { archDisplay, pieceVisible, type ModelPiece, type PieceFilter } from "@/three/model-space"
-import { Color, MathUtils, Mesh, MeshPhysicalMaterial, Vector3, type BufferGeometry, type Object3D } from "three"
+import { PerfGltfLoader } from "@/three/perf-gltf-loader"
+import {
+  Color,
+  MathUtils,
+  Mesh,
+  MeshPhysicalMaterial,
+  Vector3,
+  type BufferGeometry,
+  type Intersection,
+  type Object3D,
+  type Raycaster,
+} from "three"
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js"
+import { MeshBVH, acceleratedRaycast, disposeBoundsTree } from "three-mesh-bvh"
 
 const selectedColor = new Color("#1ec8b8")
 const hoverEmissive = new Color("#5f8794")
@@ -75,12 +94,47 @@ function meshBounds(mesh: Mesh): { center: Vector3; half: [number, number, numbe
   }
 }
 
-function preparePatientModel(source: Object3D): { clone: Object3D; pieces: ModelPiece[]; animated: AnimatedPiece[] } {
+type PreparedModel = {
+  clone: Object3D
+  pieces: ModelPiece[]
+  animated: AnimatedPiece[]
+  smoothed: boolean
+}
+
+type PrepareCacheEntry = {
+  prepared: PreparedModel
+  retainers: number
+  cancelled: boolean
+  smoothing: Promise<void> | null
+}
+
+/** One prepared display clone per patient URL — survives StrictMode remount. */
+const prepareCache = new Map<string, PrepareCacheEntry>()
+
+function yieldIdle(): Promise<void> {
+  return new Promise((resolve) => {
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(() => resolve(), { timeout: 120 })
+      return
+    }
+    setTimeout(resolve, 0)
+  })
+}
+
+function detachDisplayGeometry(geometry: BufferGeometry): BufferGeometry {
+  const copy = geometry.clone()
+  if (!copy.getAttribute("normal")) copy.computeVertexNormals()
+  copy.computeBoundingSphere()
+  return copy
+}
+
+function preparePatientModel(source: Object3D, smooth: boolean): PreparedModel {
   const clone = source.clone(true)
   const meshes: Mesh[] = []
   clone.traverse((child) => {
     if (!(child instanceof Mesh)) return
-    child.geometry = smoothForDisplay(child.geometry)
+    // Always clone geometry so the cached GLTF scene stays untouched.
+    child.geometry = smooth ? smoothForDisplay(child.geometry) : detachDisplayGeometry(child.geometry)
     const gingiva = gingivaArch(child.name)
     child.material = gingiva ? gingivaMaterial.clone() : toothMaterial.clone()
     meshes.push(child)
@@ -146,12 +200,87 @@ function preparePatientModel(source: Object3D): { clone: Object3D; pieces: Model
     })
   }
 
-  return { clone, pieces, animated }
+  // BVH only on the display clone — never the cached GLTF scene.
+  attachDisplayBvh(clone)
+  return { clone, pieces, animated, smoothed: smooth }
+}
+
+async function smoothPreparedInPlace(entry: PrepareCacheEntry) {
+  for (const piece of entry.prepared.animated) {
+    if (entry.cancelled) return
+    await yieldIdle()
+    if (entry.cancelled) return
+    const mesh = piece.mesh
+    const previous = mesh.geometry
+    if (previous.boundsTree) disposeBoundsTree.call(previous)
+    const next = smoothForDisplay(previous)
+    previous.dispose()
+    next.boundsTree = new MeshBVH(next)
+    mesh.geometry = next
+  }
+  if (!entry.cancelled) entry.prepared.smoothed = true
+}
+
+function retainPrepared(modelUrl: string, source: Object3D): PreparedModel {
+  // Start the perf epoch before prepare so StrictMode's later effect does not wipe timings.
+  beginPatientLoad(modelUrl)
+
+  const existing = prepareCache.get(modelUrl)
+  if (existing) {
+    existing.retainers += 1
+    existing.cancelled = false
+    // Cache hit (incl. StrictMode remount): do not run smoothForDisplay again.
+    return existing.prepared
+  }
+
+  const started = isPerfEnabled() ? performance.now() : 0
+  // Raw display first for a faster first frame; weld/smooth on idle.
+  const prepared = preparePatientModel(source, false)
+  if (isPerfEnabled()) {
+    recordPrepare(performance.now() - started)
+    recordTriangles(countTriangles(prepared.clone))
+  }
+
+  const entry: PrepareCacheEntry = {
+    prepared,
+    retainers: 1,
+    cancelled: false,
+    smoothing: null,
+  }
+  prepareCache.set(modelUrl, entry)
+  entry.smoothing = smoothPreparedInPlace(entry).then(() => {
+    entry.smoothing = null
+  })
+  return prepared
+}
+
+function releasePrepared(modelUrl: string) {
+  const entry = prepareCache.get(modelUrl)
+  if (!entry) return
+  entry.retainers -= 1
+  if (entry.retainers > 0) return
+  entry.cancelled = true
+  // Defer dispose so StrictMode remount can retain the same entry.
+  queueMicrotask(() => {
+    const current = prepareCache.get(modelUrl)
+    if (!current || current !== entry || current.retainers > 0) return
+    disposeClone(current.prepared.clone)
+    prepareCache.delete(modelUrl)
+  })
+}
+
+/** Build MeshBVH on clone geometries only. Source GLTF meshes are not passed here. */
+function attachDisplayBvh(root: Object3D) {
+  root.traverse((child) => {
+    if (!(child instanceof Mesh)) return
+    child.geometry.boundsTree = new MeshBVH(child.geometry)
+  })
 }
 
 function disposeClone(root: Object3D) {
   root.traverse((child) => {
     if (!(child instanceof Mesh)) return
+    if (child.geometry.boundsTree) disposeBoundsTree.call(child.geometry)
     child.geometry.dispose()
     const material = child.material
     if (material instanceof MeshPhysicalMaterial && material !== gingivaMaterial && material !== toothMaterial) {
@@ -161,6 +290,14 @@ function disposeClone(root: Object3D) {
 }
 
 function ignoreRaycast() {}
+
+function timedRaycast(this: Mesh, raycaster: Raycaster, intersects: Intersection[]) {
+  const started = performance.now()
+  acceleratedRaycast.call(this, raycaster, intersects)
+  noteRaycastMs(performance.now() - started)
+}
+
+const activeRaycast = isPerfEnabled() ? timedRaycast : acceleratedRaycast
 
 function fdiFromHit(object: Object3D): number | null {
   let current: Object3D | null = object
@@ -219,8 +356,8 @@ export function PatientModel({
   onSelect,
   onClear,
 }: PatientModelProps) {
-  const { scene } = useGLTF(modelUrl)
-  const prepared = useMemo(() => preparePatientModel(scene), [scene])
+  const { scene } = useLoader(PerfGltfLoader, modelUrl)
+  const prepared = useMemo(() => retainPrepared(modelUrl, scene), [modelUrl, scene])
   const onReadyRef = useRef(onReady)
   const onPiecesRef = useRef(onPieces)
   const amount = useRef(0)
@@ -246,7 +383,7 @@ export function PatientModel({
     onReadyRef.current()
   }, [prepared])
 
-  useEffect(() => () => disposeClone(prepared.clone), [prepared])
+  useEffect(() => () => releasePrepared(modelUrl), [modelUrl])
 
   const layout = useMemo(
     () => archDisplay(prepared.pieces, filter.arches),
@@ -312,11 +449,11 @@ export function PatientModel({
         } else {
           piece.mesh.visible = shown
         }
-        piece.mesh.raycast = piece.mesh.visible ? Mesh.prototype.raycast : ignoreRaycast
+        piece.mesh.raycast = piece.mesh.visible ? activeRaycast : ignoreRaycast
         continue
       }
       piece.mesh.visible = shown
-      piece.mesh.raycast = shown ? Mesh.prototype.raycast : ignoreRaycast
+      piece.mesh.raycast = shown ? activeRaycast : ignoreRaycast
     }
   })
 
