@@ -1,8 +1,21 @@
 import { useLoader } from "@react-three/fiber"
-import { patients, patientModelUrl, type PatientRecord } from "@/data/patients"
+import { getPatientById, patients, patientModelUrl, type PatientRecord } from "@/data/patients"
 import { PerfGltfLoader } from "@/three/perf-gltf-loader"
 
 const MAX_PREFETCH = 2
+
+function preloadPatient(patient: PatientRecord) {
+  useLoader.preload(PerfGltfLoader, patientModelUrl(patient))
+}
+
+/** Warm one case into the GLTF loader cache (library card hover). */
+export function prefetchPatient(patientId: string) {
+  try {
+    preloadPatient(getPatientById(patientId))
+  } catch {
+    /* unknown id — ignore */
+  }
+}
 
 /**
  * Warm the GLTF loader cache for the next 1–2 patients in the manifest.
@@ -26,7 +39,7 @@ export function prefetchNeighborPatients(activeId: string) {
   const run = () => {
     if (cancelled) return
     for (const patient of neighbors) {
-      useLoader.preload(PerfGltfLoader, patientModelUrl(patient))
+      preloadPatient(patient)
     }
   }
 

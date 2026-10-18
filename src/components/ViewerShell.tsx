@@ -5,27 +5,73 @@ import {
   ArrowUpRight,
   Info,
   Layers3,
+  Library,
   Pause,
   RotateCcw,
   RotateCw,
   Search,
   X,
 } from "lucide-react"
+import { CaseLibrary } from "@/components/CaseLibrary"
+import { PatientSwitcher } from "@/components/PatientSwitcher"
 import { StudioButton } from "@/components/StudioButton"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { MotionCard, useStudioMotion } from "@/studio-motion"
+import {
+  emptyCaseLibraryFilters,
+  parseTagsParam,
+  serializeTagsParam,
+  type CaseLibraryFilters,
+} from "@/data/case-library"
 import { getFdiTooth } from "@/data/fdi-teeth"
 import { missingToothMessage, searchFdiTeeth } from "@/data/fdi-search"
-import { getPatientById, patientModelUrl, patients } from "@/data/patients"
-import { PatientSwitcher } from "@/components/PatientSwitcher"
+import { getPatientById, patientDisplayName, patientModelUrl, patients } from "@/data/patients"
 import { ToothDetailPanel } from "@/components/ToothDetailPanel"
 import { ToothSearchPanel } from "@/components/ToothSearchPanel"
 import { DentalScene } from "@/three/DentalScene"
 import type { ModelPiece } from "@/three/model-space"
 import { pieceVisible } from "@/three/model-space"
 import { prefetchNeighborPatients } from "@/three/prefetch-patients"
+
+/** Temporary: keep the old dropdown for one release while the case library ships. */
+const SHOW_LEGACY_PATIENT_SELECT = true
+
+function readCaseIdFromUrl(): string | null {
+  try {
+    const value = new URLSearchParams(window.location.search).get("case")
+    if (value && patients.some((patient) => patient.id === value)) return value
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+function readFiltersFromUrl(): CaseLibraryFilters {
+  try {
+    return {
+      tags: parseTagsParam(new URLSearchParams(window.location.search).get("tags")),
+      query: "",
+    }
+  } catch {
+    return emptyCaseLibraryFilters()
+  }
+}
+
+function writeCaseLibraryUrl(caseId: string, filters: CaseLibraryFilters) {
+  try {
+    const params = new URLSearchParams(window.location.search)
+    params.set("case", caseId)
+    if (filters.tags.length > 0) params.set("tags", serializeTagsParam(filters.tags))
+    else params.delete("tags")
+    const query = params.toString()
+    const next = query ? `${window.location.pathname}?${query}` : window.location.pathname
+    window.history.replaceState(null, "", next)
+  } catch {
+    /* ignore */
+  }
+}
 import {
   GINGIVA_LAYER,
   STUDIO_VIEWS,
@@ -95,7 +141,8 @@ function sceneCaption(studio: StudioState, selectedName: string | null): string 
 export function ViewerShell() {
   const { reduce, micro, panel: panelMotion } = useStudioMotion()
   const [session, setSession] = useState(0)
-  const [activePatientId, setActivePatientId] = useState(defaultPatient.id)
+  const urlCaseId = readCaseIdFromUrl()
+  const [activePatientId, setActivePatientId] = useState(urlCaseId ?? defaultPatient.id)
   const [studio, setStudio] = useState<StudioState>(initialStudio)
   const [pieces, setPieces] = useState<ModelPiece[]>([])
   const [ready, setReady] = useState(false)
@@ -105,6 +152,8 @@ export function ViewerShell() {
   const [selectedFdi, setSelectedFdi] = useState<number | null>(null)
   const [panel, setPanel] = useState<PanelId>(null)
   const [about, setAbout] = useState(false)
+  const [libraryOpen, setLibraryOpen] = useState(() => urlCaseId === null)
+  const [libraryFilters, setLibraryFilters] = useState<CaseLibraryFilters>(() => readFiltersFromUrl())
   const [query, setQuery] = useState("")
   const [searchNotice, setSearchNotice] = useState<string | null>(null)
   const [focusFdi, setFocusFdi] = useState<number | null>(null)
@@ -250,6 +299,7 @@ export function ViewerShell() {
 
   const switchPatient = useCallback(
     (nextId: string) => {
+      writeCaseLibraryUrl(nextId, libraryFilters)
       if (nextId === activePatientId) return
       setReady(false)
       setPieces([])
@@ -261,6 +311,25 @@ export function ViewerShell() {
       setPanel(null)
       setStudio((current) => ({ ...current, explode: 0, isolate: false, rotate: false, reset: current.reset + 1 }))
       setActivePatientId(nextId)
+    },
+    [activePatientId, libraryFilters],
+  )
+
+  const openCaseFromLibrary = useCallback(
+    (nextId: string) => {
+      switchPatient(nextId)
+      setLibraryOpen(false)
+      setAbout(false)
+      const patient = getPatientById(nextId)
+      setAnnouncement(`Opened ${patientDisplayName(patient)}`)
+    },
+    [switchPatient],
+  )
+
+  const updateLibraryFilters = useCallback(
+    (next: CaseLibraryFilters) => {
+      setLibraryFilters(next)
+      writeCaseLibraryUrl(activePatientId, next)
     },
     [activePatientId],
   )
@@ -419,8 +488,11 @@ export function ViewerShell() {
         </h1>
         <div className="identity-meta">
           {patients.length} scans <span>·</span> Teeth3DS+
+          <span>·</span> {patientDisplayName(activePatient)}
         </div>
-        <PatientSwitcher value={activePatientId} onChange={switchPatient} />
+        {SHOW_LEGACY_PATIENT_SELECT ? (
+          <PatientSwitcher value={activePatientId} onChange={switchPatient} />
+        ) : null}
       </motion.header>
 
       <motion.nav
@@ -430,6 +502,19 @@ export function ViewerShell() {
         animate={{ opacity: 1, y: 0 }}
         transition={panelMotion}
       >
+        <StudioButton
+          type="button"
+          className={libraryOpen ? "active" : ""}
+          aria-expanded={libraryOpen}
+          onClick={() => {
+            setAbout(false)
+            setPanel(null)
+            setLibraryOpen(true)
+          }}
+        >
+          <Library size={16} aria-hidden="true" />
+          <span>Cases</span>
+        </StudioButton>
         <StudioButton type="button" className={panel === "search" ? "active" : ""} onClick={() => openPanel("search")}>
           <Search size={16} aria-hidden="true" />
           <span>Find a tooth</span>
@@ -441,12 +526,22 @@ export function ViewerShell() {
           aria-label="About this atlas"
           onClick={() => {
             setPanel(null)
+            setLibraryOpen(false)
             setAbout(true)
           }}
         >
           <Info size={18} aria-hidden="true" />
         </StudioButton>
       </motion.nav>
+
+      <CaseLibrary
+        open={libraryOpen}
+        filters={libraryFilters}
+        onFiltersChange={updateLibraryFilters}
+        activePatientId={activePatientId}
+        onSelect={openCaseFromLibrary}
+        onClose={() => setLibraryOpen(false)}
+      />
 
       <motion.nav
         className="arch-tabs"
