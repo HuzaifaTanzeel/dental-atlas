@@ -155,27 +155,6 @@ body {
   color: #3d4b58;
 }
 
-.patient-select {
-  pointer-events: auto;
-  display: block;
-  width: min(280px, calc(100vw - 150px));
-  margin-top: 14px;
-  min-height: 38px;
-  padding: 8px 32px 8px 12px;
-  border-radius: 16px;
-  border: 1px solid #25384a17;
-  background-color: #ffffffeb;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23687582' stroke-width='1.4' stroke-linecap='round' d='M2 4.5 6 8l4-3.5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  color: #20242b;
-  font-size: 12px;
-  box-shadow: 0 2px 5px #24334403, 0 16px 48px #24334410;
-  backdrop-filter: blur(24px);
-  appearance: none;
-  cursor: pointer;
-}
-
 .arch-tabs {
   position: absolute;
   z-index: 4;
@@ -1177,10 +1156,6 @@ body {
   .studio h1 {
     font-size: 28px;
     gap: 8px;
-  }
-
-  .patient-select {
-    width: min(340px, calc(100vw - 32px));
   }
 
   .top-actions {

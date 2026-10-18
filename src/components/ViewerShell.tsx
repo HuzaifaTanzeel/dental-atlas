@@ -13,7 +13,6 @@ import {
   X,
 } from "lucide-react"
 import { CaseLibrary } from "@/components/CaseLibrary"
-import { PatientSwitcher } from "@/components/PatientSwitcher"
 import { StudioButton } from "@/components/StudioButton"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Switch } from "@/components/ui/switch"
@@ -34,9 +33,6 @@ import { DentalScene } from "@/three/DentalScene"
 import type { ModelPiece } from "@/three/model-space"
 import { pieceVisible } from "@/three/model-space"
 import { prefetchNeighborPatients } from "@/three/prefetch-patients"
-
-/** Temporary: keep the old dropdown for one release while the case library ships. */
-const SHOW_LEGACY_PATIENT_SELECT = true
 
 function readCaseIdFromUrl(): string | null {
   try {
@@ -490,9 +486,6 @@ export function ViewerShell() {
           {patients.length} scans <span>·</span> Teeth3DS+
           <span>·</span> {patientDisplayName(activePatient)}
         </div>
-        {SHOW_LEGACY_PATIENT_SELECT ? (
-          <PatientSwitcher value={activePatientId} onChange={switchPatient} />
-        ) : null}
       </motion.header>
 
       <motion.nav
