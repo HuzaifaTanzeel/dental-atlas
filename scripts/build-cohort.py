@@ -39,15 +39,21 @@ def source_id_hash(source_id: str) -> str:
     return hashlib.sha256(source_id.encode("utf-8")).hexdigest()
 
 
-def is_complete_patient_dir(path: Path) -> bool:
+def patient_arches(path: Path) -> list[str]:
+    """Return labeled jaws present for a patient directory (upper/lower/both)."""
     source_id = path.name
-    required = [
-        path / f"{source_id}_upper.obj",
-        path / f"{source_id}_upper.json",
-        path / f"{source_id}_lower.obj",
-        path / f"{source_id}_lower.json",
-    ]
-    return path.is_dir() and all(item.is_file() for item in required)
+    arches: list[str] = []
+    for jaw in ("upper", "lower"):
+        obj = path / f"{source_id}_{jaw}.obj"
+        label = path / f"{source_id}_{jaw}.json"
+        if obj.is_file() and label.is_file():
+            arches.append(jaw)
+    return arches
+
+
+def is_complete_patient_dir(path: Path) -> bool:
+    """True when at least one labeled jaw is present (partial arches allowed)."""
+    return path.is_dir() and len(patient_arches(path)) > 0
 
 
 def discover_source_ids(source_root: Path) -> list[str]:
@@ -78,9 +84,9 @@ def load_previous_labels(cohort_path: Path) -> dict[str, str]:
     return labels
 
 
-def present_fdi_for_patient(source_dir: Path, source_id: str) -> list[int]:
+def present_fdi_for_patient(source_dir: Path, source_id: str, arches: list[str] | None = None) -> list[int]:
     present: set[int] = set()
-    for jaw in ("upper", "lower"):
+    for jaw in arches or patient_arches(source_dir):
         vertices, _faces = convert_patient.load_obj(source_dir / f"{source_id}_{jaw}.obj")
         labels = convert_patient.load_labels(
             source_dir / f"{source_id}_{jaw}.json",
@@ -124,31 +130,33 @@ def build_cohort(
     for index, source_id in enumerate(chosen, start=1):
         print(f"  {index:02d} {source_id} hash={source_id_hash(source_id)[:12]}")
 
-    cohort: list[dict[str, str]] = []
+    cohort: list[dict] = []
     manifest: list[dict] = []
     out_dir.mkdir(parents=True, exist_ok=True)
+    pad = max(3, len(str(len(chosen))))
 
     for index, source_id in enumerate(chosen, start=1):
-        patient_id = f"patient-{index:02d}"
+        patient_id = f"patient-{index:0{pad}d}"
         file_name = f"{patient_id}.glb"
         source_dir = source_root / source_id
         output = out_dir / file_name
-        present = present_fdi_for_patient(source_dir, source_id)
-        missing = case_tags.missing_from(present)
-        tags = case_tags.case_tags(present)
+        arches = patient_arches(source_dir)
+        present = present_fdi_for_patient(source_dir, source_id, arches)
+        missing = case_tags.missing_from(present, arches=arches)
+        tags = case_tags.case_tags(present, arches=arches)
         counts = case_tags.tooth_count_by_arch(present)
         title = f"Case {index}"
-        summary = case_tags.summary_line(present)
+        summary = case_tags.summary_line(present, arches=arches)
         # Always regenerate so the legacy `label` number matches patient-NN / Case N.
         # previous_labels is only consulted when debugging renumber diffs (printed below).
-        label = case_tags.descriptive_label(index, present)
+        label = case_tags.descriptive_label(index, present, arches=arches)
         old_label = previous_labels.get(source_id)
         if old_label and old_label != label:
             print(f"  label_renumber {source_id}: {old_label!r} -> {label!r}")
 
         if convert:
-            convert_patient.convert_patient(source_dir, source_id, output)
-            print(f"converted {patient_id} <- {source_id} bytes={output.stat().st_size}")
+            convert_patient.convert_patient(source_dir, source_id, output, jaws=arches)
+            print(f"converted {patient_id} <- {source_id} arches={','.join(arches)} bytes={output.stat().st_size}")
         elif not output.is_file():
             raise FileNotFoundError(f"missing GLB for {patient_id}: {output} (pass without --no-convert)")
 
@@ -161,6 +169,7 @@ def build_cohort(
                 "sourceId": source_id,
                 "label": label,
                 "file": file_name,
+                "arches": arches,
             }
         )
         manifest.append(
@@ -170,10 +179,11 @@ def build_cohort(
                 "title": title,
                 "summary": summary,
                 "file": file_name,
+                "arches": arches,
                 "presentFdi": present,
                 "missingFdi": missing,
                 "toothCount": counts,
-                "hasThirdMolars": case_tags.has_third_molars(present),
+                "hasThirdMolars": case_tags.has_third_molars(present, arches=arches),
                 "bytes": bytes_size,
                 "triangleCount": triangles,
                 "tags": tags,

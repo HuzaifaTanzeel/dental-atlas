@@ -13,7 +13,9 @@
     "check": "tsc -b --noEmit",
     "lint": "oxlint",
     "test": "vitest run",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "data:build": "python scripts/build-from-archives.py",
+    "data:build:force": "python scripts/build-from-archives.py --force"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

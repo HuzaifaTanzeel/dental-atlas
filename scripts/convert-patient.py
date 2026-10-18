@@ -1,7 +1,9 @@
-"""Convert one Teeth3DS+ patient directory into a single lossless GLB.
+"""Convert one Teeth3DS+ patient into a single lossless GLB.
 
 Label JSON shape, confirmed on this dataset: id_patient, jaw, labels, instances.
 labels has one FDI integer per OBJ vertex. 0 is non-tooth surface.
+
+Patients may have upper, lower, or both jaws. Missing jaws are omitted from the GLB.
 
 Geometry rules are recorded in docs/adr/0001-patient-glb-layout.md.
 Trimesh merges vertices when process=True
@@ -16,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from typing import Iterable
 
 import numpy as np
 import trimesh
@@ -25,41 +28,66 @@ DEFAULT_COHORT = REPO_ROOT / "scripts" / "cohort.json"
 DEFAULT_SOURCE_ROOT = REPO_ROOT / "raw-data" / "selected"
 DEFAULT_OUT_DIR = REPO_ROOT / "public" / "data"
 
+JAW_ORDER = ("upper", "lower")
 
-def load_obj(path: Path) -> tuple[np.ndarray, np.ndarray]:
+
+def load_obj_text(text: str, source: str = "<memory>") -> tuple[np.ndarray, np.ndarray]:
     vertices: list[tuple[float, float, float]] = []
     faces: list[tuple[int, int, int]] = []
-    with path.open("r", encoding="utf-8") as handle:
-        for line_number, line in enumerate(handle, start=1):
-            if line.startswith("v "):
-                parts = line.split()
-                if len(parts) < 4:
-                    raise ValueError(f"{path}:{line_number} vertex is missing coordinates")
-                vertices.append((float(parts[1]), float(parts[2]), float(parts[3])))
-            elif line.startswith("f "):
-                indices: list[int] = []
-                for token in line.split()[1:]:
-                    indices.append(int(token.split("/")[0]) - 1)
-                if len(indices) != 3:
-                    raise ValueError(f"{path}:{line_number} expected a triangle")
-                faces.append((indices[0], indices[1], indices[2]))
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("v "):
+            parts = line.split()
+            if len(parts) < 4:
+                raise ValueError(f"{source}:{line_number} vertex is missing coordinates")
+            vertices.append((float(parts[1]), float(parts[2]), float(parts[3])))
+        elif line.startswith("f "):
+            indices: list[int] = []
+            for token in line.split()[1:]:
+                indices.append(int(token.split("/")[0]) - 1)
+            if len(indices) != 3:
+                raise ValueError(f"{source}:{line_number} expected a triangle")
+            faces.append((indices[0], indices[1], indices[2]))
     if not vertices or not faces:
-        raise ValueError(f"{path} has no vertices or faces")
+        raise ValueError(f"{source} has no vertices or faces")
     return np.asarray(vertices, dtype=np.float64), np.asarray(faces, dtype=np.int64)
+
+
+def load_obj(path: Path) -> tuple[np.ndarray, np.ndarray]:
+    return load_obj_text(path.read_text(encoding="utf-8"), source=str(path))
+
+
+def parse_label_payload(
+    data: dict,
+    vertex_count: int,
+    source_id: str,
+    jaw: str,
+    source: str = "<memory>",
+) -> tuple[np.ndarray, list[int]]:
+    if data.get("id_patient") != source_id:
+        raise ValueError(f"{source} id_patient is {data.get('id_patient')}, expected {source_id}")
+    if data.get("jaw") != jaw:
+        raise ValueError(f"{source} jaw is {data.get('jaw')}, expected {jaw}")
+    labels = np.asarray(data["labels"], dtype=np.int32)
+    if labels.shape != (vertex_count,):
+        raise ValueError(f"{source} has {labels.shape[0]} labels for {vertex_count} vertices")
+    instances_raw = data.get("instances")
+    instance_ids: list[int] = []
+    if isinstance(instances_raw, list):
+        instance_ids = sorted(
+            {int(value) for value in instances_raw if int(value) != 0},
+        )
+    return labels, instance_ids
 
 
 def load_labels(path: Path, vertex_count: int, source_id: str, jaw: str) -> np.ndarray:
     data = json.loads(path.read_text(encoding="utf-8"))
-    if data.get("id_patient") != source_id:
-        raise ValueError(f"{path} id_patient is {data.get('id_patient')}, expected {source_id}")
-    if data.get("jaw") != jaw:
-        raise ValueError(f"{path} jaw is {data.get('jaw')}, expected {jaw}")
-    labels = np.asarray(data["labels"], dtype=np.int32)
-    if labels.shape != (vertex_count,):
-        raise ValueError(
-            f"{path} has {labels.shape[0]} labels for {vertex_count} vertices"
-        )
+    labels, _instances = parse_label_payload(data, vertex_count, source_id, jaw, source=str(path))
     return labels
+
+
+def load_label_file(path: Path, vertex_count: int, source_id: str, jaw: str) -> tuple[np.ndarray, list[int]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return parse_label_payload(data, vertex_count, source_id, jaw, source=str(path))
 
 
 def assign_faces(vertex_labels: np.ndarray, faces: np.ndarray) -> np.ndarray:
@@ -103,14 +131,14 @@ def node_name(jaw: str, label: int) -> str:
     return f"FDI-{int(label)}"
 
 
-def add_jaw(
+def add_jaw_arrays(
     scene: trimesh.Scene,
-    source_dir: Path,
-    source_id: str,
     jaw: str,
+    vertices: np.ndarray,
+    faces: np.ndarray,
+    labels: np.ndarray,
+    source_id: str,
 ) -> list[str]:
-    vertices, faces = load_obj(source_dir / f"{source_id}_{jaw}.obj")
-    labels = load_labels(source_dir / f"{source_id}_{jaw}.json", len(vertices), source_id, jaw)
     assigned = assign_faces(labels, faces)
     parent = "Upper" if jaw == "upper" else "Lower"
     names: list[str] = []
@@ -131,13 +159,79 @@ def add_jaw(
     return names
 
 
-def convert_patient(source_dir: Path, source_id: str, output: Path) -> list[str]:
+def add_jaw(
+    scene: trimesh.Scene,
+    source_dir: Path,
+    source_id: str,
+    jaw: str,
+) -> list[str]:
+    vertices, faces = load_obj(source_dir / f"{source_id}_{jaw}.obj")
+    labels = load_labels(source_dir / f"{source_id}_{jaw}.json", len(vertices), source_id, jaw)
+    return add_jaw_arrays(scene, jaw, vertices, faces, labels, source_id)
+
+
+def available_jaws(source_dir: Path, source_id: str) -> list[str]:
+    found: list[str] = []
+    for jaw in JAW_ORDER:
+        obj = source_dir / f"{source_id}_{jaw}.obj"
+        label = source_dir / f"{source_id}_{jaw}.json"
+        if obj.is_file() and label.is_file():
+            found.append(jaw)
+    return found
+
+
+def convert_patient(
+    source_dir: Path,
+    source_id: str,
+    output: Path,
+    jaws: Iterable[str] | None = None,
+) -> list[str]:
+    chosen = list(jaws) if jaws is not None else available_jaws(source_dir, source_id)
+    if not chosen:
+        raise ValueError(f"{source_id} has no labeled jaws to convert")
+    for jaw in chosen:
+        if jaw not in JAW_ORDER:
+            raise ValueError(f"unknown jaw: {jaw}")
+
     scene = trimesh.Scene()
     identity = np.eye(4)
-    scene.graph.update(frame_to="Upper", frame_from=scene.graph.base_frame, matrix=identity)
-    scene.graph.update(frame_to="Lower", frame_from=scene.graph.base_frame, matrix=identity)
-    names = add_jaw(scene, source_dir, source_id, "upper")
-    names.extend(add_jaw(scene, source_dir, source_id, "lower"))
+    for jaw in chosen:
+        parent = "Upper" if jaw == "upper" else "Lower"
+        scene.graph.update(frame_to=parent, frame_from=scene.graph.base_frame, matrix=identity)
+
+    names: list[str] = []
+    for jaw in chosen:
+        names.extend(add_jaw(scene, source_dir, source_id, jaw))
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    exported = scene.export(file_type="glb")
+    if not isinstance(exported, bytes):
+        raise TypeError("expected GLB bytes from trimesh Scene.export")
+    output.write_bytes(exported)
+    return names
+
+
+def convert_patient_arrays(
+    source_id: str,
+    jaw_payloads: dict[str, tuple[np.ndarray, np.ndarray, np.ndarray]],
+    output: Path,
+) -> list[str]:
+    """Convert from in-memory (vertices, faces, labels) per jaw."""
+    chosen = [jaw for jaw in JAW_ORDER if jaw in jaw_payloads]
+    if not chosen:
+        raise ValueError(f"{source_id} has no jaw payloads")
+
+    scene = trimesh.Scene()
+    identity = np.eye(4)
+    for jaw in chosen:
+        parent = "Upper" if jaw == "upper" else "Lower"
+        scene.graph.update(frame_to=parent, frame_from=scene.graph.base_frame, matrix=identity)
+
+    names: list[str] = []
+    for jaw in chosen:
+        vertices, faces, labels = jaw_payloads[jaw]
+        names.extend(add_jaw_arrays(scene, jaw, vertices, faces, labels, source_id))
+
     output.parent.mkdir(parents=True, exist_ok=True)
     exported = scene.export(file_type="glb")
     if not isinstance(exported, bytes):
@@ -157,7 +251,13 @@ def convert_all(cohort_path: Path, source_root: Path, out_dir: Path) -> None:
     for entry in load_cohort(cohort_path):
         source_dir = source_root / entry["sourceId"]
         output = out_dir / entry["file"]
-        names = convert_patient(source_dir, entry["sourceId"], output)
+        jaws = entry.get("arches")
+        names = convert_patient(
+            source_dir,
+            entry["sourceId"],
+            output,
+            jaws=jaws if isinstance(jaws, list) else None,
+        )
         print(f"{entry['id']} {output.name} nodes={len(names)} bytes={output.stat().st_size}")
 
 

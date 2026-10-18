@@ -39,19 +39,42 @@ def normalize_present(present: Iterable[int]) -> frozenset[int]:
     return frozenset(int(value) for value in present if int(value) in PERMANENT_FDI)
 
 
-def missing_from(present: Iterable[int]) -> list[int]:
+def arch_of_fdi(fdi: int) -> str:
+    quadrant = int(fdi) // 10
+    if quadrant in (1, 2):
+        return "upper"
+    if quadrant in (3, 4):
+        return "lower"
+    raise ValueError(f"FDI {fdi} is outside permanent dentition")
+
+
+def fdi_for_arches(arches: Iterable[str] | None = None) -> tuple[int, ...]:
+    if arches is None:
+        return PERMANENT_FDI
+    wanted = {str(arch) for arch in arches}
+    return tuple(fdi for fdi in PERMANENT_FDI if arch_of_fdi(fdi) in wanted)
+
+
+def missing_from(present: Iterable[int], arches: Iterable[str] | None = None) -> list[int]:
     have = normalize_present(present)
-    return sorted(fdi for fdi in PERMANENT_FDI if fdi not in have)
+    return sorted(fdi for fdi in fdi_for_arches(arches) if fdi not in have)
 
 
 def fdi_digit(fdi: int) -> int:
     return int(fdi) % 10
 
 
-def case_tags(present: Iterable[int]) -> list[str]:
+def case_tags(present: Iterable[int], arches: Iterable[str] | None = None) -> list[str]:
     have = normalize_present(present)
-    missing = [fdi for fdi in PERMANENT_FDI if fdi not in have]
+    arch_list = sorted({str(arch) for arch in (arches or ("upper", "lower"))})
+    expected = fdi_for_arches(arch_list)
+    missing = [fdi for fdi in expected if fdi not in have]
     tags: list[str] = []
+
+    if arch_list == ["lower"]:
+        tags.append("lower-only")
+    elif arch_list == ["upper"]:
+        tags.append("upper-only")
 
     if not missing:
         tags.append("complete-dentition")
@@ -65,7 +88,8 @@ def case_tags(present: Iterable[int]) -> list[str]:
     if any(fdi_digit(fdi) >= 4 for fdi in missing):
         tags.append("posterior-missing")
 
-    if THIRD_MOLARS.isdisjoint(have):
+    expected_thirds = THIRD_MOLARS.intersection(expected)
+    if expected_thirds and expected_thirds.isdisjoint(have):
         tags.append("third-molars-absent")
 
     missing_set = set(missing)
@@ -75,9 +99,10 @@ def case_tags(present: Iterable[int]) -> list[str]:
     return tags
 
 
-def has_third_molars(present: Iterable[int]) -> bool:
+def has_third_molars(present: Iterable[int], arches: Iterable[str] | None = None) -> bool:
     have = normalize_present(present)
-    return not THIRD_MOLARS.isdisjoint(have)
+    expected_thirds = THIRD_MOLARS.intersection(fdi_for_arches(arches))
+    return not expected_thirds.isdisjoint(have)
 
 
 def tooth_count_by_arch(present: Iterable[int]) -> dict[str, int]:
@@ -87,20 +112,37 @@ def tooth_count_by_arch(present: Iterable[int]) -> dict[str, int]:
     return {"upper": upper, "lower": lower}
 
 
-def summary_line(present: Iterable[int]) -> str:
-    missing = missing_from(present)
+def summary_line(present: Iterable[int], arches: Iterable[str] | None = None) -> str:
+    missing = missing_from(present, arches=arches)
+    arch_list = sorted({str(arch) for arch in (arches or ("upper", "lower"))})
+    prefix = ""
+    if arch_list == ["upper"]:
+        prefix = "Upper arch only. "
+    elif arch_list == ["lower"]:
+        prefix = "Lower arch only. "
     if not missing:
-        return "Complete permanent dentition"
-    return "Missing: " + ", ".join(str(fdi) for fdi in missing)
+        return f"{prefix}Complete permanent dentition".strip()
+    return f"{prefix}Missing: " + ", ".join(str(fdi) for fdi in missing)
 
 
-def descriptive_label(case_number: int, present: Iterable[int]) -> str:
+def descriptive_label(
+    case_number: int,
+    present: Iterable[int],
+    arches: Iterable[str] | None = None,
+) -> str:
     """Human label kept for older UI paths that only read `label`."""
-    missing = missing_from(present)
-    tags = case_tags(present)
+    missing = missing_from(present, arches=arches)
+    tags = case_tags(present, arches=arches)
+    arch_list = sorted({str(arch) for arch in (arches or ("upper", "lower"))})
+    if arch_list == ["upper"]:
+        scope = "upper only — "
+    elif arch_list == ["lower"]:
+        scope = "lower only — "
+    else:
+        scope = ""
     if "complete-dentition" in tags:
         detail = "complete dentition"
-    elif "third-molars-absent" in tags and set(missing) == set(THIRD_MOLARS):
+    elif "third-molars-absent" in tags and set(missing) <= set(THIRD_MOLARS):
         detail = "third molars absent"
     elif len(missing) == 1:
         detail = f"FDI {missing[0]} absent"
@@ -110,4 +152,4 @@ def descriptive_label(case_number: int, present: Iterable[int]) -> str:
         detail = f"FDI {', '.join(str(fdi) for fdi in missing)} absent"
     else:
         detail = "several missing teeth"
-    return f"Patient {case_number} — {detail}"
+    return f"Patient {case_number} — {scope}{detail}"

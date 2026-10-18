@@ -20,6 +20,10 @@ const TAG_LABELS: Record<string, string> = {
   "posterior-missing": "Posterior missing",
   "third-molars-absent": "Third molars absent",
   "bilateral-pattern": "Bilateral pattern",
+  "upper-only": "Upper arch only",
+  "lower-only": "Lower arch only",
+  "has-landmarks": "Has landmarks",
+  "has-cusps": "Has cusp landmarks",
 }
 
 export function tagDisplayLabel(tag: string): string {
@@ -55,7 +59,21 @@ export function caseSearchText(entry: PatientRecord): string {
       return ""
     }
   })
-  return [entry.summary, entry.title, entry.label, ...(entry.tags ?? []).map(tagDisplayLabel), ...missingNames]
+  const archText = (entry.arches ?? []).join(" ")
+  const landmarkText = entry.landmarks
+    ? Object.entries(entry.landmarks)
+        .flatMap(([arch, info]) => [arch, ...Object.keys(info.counts)])
+        .join(" ")
+    : ""
+  return [
+    entry.summary,
+    entry.title,
+    entry.label,
+    archText,
+    landmarkText,
+    ...(entry.tags ?? []).map(tagDisplayLabel),
+    ...missingNames,
+  ]
     .filter((part): part is string => typeof part === "string" && part.length > 0)
     .join(" ")
     .toLowerCase()

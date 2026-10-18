@@ -194,6 +194,24 @@ body {
   color: #233644;
 }
 
+.arch-tabs button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.arch-tabs-static {
+  padding: 0 14px;
+  min-height: 42px;
+  align-items: center;
+}
+
+.arch-tabs-label {
+  color: #3c4956;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .top-actions {
   position: absolute;
   z-index: 4;
